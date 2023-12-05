@@ -65,13 +65,12 @@ const DepoimentosMobile = () => {
 
   return (
     <section
-      className="w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[120vh] lg:h-[140vh]"
+      className="w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[140vh] xl:h-[160vh]"
       id="departamentos"
     >
       <img
-        src="/particles.png"
-        className="absolute w-full h-full top-0 left-0 opacity-[3%]"
-        id="bg-servicos"
+        src="/depoimentos-background.jpg"
+        className="absolute top-0 left-0 w-screen h-[140vh] xl:h-[160vh] opacity-[17%] bg-cover object-top object-cover bg-center"
       />
       <span className="text-secondary text-2xl font-bold">Depoimentos</span>
       <h2 className="text-primary text-4xl font-bold text-center">
@@ -82,16 +81,16 @@ const DepoimentosMobile = () => {
 
         <FaChevronLeft
           onClick={handlePrev}
-          className="text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-lg left-[15px] md:left-[36px] transform z-50 large-drop-shadow"
+          className="absolute top-[15%] xl:top-[40%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-lg left-[15px] md:left-[36px] transform z-40 large-drop-shadow"
         />
         <FaChevronRight
           onClick={handleNext}
-          className="text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-lg right-[15px] md:right-[36px] transform z-50 large-drop-shadow"
+          className="absolute top-[15%] xl:top-[40%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-lg right-[15px] md:right-[36px] transform z-40 large-drop-shadow "
         />
       </div>
 
-      <div className="flex items-center justify-center rounded-full bg-secondary aspect-square w-[600px] max-w-[95vw] absolute top-[40%] lg:top-[32%] left-[50%] -translate-y-1/2 -translate-x-1/2 opacity-[75%] z-0">
-        <div className="rounded-full bg-primary  aspect-square w-[440px] max-w-[75vw] opacity-[75%] z-0 pulsing"></div>
+      <div className="hidden min-[400px]:flex absolute items-center justify-center rounded-full bg-secondary aspect-square w-[600px] max-w-[90vw]  top-[35%] left-[50%] -translate-y-1/2 -translate-x-1/2 opacity-[75%] z-0">
+        <div className="rounded-full bg-primary  aspect-square w-[440px] max-w-[65vw] opacity-[75%] z-0 pulsing"></div>
       </div>
 
       <Contato />

@@ -147,13 +147,13 @@ const Servicos = () => {
     >
       <img
         src="/fundo-preto-e-branco-ondulado.jpg"
-        className="absolute w-full h-full top-0 left-0 opacity-[8%] bg-cover object-top object-cover bg-center"
+        className="absolute w-full h-full top-0 left-0 opacity-[8%] bg-cover object-top object-cover bg-center pointer-events-none"
         id="bg-servicos"
       />
-      <h3 className="text-lg xl:text-xl font-urbanist font-bold text-white drop-shadow-lg">
+      <h3 className="text-lg xl:text-xl font-urbanist font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg">
         Solicite seu Agendamento
       </h3>
-      <h2 className="text-4xl xl:text-6xl font-urbanist font-bold text-secondary drop-shadow-lg mb-20">
+      <h2 className="text-3xl xl:text-5xl font-urbanist font-bold text-white drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] mb-20">
         Serviços e Exames
       </h2>
 
@@ -165,15 +165,17 @@ const Servicos = () => {
             placeholder="Pesquisar Serviço"
             value={search}
             onChange={handleSearch}
-            className="peer rounded-lg border-b-2 border-white ps-20 py-2 text-lg md:text-xl xl:text-2xl font-bold text-white bg-[#ffffff00] w-[1200px] focus:text-white focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)] focus:border-secondary outline-none transition duration-300 ease-in-out"
+            className="peer rounded-lg border-b-2 border-white ps-20 py-2 text-md md:text-lg xl:text-xl font-bold text-white bg-[#ffffff00] w-[1200px] focus:text-white focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)] focus:border-secondary outline-none transition duration-300 ease-in-out"
           />
         </div>
         <select
           name="departamentos"
-          className="w-full lg:w-50 bg-[#ffffff00] rounded-lg border-b-2 border-white text-xl text-white font-bold font-urbanist outline-none transition duration-300 ease-in-out p-3 cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)]"
+          className="w-full lg:w-50 bg-[#ffffff00] rounded-lg border-b-2 border-white text-md md:text-lg xl:text-xl text-white font-bold font-urbanist outline-none transition duration-300 ease-in-out p-2  cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)]"
           onChange={(e) => handleDepartamentoChange(e.target.value)}
         >
-          <option defaultValue={-1}>Departamento</option>
+          <option defaultValue={-1} selected>
+            Departamento
+          </option>
           <option value="0">Neuropsicologia</option>
           <option value="1">Nutrição</option>
           <option value="2">Psicologia</option>
@@ -181,10 +183,13 @@ const Servicos = () => {
       </form>
 
       <div className="flex flex-row items-center justify-center flex-wrap gap-8 relative mt-24 w-full sm:max-w-[80vw] !md:max-w-screen w-screen">
-        <img src="/dots-2.svg" className="absolute left-[-40px] top-[-40px]" />
         <img
           src="/dots-2.svg"
-          className="absolute right-[-40px] bottom-[-40px]"
+          className="absolute left-[-40px] top-[-40px] pointer-events-none"
+        />
+        <img
+          src="/dots-2.svg"
+          className="absolute right-[-40px] bottom-[-40px] pointer-events-none"
         />
         {filteredServicos.length > 0 ? (
           filteredServicos

@@ -4,7 +4,7 @@ import { FiSend } from "react-icons/fi";
 const Contato = () => {
   return (
     <div
-      className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[250px] w-full max-w-[80vw]  rounded-xl  min-h-[600px] card-shadow"
+      className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[250px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
       id="contato"
     >
       <div className="hidden lg:block bg-[#e0e0e0] w-2/5 rounded-l-xl"></div>

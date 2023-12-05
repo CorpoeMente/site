@@ -26,13 +26,13 @@ const Departamentos = () => {
   const [active, setActive] = useState(0);
   return (
     <section
-      className="w-screen bg-white flex flex-col items-start px-[10%] xl:px-[15%] py-[5%] relative"
+      className="w-screen bg-white flex flex-col items-start px-[10%] xl:px-[15%] py-[48px] relative"
       id="departamentos"
     >
-      <h1 className="text-primary self-center md:self-start text-6xl font-urbanist text-bold mb-4">
+      <h1 className="text-primary self-center md:self-start text-5xl font-urbanist text-bold mb-4">
         Departamentos
       </h1>
-      <span className="w-full xl:w-[40%] mb-12 text-xl">
+      <span className="w-full xl:w-[40%] mb-12 text-lg">
         Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
         Aliquam in hendrerit urna. Pellentesque sit amet sapien.
       </span>

@@ -44,12 +44,12 @@ const Depoimentos = () => {
   if (window.innerWidth <= 1580) return;
   return (
     <section
-      className="w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex flex-col items-center xl:px-[15%] pt-[5%] relative h-[150vh]"
+      className="w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex flex-col items-center xl:px-[15%] pt-[5%] relative h-[180vh]"
       id="depoimentos"
     >
       <img
         src="/depoimentos-background.jpg"
-        className="absolute top-0 left-0 w-screen h-[150vh] opacity-[20%] bg-cover object-top object-cover bg-center"
+        className="absolute top-0 left-0 w-screen h-full opacity-[17%] bg-cover object-top object-cover bg-center"
       />
       <span className="text-secondary text-2xl font-bold drop-shadow-2xl drop-shadow-[0_0px_2px_rgba(0,52,8,0.2)] m-[-6px]">
         Depoimentos

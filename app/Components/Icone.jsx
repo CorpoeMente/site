@@ -1,14 +1,20 @@
 import React from "react";
 
 const Icone = ({ index, departamento, setActive, active, Icone = null }) => {
+  const handleClick = () => {
+    setActive(index);
+    const profissionaisDiv = document.getElementById("profissional");
+    profissionaisDiv.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div
-      className={`flex flex-col xl:flex-row items-center justify-start text-lg font-urbanist font-light  bg-[#fcfcfc]  gap-4 cursor-pointer py-4 px-6 w-full sm:w-60 pe-4 xl:w-80 rounded-xl border-2 border-[#a0a0a] relative z-50  shadow-lg ${
+      className={`flex flex-col xl:flex-row items-center justify-start text-lg font-urbanist font-light  bg-[#fcfcfc]  gap-4 cursor-pointer p-4 w-full sm:w-60 pe-4 xl:w-80 rounded-xl border-2 border-[#a0a0a] relative z-40  shadow-lg ${
         active === index
           ? `text-white !bg-secondary hover:text-white`
           : "text-primary"
       } hover:bg-[#e1e9eC] hover:text-primary transition-all`}
-      onClick={() => setActive(index)}
+      onClick={handleClick}
     >
       <div
         className={`rounded-lg shadow w-16 h-16 relative`}
@@ -19,7 +25,7 @@ const Icone = ({ index, departamento, setActive, active, Icone = null }) => {
         ) : (
           <img
             src={departamento.img}
-            className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
+            className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 pointer-events-none"
           />
         )}
       </div>

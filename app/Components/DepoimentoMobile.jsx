@@ -5,10 +5,10 @@ import { FaQuoteRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const DepoimentoMobile = ({ depoimento }) => {
   return (
-    <div className="relative z-50 flex flex-col items-start justify-start gap-4 bg-white rounded-xl shadow-2xl p-8 text-center min-w-[80vw] w-full min-h-[250px] z-10 relative basis-1/3 card-shadow">
+    <div className="absolute top-[-50%] xl:top-[-25%] transform translate-y-1/4 z-40 flex flex-col items-start justify-start gap-4 bg-white rounded-xl shadow-2xl p-8 text-center min-w-[80vw] w-full min-h-[250px] z-10 relative basis-1/3 card-shadow">
       <img
         src={depoimento.profile_photo_url}
-        className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl"
+        className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
       ></img>
       <h4 className="font-bold text-xl font-urbanist mt-4 self-center text-center">
         {depoimento.author_name.charAt(0).toUpperCase() +
@@ -29,7 +29,7 @@ const DepoimentoMobile = ({ depoimento }) => {
           </span>
         ))}
       </div>
-      <div className="absolute bottom-6 right-6">
+      <div className="absolute bottom-6 right-6 ">
         <FaQuoteRight className="text-[#a0a0a0c0] text-6xl -z-10" />
       </div>
     </div>

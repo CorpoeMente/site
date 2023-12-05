@@ -6,7 +6,7 @@ const TextArea = ({ type, label, required = false }) => {
   return (
     <div className="w-full max-w-[400px] relative">
       <textarea
-        className={`w-full border bg-[#f0f0f0] rounded shadow-lg focus:shadow-secondary font-inter font-bold text-lg focus:border-secondary focus:bg-white h-32 xl:h-72 ${
+        className={`w-full border bg-[#fafafa] rounded shadow-lg focus:shadow-secondary font-inter font-bold text-lg focus:border-secondary focus:bg-white h-32 xl:h-72 ${
           inputValue ? "border-secondary bg-white" : "border-[#e0e0e0]"
         } py-4 px-4 peer outline-none transition duration-300 ease-in-out`}
         type={type}

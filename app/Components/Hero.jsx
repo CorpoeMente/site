@@ -5,13 +5,13 @@ const Hero = () => {
     <section className="w-screen h-screen flex items-start  justify-between xl:px-[15%] py-[120px] xl:py-[15%] relative">
       <img
         src="/background-mobile.webp"
-        className="block sm:hidden absolute top-0 left-0 h-screen -z-10 bg-cover"
+        className="block sm:hidden absolute top-0 left-0 h-screen -z-10 bg-cover pointer-events-none"
       />
       <img
         src="/background.webp"
-        className="hidden sm:block absolute top-0 left-0 h-screen -z-10 bg-contain bg-center"
+        className="hidden sm:block absolute top-0 left-0 h-screen -z-10 bg-contain bg-center pointer-events-none"
       />
-      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full 2xl:w-1/2 gap-12 px-[10%] 2xl:px-[0] h-[110%] 2xl:h-auto slide-bottom z-50">
+      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full 2xl:w-1/2 gap-12 px-[10%] 2xl:px-[0] h-[110%] 2xl:h-auto slide-bottom z-40">
         <h1 className="text-6xl xl:text-7xl w-full lg:w-3/4 xl:w-full font-urbanist font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
           Cuidar do <span className="text-secondary">Corpo</span> e
           <span className="text-secondary"> Mente</span> em um só lugar
@@ -41,7 +41,7 @@ const Hero = () => {
       <img
         src="/logo-white.svg"
         alt=""
-        className="opacity-[0.3] w-2/3 transform -translate-x-1/2 left-1/2 absolute top-[15%] 2xl:top-[5%] 2xl:right-0 2xl:-translate-x-[10%] 2xl:w-1/2 drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
+        className="opacity-[0.3] pointer-events-none w-2/3 transform -translate-x-1/2 left-1/2 absolute top-[15%] 2xl:top-[5%] 2xl:right-0 2xl:-translate-x-[10%] 2xl:w-1/2 drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
       />
     </section>
   );

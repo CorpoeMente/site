@@ -5,18 +5,20 @@ import * as Dialog from "@radix-ui/react-dialog";
 
 const Nav = () => {
   return (
-    <nav className="fixed  w-screen flex items-center justify-between bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[100px] z-100 shadow-xl">
+    <nav className="fixed top-0 left-0 w-screen flex items-center justify-between bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[70px] z-50 shadow-xl">
       <div className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%]">
-        <img src="/logo-primary.svg" alt="" className="w-20" />
-        <h1 className="text-xl lg:text-2xl xl:text-3xl text-primary font-bold  drop-shadow text-center">
+        <img
+          src="/logo-primary.svg"
+          alt=""
+          className="w-16 pointer-events-none"
+        />
+        <h1 className="text-xl lg:text-xl xl:text-2xl text-primary font-bold  drop-shadow text-center">
           Corpo{" "}
-          <span className="text-lg lg:text-1xl xl:text-2xl font-bold ms-[-4px]">
-            &
-          </span>{" "}
+          <span className="text-md lg:text-lg  xl:text-xl font-medium">e</span>{" "}
           Mente
         </h1>
       </div>
-      <div className="invisible lg:visible flex items-center justify-between text-xl text-primary font-bold w-2/3 max-w-[630px] 2xl:w-1/3 z-10 gap-x-8 me-[10%]">
+      <div className="invisible lg:visible flex items-center justify-between lg:text-md xl:text-lg text-primary font-bold w-2/3 max-w-[630px] 2xl:w-1/3 z-10 gap-x-8 me-[10%]">
         <a href="#departamentos" className="nav-btn">
           Departamentos
         </a>
@@ -28,7 +30,7 @@ const Nav = () => {
         </a>
         <a
           href="#servicos"
-          className="z-10 text-white p-2 bg-gradient-to-r from-[#4489c1] to-primary rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300"
+          className="z-10 text-white py-1 px-2 bg-gradient-to-r from-[#4489c1] to-primary rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300"
         >
           Agendamentos
         </a>

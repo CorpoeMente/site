@@ -35,8 +35,8 @@ const Agendamento = ({ servico }) => {
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className="DialogOverlay bg-primary z-50 relative" />
-        <Dialog.Content className="DialogContent bg-primary z-50 relative">
+        <Dialog.Overlay className="DialogOverlay bg-primary z-40 relative" />
+        <Dialog.Content className="DialogContent bg-primary z-40 relative">
           <Dialog.Title className="text-2xl text-primary text-center font-bold font-urbanist">
             Agendamento de {servico.nome}
           </Dialog.Title>

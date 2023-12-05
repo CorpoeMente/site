@@ -42,7 +42,7 @@ const profissionais = [
     ],
   },
   {
-    nome: "Profissional de Nutricionismo)",
+    nome: "Profissional de Nutricionismo",
     imagem:
       "https://media-gig4-1.cdn.whatsapp.net/v/t61.24694-24/209605740_946893555875123_5389400469944571154_n.jpg?ccb=11-4&oh=01_AdQX94evdAZLxoHq5qlSWsXDHYKoUdGSunJFKuX8wJSAUA&oe=6574D7C5&_nc_sid=e6ed6c&_nc_cat=102",
     cargo: "Nutricionista",
@@ -64,10 +64,13 @@ const profissionais = [
 ];
 const Profissional = ({ departamento }) => {
   return (
-    <div className="w-full max-w-[80vw] flex flex-col lg:flex-row items-center justify-center h-[800px] lg:h-[600px] mt-16 rounded-xl card-shadow relative z-10 self-center">
+    <div
+      className="w-full max-w-[80vw] flex flex-col lg:flex-row items-center justify-center h-[800px] lg:h-[600px] mt-16 rounded-xl card-shadow relative z-10 self-center"
+      id="profissional"
+    >
       <img
         src="./dots.svg"
-        className="absolute -z-100 top-[-12%] right-[-7%]"
+        className="absolute -z-100 top-[-12%] right-[-7%] pointer-events-none"
       />
       <div className="bg-[#a0a0a0] w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl"></div>
       <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 relative z-10 bg-white border-[1px] border-[#f4f4f4] rounded-r-xl">

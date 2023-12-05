@@ -26,11 +26,6 @@ module.exports = {
       "gradient-180": "linear-gradient(180deg, var(--tw-gradient-stops))",
       "gradient-to-r": "linear-gradient(to right, var(--tw-gradient-stops))",
     },
-    extend: {
-      zIndex: {
-        100: "100",
-      },
-    },
   },
   plugins: [require("flowbite/plugin")],
 };

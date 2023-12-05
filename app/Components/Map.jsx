@@ -39,7 +39,7 @@ const Map = () => {
     window.open(url, "_blank");
   };
   return (
-    <div className="relative items-center justify-center h-[600px] lg:h-[560px] w-full max-w-[80vw] self-center xl:w-[30%] card-shadow  relative rounded-xl">
+    <div className="relative items-center justify-center h-[600px] lg:h-[460px] w-full max-w-[80vw] self-center xl:w-[30%] card-shadow  relative rounded-xl">
       <div
         className="h-[100%] lg:h-full w-full bg-contain rounded-xl"
         id="map"

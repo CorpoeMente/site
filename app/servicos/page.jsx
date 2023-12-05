@@ -118,7 +118,7 @@ const Page = () => {
     >
       <img
         src="/fundo-preto-e-branco-ondulado.jpg"
-        className="absolute w-full h-full top-0 left-0 opacity-10 bg-cover object-top object-cover bg-center"
+        className="absolute w-full h-full top-0 left-0 opacity-10 bg-cover object-top object-cover bg-center pointer-events-none"
         id="bg-servicos"
       />
       <h2 className="text-4xl xl:text-7xl font-urbanist font-bold text-white drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] mb-32">
@@ -140,10 +140,13 @@ const Page = () => {
       </form>
 
       <div className="flex flex-wrap items-center justify-center gap-8 relative mt-24 min-h-[420x] md:min-h-[880px] w-full sm:max-w-[80vw] !md:max-w-screen w-screen">
-        <img src="/dots-2.svg" className="absolute left-[-40px] top-[-40px]" />
         <img
           src="/dots-2.svg"
-          className="absolute right-[-40px] bottom-[-40px]"
+          className="absolute left-[-40px] top-[-40px] pointer-events-none"
+        />
+        <img
+          src="/dots-2.svg"
+          className="absolute right-[-40px] bottom-[-40px] pointer-events-none"
         />
         {filteredServicos
           .slice(
