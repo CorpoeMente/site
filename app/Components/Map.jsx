@@ -1,14 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import React, { useEffect } from "react";
 import { useLoadScript } from "@react-google-maps/api";
-import { FaPhone } from "react-icons/fa";
 
 const libraries = ["places"];
 
 const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+    googleMapsApiKey: "AIzaSyB60XCMntI4rMCwwTeLIHnRGcfalkZzcO8",
     libraries,
   });
 
