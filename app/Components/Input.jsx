@@ -10,7 +10,7 @@ const Input = ({ type, label, required = false, mask, className }) => {
       {mask ? (
         <InputMask
           mask={mask}
-          className={`w-full border bg-[#fafafa] rounded shadow-lg focus:shadow-secondary font-inter font-bold text-lg focus:border-secondary focus:bg-white ${
+          className={`w-full border bg-[#fafafa] rounded shadow-lg focus:shadow-secondary font-inter font-medium text-lg focus:border-secondary focus:bg-white ${
             inputValue ? "border-secondary bg-white" : "border-[#e0e0e0]"
           } p-2 peer outline-none transition duration-300 ease-in-out`}
           type={type}
@@ -21,7 +21,7 @@ const Input = ({ type, label, required = false, mask, className }) => {
         />
       ) : (
         <input
-          className={`w-full border rounded shadow-lg focus:shadow-secondary font-inter font-bold text-lg focus:border-secondary focus:bg-white ${
+          className={`w-full border rounded shadow-lg focus:shadow-secondary font-inter font-medium text-lg focus:border-secondary focus:bg-white ${
             inputValue ? "border-secondary bg-white" : "border-[#e0e0e0]"
           } ${
             type == "date" || type == "time" ? "bg-white" : "bg-[#fafafa]"
@@ -35,10 +35,10 @@ const Input = ({ type, label, required = false, mask, className }) => {
       )}
       {type != "date" && type != "time" ? (
         <Label.Root
-          className={`absolute font-bold text-lg text-[#404040] top-1/2 left-2 px-2 transform -translate-y-1/2 transition duration-300 ease-in-out pointer-events-none ${
+          className={`absolute font-medium text-lg text-[#404040] top-1/2 left-2 px-2 transform -translate-y-1/2 transition duration-300 ease-in-out pointer-events-none ${
             inputValue
-              ? "translate-y-[-40px] bg-white text-[#000]"
-              : "peer-focus:translate-y-[-40px] peer-focus:bg-white peer-focus:text-[#000]"
+              ? "translate-y-[-38px] bg-white text-[#000]"
+              : "peer-focus:translate-y-[-38px] peer-focus:bg-white peer-focus:text-[#000]"
           }`}
         >
           {label}

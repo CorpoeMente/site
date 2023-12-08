@@ -10,7 +10,7 @@ const DepoimentosMobile = () => {
   const [reviews, setReviews] = useState([]);
   const [selectedReview, setSelectedReview] = useState(null);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyB60XCMntI4rMCwwTeLIHnRGcfalkZzcO8",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     libraries,
   });
 

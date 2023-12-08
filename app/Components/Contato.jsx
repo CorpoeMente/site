@@ -2,6 +2,27 @@ import React from "react";
 import { Input, TextArea } from ".";
 import { FiSend } from "react-icons/fi";
 const Contato = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // post to api /api/mensagens
+    const data = {
+      nome: e.target[0].value,
+      email: e.target[1].value,
+      telefone: e.target[2].value,
+      mensagem: e.target[3].value,
+    };
+
+    console.log(data);
+
+    fetch("/api/messages", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
+
   return (
     <div
       className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[250px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
@@ -9,7 +30,10 @@ const Contato = () => {
     >
       <div className="hidden lg:block bg-[#e0e0e0] w-2/5 rounded-l-xl"></div>
 
-      <form className="w-4/5 lg:w-3/5 flex flex-col items-center justify-between py-12 gap-8">
+      <form
+        className="w-4/5 lg:w-3/5 flex flex-col items-center justify-between py-12 gap-8"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <h2 className="text-primary text-4xl font-bold text-center">
           Entre em Contato Conosco
         </h2>
@@ -37,7 +61,7 @@ const Contato = () => {
         <TextArea label={"Digite sua mensagem..."} />
 
         <button
-          className="bg-primary hover:bg-secondary w-full max-w-[400px] py-3 rounded-lg text-white font-bold text-xl font-urbanist transition duration-300 ease-in-out mt-6"
+          className="bg-primary hover:bg-secondary w-full max-w-[400px] py-3 rounded-lg text-white font-bold text-xl  transition duration-300 ease-in-out mt-6"
           type="submit"
         >
           <FiSend className="inline-block mr-2" />

@@ -10,7 +10,7 @@ const inter = Inter({
 const urbanist = Urbanist({
   subsets: ["latin"],
   weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-  variable: "--font-urbanist",
+  variable: "--",
 });
 
 export const metadata = {

@@ -29,7 +29,7 @@ const Departamentos = () => {
       className="w-screen bg-white flex flex-col items-start px-[10%] xl:px-[15%] py-[48px] relative"
       id="departamentos"
     >
-      <h1 className="text-primary self-center md:self-start text-5xl font-urbanist text-bold mb-4">
+      <h1 className="text-primary self-center md:self-start text-5xl  text-bold mb-4">
         Departamentos
       </h1>
       <span className="w-full xl:w-[40%] mb-12 text-lg">

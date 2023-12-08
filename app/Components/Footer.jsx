@@ -8,10 +8,10 @@ const Footer = () => {
     <footer className="w-screen min-h-[650px] bg-primary px-[5%] xl:px-[10%] pt-[300px] flex flex-col items-center">
       <div className="flex flex-col gap-y-24 xl:flex-row items-start justify-between w-screen xl:px-[5%] 2xl:px-[10%] mb-8">
         <Map />
-        <div className="flex flex-col items-center font-urbanist text-white self-center xl:self-start gap-y-8 gap-x-2 w-full max-w-[80vw] xl:w-1/3 h-full">
+        <div className="flex flex-col items-center  text-white self-center xl:self-start gap-y-8 gap-x-2 w-full max-w-[80vw] xl:w-1/3 h-full">
           <div className="flex items-center justify-center gap-x-2">
             <img src="/logo-white.svg" className="w-24 h-24" />
-            <h2 className="text-2xl font-bold font-urbanist">
+            <h2 className="text-2xl font-bold ">
               Clínica Corpo e <br></br>Mente
             </h2>
           </div>
@@ -53,7 +53,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="grid grid-cols-2 self-center xl:self-start font-urbanist text-white h-full gap-x-12 xl:w-1/3">
+        <div className="grid grid-cols-2 self-center xl:self-start  text-white h-full gap-x-12 xl:w-1/3">
           <h4 className="col-span-2 font-bold text-3xl mb-8 text-center xl:text-start">
             Horário de Funcionamento
           </h4>
@@ -98,7 +98,7 @@ const Footer = () => {
         Developed by{" "}
         <a
           href="https://github.com/Joaoaalves"
-          className="underline text-bold font-urbanist cursor-pointer"
+          className="underline text-bold  cursor-pointer"
         >
           João Alves
         </a>

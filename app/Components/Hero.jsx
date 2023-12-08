@@ -4,20 +4,16 @@ const Hero = () => {
   return (
     <section className="w-screen h-screen flex items-start  justify-between xl:px-[15%] py-[120px] xl:py-[15%] relative">
       <img
-        src="/background-mobile.webp"
-        className="block sm:hidden absolute top-0 left-0 h-screen -z-10 bg-cover pointer-events-none"
-      />
-      <img
         src="/background.webp"
-        className="hidden sm:block absolute top-0 left-0 h-screen -z-10 bg-contain bg-center pointer-events-none"
+        className="absolute top-0 left-0 h-screen -z-10 bg-contain bg-center pointer-events-none"
       />
       <div className="relative flex flex-col items-center  xl:items-start justify-end w-full 2xl:w-1/2 gap-12 px-[10%] 2xl:px-[0] h-[110%] 2xl:h-auto slide-bottom z-40">
-        <h1 className="text-6xl xl:text-7xl w-full lg:w-3/4 xl:w-full font-urbanist font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
+        <h1 className="text-4xl  lg:text-6xl xl:text-7xl w-full lg:w-3/4 xl:w-full  font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
           Cuidar do <span className="text-secondary">Corpo</span> e
           <span className="text-secondary"> Mente</span> em um só lugar
         </h1>
 
-        <p className="text-center w-full sm:w-2/3 text-white font-urbanist font-regular text-2xl drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] xl:w-3/4 xl:text-start">
+        <p className="text-center w-full sm:w-2/3 text-white  font-regular text-lg xl:text-xl 2xl:text-2xl drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] xl:w-3/4 xl:text-start">
           Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
           Aliquam in hendrerit.
         </p>
@@ -25,7 +21,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-start gap-12 w-full">
           <a
             href="#contato"
-            className="bg-secondary text-white font-urbanist text-xl py-4 rounded-xl font-bold cursor-pointer hover:scale-110 w-full xl:w-72 text-center"
+            className="bg-secondary text-white  text-xl py-4 rounded-xl font-bold cursor-pointer hover:scale-110 w-full xl:w-72 text-center"
           >
             Entrar em Contato
           </a>
@@ -41,7 +37,7 @@ const Hero = () => {
       <img
         src="/logo-white.svg"
         alt=""
-        className="opacity-[0.3] pointer-events-none w-2/3 transform -translate-x-1/2 left-1/2 absolute top-[15%] 2xl:top-[5%] 2xl:right-0 2xl:-translate-x-[10%] 2xl:w-1/2 drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
+        className="opacity-[0.3] pointer-events-none w-2/3 transform -translate-x-1/2 left-1/2 absolute top-[15%] 2xl:top-[15%] 2xl:right-0 2xl:-translate-x-[5%] 2xl:w-2/3 max-w-[800px] drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
       />
     </section>
   );

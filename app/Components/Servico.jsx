@@ -17,9 +17,7 @@ const Servico = ({ servico, index }) => {
     >
       <div className={`bg-${colors[index]} w-36 h-36 rounded-lg`}></div>
 
-      <h4 className="font-bold text-xl font-urbanist text-clamp-2">
-        {servico.nome}
-      </h4>
+      <h4 className="font-bold text-xl  text-clamp-2">{servico.nome}</h4>
 
       <p>{servico.descricao}</p>
 

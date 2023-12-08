@@ -65,19 +65,19 @@ const profissionais = [
 const Profissional = ({ departamento }) => {
   return (
     <div
-      className="w-full max-w-[80vw] flex flex-col lg:flex-row items-center justify-center h-[800px] lg:h-[600px] mt-16 rounded-xl card-shadow relative z-10 self-center"
+      className="w-full max-w-[80vw] flex flex-col lg:flex-row items-center justify-center h-[800px] lg:h-[600px] mt-16 rounded-xl card-shadow relative self-center"
       id="profissional"
     >
       <img
         src="./dots.svg"
-        className="absolute -z-100 top-[-12%] right-[-7%] pointer-events-none"
+        className="absolute top-[-12%] right-[-7%] pointer-events-none"
       />
-      <div className="bg-[#a0a0a0] w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl"></div>
-      <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 relative z-10 bg-white border-[1px] border-[#f4f4f4] rounded-r-xl">
-        <h1 className="text-[#606060] text-4xl font-urbanist mb-2 ">
+      <div className="bg-[#a0a0a0] w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10"></div>
+      <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 bg-white border-[1px] border-[#f4f4f4] rounded-r-xl">
+        <h1 className="text-[#606060] text-4xl  mb-2">
           {profissionais[departamento].nome}
         </h1>
-        <span className="text-primary text-xl font-urbanist font-bold mb-8">
+        <span className="text-primary text-xl  font-bold mb-8">
           {profissionais[departamento].cargo}
         </span>
         <p className="lg:max-w-[85%] lg:text-right text-md lg:text-lg xl:text-xl">

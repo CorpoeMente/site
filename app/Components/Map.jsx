@@ -8,7 +8,7 @@ const libraries = ["places"];
 
 const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyB60XCMntI4rMCwwTeLIHnRGcfalkZzcO8",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     libraries,
   });
 
@@ -46,7 +46,7 @@ const Map = () => {
       ></div>
       <button
         onClick={handleClick}
-        className="absolute bottom-0 bg-[#e0e0e0] text-primary font-bold font-urbanist text-2xl w-full py-2 lg:py-4 rounded-b-lg hover:bg-primary hover:text-white transition duration-300 ease-in-out mt-auto"
+        className="absolute bottom-0 bg-[#e0e0e0] text-primary font-bold  text-2xl w-full py-2 lg:py-4 rounded-b-lg hover:bg-primary hover:text-white transition duration-300 ease-in-out mt-auto"
       >
         Ver no Mapa
       </button>

@@ -10,7 +10,7 @@ const DepoimentoMobile = ({ depoimento }) => {
         src={depoimento.profile_photo_url}
         className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
       ></img>
-      <h4 className="font-bold text-xl font-urbanist mt-4 self-center text-center">
+      <h4 className="font-bold text-xl  mt-4 self-center text-center">
         {depoimento.author_name.charAt(0).toUpperCase() +
           depoimento.author_name.slice(1)}{" "}
       </h4>

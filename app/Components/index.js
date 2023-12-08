@@ -22,3 +22,8 @@ export { default as Icone } from "./Icone";
 export { default as Modal } from "./Modal";
 export { default as Timeline } from "./Timeline";
 export { default as TimelineItem } from "./TimelineItem";
+export { default as SidePanel } from "./SidePanel";
+export { default as UserForm } from "./UserForm";
+export { default as UsersList } from "./UsersList";
+export { default as MensagensList } from "./MensagensList";
+export { default as AgendamentosList } from "./AgendamentosList";

@@ -37,7 +37,7 @@ const Agendamento = ({ servico }) => {
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay bg-primary z-40 relative" />
         <Dialog.Content className="DialogContent bg-primary z-40 relative">
-          <Dialog.Title className="text-2xl text-primary text-center font-bold font-urbanist">
+          <Dialog.Title className="text-2xl text-primary text-center font-bold ">
             Agendamento de {servico.nome}
           </Dialog.Title>
 
@@ -85,13 +85,13 @@ const Agendamento = ({ servico }) => {
 
             <button
               type="submit"
-              className="bg-primary py-4 text-white font-bold font-urbanist text-xl rounded-xl mt-auto hover:from-0% hover:scale-[1.01] hover:bg-secondary hover:text-primary transition ease-in-out duration-300 w-3/4"
+              className="bg-primary py-4 text-white font-bold  text-xl rounded-xl mt-auto hover:from-0% hover:scale-[1.01] hover:bg-secondary hover:text-primary transition ease-in-out duration-300 w-3/4"
             >
               {loading ? "Enviando..." : "Enviar"}
             </button>
 
             <Dialog.Close asChild>
-              <button className="bg-gray-dark py-2 px-6 absolute bottom-6 right-6 text-white font-bold font-urbanist text-xl rounded-xl">
+              <button className="bg-gray-dark py-2 px-6 absolute bottom-6 right-6 text-white font-bold  text-xl rounded-xl">
                 Fechar
               </button>
             </Dialog.Close>

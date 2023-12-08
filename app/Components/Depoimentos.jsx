@@ -9,7 +9,7 @@ const Depoimentos = () => {
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyB60XCMntI4rMCwwTeLIHnRGcfalkZzcO8",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     libraries,
   });
 

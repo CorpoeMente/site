@@ -150,10 +150,10 @@ const Servicos = () => {
         className="absolute w-full h-full top-0 left-0 opacity-[8%] bg-cover object-top object-cover bg-center pointer-events-none"
         id="bg-servicos"
       />
-      <h3 className="text-lg xl:text-xl font-urbanist font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg">
+      <h3 className="text-lg xl:text-xl  font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg">
         Solicite seu Agendamento
       </h3>
-      <h2 className="text-3xl xl:text-5xl font-urbanist font-bold text-white drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] mb-20">
+      <h2 className="text-3xl xl:text-5xl  font-bold text-white drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] mb-20">
         Serviços e Exames
       </h2>
 
@@ -170,7 +170,7 @@ const Servicos = () => {
         </div>
         <select
           name="departamentos"
-          className="w-full lg:w-50 bg-[#ffffff00] rounded-lg border-b-2 border-white text-md md:text-lg xl:text-xl text-white font-bold font-urbanist outline-none transition duration-300 ease-in-out p-2  cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)]"
+          className="w-full lg:w-50 bg-[#ffffff00] rounded-lg border-b-2 border-white text-md md:text-lg xl:text-xl text-white font-bold  outline-none transition duration-300 ease-in-out p-2  cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)]"
           onChange={(e) => handleDepartamentoChange(e.target.value)}
         >
           <option defaultValue={-1} selected>
