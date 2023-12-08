@@ -51,6 +51,7 @@ const MensagensList = () => {
                 className={`${
                   index % 2 == 0 ? "bg-[#d0d0d0]" : "bg-[#ffffff]"
                 }`}
+                key={index}
               >
                 <td className="text-center font-bold py-2">
                   <h1>{mensagem.nome}</h1>

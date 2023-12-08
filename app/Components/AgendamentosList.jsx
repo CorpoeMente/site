@@ -15,9 +15,12 @@ const AgendamentosList = () => {
   return (
     <div className="flex flex-col items-center justify-center">
       {agendamentos &&
-        agendamentos.map((agendamento) => {
+        agendamentos.map((agendamento, index) => {
           return (
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div
+              className="flex flex-col items-center justify-center gap-4"
+              key={index}
+            >
               <div className="flex flex-row items-center justify-center gap-4">
                 <div className="flex flex-col items-center justify-center gap-4">
                   <h1 className="text-xl font-semibold">{agendamento.nome}</h1>

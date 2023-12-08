@@ -13,9 +13,12 @@ const UsersList = () => {
     getUsers();
   }, []);
 
-  return users.map((user) => {
+  return users.map((user, index) => {
     return (
-      <div className="flex flex-col items-center justify-center gap-4">
+      <div
+        className="flex flex-col items-center justify-center gap-4"
+        key={index}
+      >
         <div className="flex flex-row items-center justify-center gap-4">
           <div className="flex flex-col items-center justify-center gap-4">
             <h1 className="text-xl font-semibold">{user.fullName}</h1>
