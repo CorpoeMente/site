@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams, useRouter, redirect } from "next/navigation";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
-import { BsArrowRightCircleFill } from "react-icons/bs";
 import { Input } from "../../Components";
 
 const Form = () => {
