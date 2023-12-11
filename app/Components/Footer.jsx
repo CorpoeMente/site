@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="flex items-center gap-x-8">
             <FaLocationArrow className="text-xl " />
             <span className="text-md font-bold">
-              Taguatinga Norte, QNG 32 Lote 19, Brasília - DF, 72115-700
+              Taguatinga Norte, QNG 32 Lote 21, Brasília - DF, 72130-320
             </span>
           </div>
           <div className="flex items-center gap-x-8">
