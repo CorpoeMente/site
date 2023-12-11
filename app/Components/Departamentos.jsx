@@ -7,18 +7,18 @@ const deps = [
   {
     name: "Neuropsicologia",
     img: "/neuropsicologia.svg",
-    color: "#FFC5D9",
+    color: "#B173DF",
     Icone: PiBrainThin,
   },
   {
     name: "Psicologia",
     img: "/psychology.svg",
-    color: "#ADF4FF",
+    color: "#79D1E5",
   },
   {
     name: "Nutrição",
     img: "/nutrition.svg",
-    color: "#FFDFAF",
+    color: "#84FB98",
   },
 ];
 

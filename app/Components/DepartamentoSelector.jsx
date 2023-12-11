@@ -1,6 +1,5 @@
 import React from "react";
 import { Icone } from ".";
-import { BsFillPersonFill } from "react-icons/bs";
 
 const DepartamentoSelector = ({ deps, active, setActive }) => {
   return (

@@ -21,7 +21,7 @@ const Icone = ({ index, departamento, setActive, active, Icone = null }) => {
         style={{ backgroundColor: departamento.color }}
       >
         {Icone ? (
-          <Icone className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-6xl text-primary drop-shadow-xl" />
+          <Icone className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-6xl text-white drop-shadow-xl" />
         ) : (
           <img
             src={departamento.img}
