@@ -227,13 +227,13 @@ const Servicos = () => {
           </div>
         )}
         <FaChevronLeft
-          className={`text-white text-4xl cursor-pointer hover:text-secondary absolute left-0 top-1/2 transform -translate-y-1/2 ${
+          className={`text-white text-4xl cursor-pointer hover:text-secondary absolute left-8 lg:left-0 top-1/2 transform -translate-y-1/2 ${
             page === 0 && "hidden"
           }`}
           onClick={() => handlePageChange(-1)}
         />
         <FaChevronRight
-          className={`text-white text-4xl cursor-pointer hover:text-secondary absolute right-0 top-1/2 transform -translate-y-1/2 ${
+          className={`text-white text-4xl cursor-pointer hover:text-secondary absolute right-8 lg:right-0 top-1/2 transform -translate-y-1/2 ${
             page + 1 === filteredServicos.length / servicosPerPage && "hidden"
           }`}
           onClick={() => handlePageChange(1)}
