@@ -30,7 +30,6 @@ const Form = () => {
   const [message, setMessage] = useState("");
 
   const formSubmit = async (form) => {
-    console.log("Entrou");
     const { fullName, email, password } = form;
 
     try {

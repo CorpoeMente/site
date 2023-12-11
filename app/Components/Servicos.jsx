@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaSearch, FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { PiSmileySad } from "react-icons/pi";
 import { Servico } from ".";
+
 const Servicos = () => {
   const servicos = [
     {
@@ -10,72 +11,84 @@ const Servicos = () => {
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "TCC (cognitivo comportamental)",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "Exame",
     },
     {
       nome: "Psicanalista",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Psicopedagogia",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Neuropsicologia",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "neuropsicologia",
+      type: "servico",
     },
     {
       nome: "Psicóloga da infância",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Psicóloga infanto-juvenil",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Terapeuta de casal e família",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Parecer Psicológico",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "psicologia",
+      type: "exame",
     },
     {
       nome: "Terapia ocupacional",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
-      departamento: "fonoaudiologia",
+      departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Fonoaudiologia",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
-      departamento: "fonoaudiologia",
+      departamento: "psicologia",
+      type: "servico",
     },
     {
       nome: "Nutricionista",
       descricao:
         "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
       departamento: "nutricao",
+      type: "servico",
     },
   ];
 
@@ -173,9 +186,7 @@ const Servicos = () => {
           className="w-full lg:w-50 bg-[#ffffff00] rounded-lg border-b-2 border-white text-md md:text-lg xl:text-xl text-white font-bold  outline-none transition duration-300 ease-in-out p-2  cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)]"
           onChange={(e) => handleDepartamentoChange(e.target.value)}
         >
-          <option defaultValue={-1} selected>
-            Departamento
-          </option>
+          <option defaultValue={-1}>Departamento</option>
           <option value="0">Neuropsicologia</option>
           <option value="1">Nutrição</option>
           <option value="2">Psicologia</option>

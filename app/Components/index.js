@@ -27,3 +27,7 @@ export { default as UserForm } from "./UserForm";
 export { default as UsersList } from "./UsersList";
 export { default as MensagensList } from "./MensagensList";
 export { default as AgendamentosList } from "./AgendamentosList";
+export { default as PedidosList } from "./PedidosList";
+export { default as Table } from "./Table";
+export { default as TableRow } from "./TableRow";
+export { default as Mensagem } from "./Mensagem";

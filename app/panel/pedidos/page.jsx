@@ -1,5 +1,5 @@
 import React from "react";
-import { SidePanel, AgendamentosList } from "@/app/Components";
+import { SidePanel, PedidosList } from "@/app/Components";
 
 const page = () => {
   return (
@@ -7,10 +7,10 @@ const page = () => {
       <SidePanel />
 
       <div className="flex flex-col items-center justify-center w-screen">
-        <h1 className="text-4xl font-semibold">Agendamentos</h1>
+        <h1 className="text-4xl font-semibold">Pedidos</h1>
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center gap-4">
-            <AgendamentosList />
+            <PedidosList />
           </div>
         </div>
       </div>

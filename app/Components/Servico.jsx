@@ -1,21 +1,29 @@
+"use client";
 import React from "react";
 import { Agendamento } from ".";
+import { LiaFileMedicalAltSolid } from "react-icons/lia";
+import { FaUserDoctor } from "react-icons/fa6";
 const Servico = ({ servico, index }) => {
-  var colors = [
-    "light-blue",
-    "purple",
-    "light-purple",
-    "pink",
-    "orange",
-    "green",
-  ];
-
   return (
     <div
       key={index}
       className="flex flex-col items-center justify-start gap-8 min-w-[250px] max-w-[300px] lg:max-w-[400px] h-full bg-white rounded-xl shadow-xl p-8 text-center w-full h-full max-h-[600px] relative overflow-hidden"
     >
-      <div className={`bg-${colors[index]} w-36 h-36 rounded-lg`}></div>
+      <div
+        className={`${
+          servico.departamento === "psicologia"
+            ? "bg-[#79d1e5]"
+            : servico.departamento === "neuropsicologia"
+            ? "bg-[#b173df]"
+            : "bg-[#84fb98]"
+        } w-28 h-28 rounded-lg shadow-[1px_1px_4px_1px_rgba(0,0,0,0.25)] flex flex-col items-center justify-center`}
+      >
+        {servico.type === "servico" ? (
+          <FaUserDoctor className="w-16 h-16 text-white drop-shadow-[0px_0px_4px_rgba(200,200,200,0.5)]" />
+        ) : (
+          <LiaFileMedicalAltSolid className="w-16 h-16 text-white drop-shadow-[0px_0px_4px_rgba(200,200,200,0.5)]" />
+        )}
+      </div>
 
       <h4 className="font-bold text-xl  text-clamp-2">{servico.nome}</h4>
 

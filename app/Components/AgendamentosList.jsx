@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-
+import { Table, TableRow } from ".";
 const AgendamentosList = () => {
   const [agendamentos, setAgendamentos] = useState([]);
 
@@ -13,37 +13,20 @@ const AgendamentosList = () => {
     getAgendamentos();
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center">
+    <Table headers={["Nome", "Email", "Telefone", "Data", "Serviço", ""]}>
       {agendamentos &&
         agendamentos.map((agendamento, index) => {
           return (
-            <div
-              className="flex flex-col items-center justify-center gap-4"
-              key={index}
-            >
-              <div className="flex flex-row items-center justify-center gap-4">
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{agendamento.nome}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{agendamento.email}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">
-                    {agendamento.telefone}
-                  </h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{agendamento.data}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{agendamento.hora}</h1>
-                </div>
-              </div>
-            </div>
+            <TableRow key={index}>
+              <td className="px-4 py-2">{agendamento.nome}</td>
+              <td className="px-4 py-2">{agendamento.email}</td>
+              <td className="px-4 py-2">{agendamento.telefone}</td>
+              <td className="px-4 py-2">{agendamento.data}</td>
+              <td className="px-4 py-2">{agendamento.servico}</td>
+            </TableRow>
           );
         })}
-    </div>
+    </Table>
   );
 };
 

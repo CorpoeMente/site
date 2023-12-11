@@ -1,23 +1,17 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import User from "../../models/User";
-import { getSession } from "next-auth/react";
 import dbConnect from "../../utils/dbConnect";
+import handlePermissions from "../../utils/serverSession";
+import bcrypt from "bcryptjs";
 
-const handlePermissions = async (request) => {
-  const session = await getSession({ req: request });
-
-  if (!session || !session.user || session.user.role !== "admin") {
+export async function POST(request) {
+  if (await handlePermissions()) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
-  return null; // Permissões concedidas
-};
-
-export async function POST(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
-
   const { nome, email, telefone, password } = await request.json();
+
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   await dbConnect();
 
@@ -25,7 +19,8 @@ export async function POST(request) {
     nome,
     email,
     telefone,
-    password,
+    password: hashedPassword,
+    role: "admin",
   });
 
   try {
@@ -41,7 +36,9 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
-  const response = handlePermissions(request);
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   await dbConnect();
 
@@ -58,7 +55,9 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-  const response = handlePermissions(request);
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { id } = request.query;
   const { nome, email, telefone, password } = await request.json();
@@ -83,7 +82,9 @@ export async function PUT(request) {
 }
 
 export async function DELETE(request) {
-  const response = handlePermissions(request);
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { id } = request.query;
   const { nome, email, telefone, password } = await request.json();

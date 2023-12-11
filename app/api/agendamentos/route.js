@@ -1,21 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Agendamento } from "../../models";
-import { getSession } from "next-auth/react";
 import dbConnect from "../../utils/dbConnect";
-
-const handlePermissions = async (request) => {
-  const session = await getSession({ req: request });
-
-  if (!session || !session.user || session.user.role !== "admin") {
-    return new NextResponse("Unauthorized", { status: 401 });
-  }
-
-  return null; // Permissões concedidas
-};
+import handlePermissions from "../../utils/serverSession";
 
 export async function POST(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { nome, telefone, email, servico, startTime, endTime } =
     await request.json();
@@ -44,9 +35,9 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
-
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
   await dbConnect();
 
   try {
@@ -62,8 +53,9 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { id } = request.query;
   const { nome, telefone, email, servico, startTime, endTime } =
@@ -91,8 +83,9 @@ export async function PUT(request) {
 }
 
 export async function DELETE(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { id } = request.query;
 

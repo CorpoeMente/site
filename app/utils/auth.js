@@ -63,6 +63,7 @@ export const authOptions = {
           nome: user.nome,
           email: user.email,
           telefone: user.telefone,
+          role: user.role,
         };
       }
       return token;

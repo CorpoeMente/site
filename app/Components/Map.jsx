@@ -6,7 +6,7 @@ const libraries = ["places"];
 
 const Map = () => {
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyB60XCMntI4rMCwwTeLIHnRGcfalkZzcO8",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
     libraries,
   });
 

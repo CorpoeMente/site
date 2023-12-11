@@ -2,6 +2,7 @@
 import React from "react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import * as Dialog from "@radix-ui/react-dialog";
+import { FaRegUser } from "react-icons/fa";
 
 const Nav = () => {
   return (
@@ -10,20 +11,17 @@ const Nav = () => {
         <img
           src="/logo-primary.svg"
           alt=""
-          className="w-16 pointer-events-none"
+          className="w-12 pointer-events-none"
         />
-        <h1 className="text-xl lg:text-xl xl:text-2xl text-primary font-bold  drop-shadow text-center">
+        <span className="lg:block text-sm lg:text-lg xl:text-2xl text-primary font-bold  drop-shadow text-center">
           Corpo{" "}
           <span className="text-md lg:text-lg  xl:text-xl font-medium">e</span>{" "}
           Mente
-        </h1>
+        </span>
       </div>
       <div className="invisible lg:visible flex items-center justify-between lg:text-md xl:text-lg text-primary font-bold w-2/3 max-w-[630px] 2xl:w-1/3 z-10 gap-x-8 me-[10%]">
         <a href="#departamentos" className="nav-btn">
           Departamentos
-        </a>
-        <a href="#servicos" className="nav-btn">
-          Serviços
         </a>
         <a href="#contato" className="nav-btn">
           Contato
@@ -33,6 +31,12 @@ const Nav = () => {
           className="z-10 text-white py-1 px-2 bg-gradient-to-r from-[#4489c1] to-primary rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300"
         >
           Agendamentos
+        </a>
+        <a
+          href="/login"
+          className="z-10 p-2 rounded-lg bg-white shadow-[1px_1px_4px_1px_rgba(0,0,0,0.2)] text-primary hover:scale-110 transition ease-in-out duration-300"
+        >
+          <FaRegUser className="text-xl" />
         </a>
       </div>
 
@@ -45,7 +49,7 @@ const Nav = () => {
         <Dialog.Portal>
           <Dialog.Overlay className="DialogOverlay" />
           <Dialog.Content className="DialogContent !h-[500px] !w-[400px]">
-            <Dialog.Title className="text-2xl font-bold font-urbanist text-center">
+            <Dialog.Title className="text-2xl font-bold  text-center">
               Links
             </Dialog.Title>
             <ul className="flex flex-col items-center justify-center gap-8 list-none mt-24 font-bold text-xl">
@@ -62,14 +66,7 @@ const Nav = () => {
               </li>
               <li>
                 <Dialog.Close asChild>
-                  <a href="#servicos" className="nav-btn" aria-label="Close">
-                    Serviços
-                  </a>
-                </Dialog.Close>
-              </li>
-              <li>
-                <Dialog.Close asChild>
-                  <a href="/contato" className="nav-btn" aria-label="Close">
+                  <a href="#contato" className="nav-btn" aria-label="Close">
                     Contato
                   </a>
                 </Dialog.Close>
@@ -77,11 +74,23 @@ const Nav = () => {
               <li>
                 <Dialog.Close asChild>
                   <a
-                    href="/agendamento"
+                    href="#servicos"
                     className="z-10 text-white p-2 bg-gradient-to-r from-[#4489c1] to-primary rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300"
                     aria-label="Close"
                   >
                     Agendamentos
+                  </a>
+                </Dialog.Close>
+              </li>
+
+              <li>
+                <Dialog.Close asChild>
+                  <a
+                    href="/login"
+                    className="z-10 p-2 rounded-lg bg-white shadow-[0px_0px_3px_1px_rgba(0,0,0,0.3)] text-primary hover:scale-110 transition ease-in-out duration-300"
+                    aria-label="Close"
+                  >
+                    <FaRegUser className="text-xl" />
                   </a>
                 </Dialog.Close>
               </li>

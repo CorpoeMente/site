@@ -73,14 +73,14 @@ const Profissional = ({ departamento }) => {
         className="absolute top-[-12%] right-[-7%] pointer-events-none"
       />
       <div className="bg-[#a0a0a0] w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10"></div>
-      <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 bg-white border-[1px] border-[#f4f4f4] rounded-r-xl">
-        <h1 className="text-[#606060] text-4xl  mb-2">
+      <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 bg-white border-[1px] border-[#f4f4f4] rounded-r-xl z-10">
+        <h1 className="text-[#606060] text-2xl xl:text-4xl font-bold mb-2">
           {profissionais[departamento].nome}
         </h1>
-        <span className="text-primary text-xl  font-bold mb-8">
+        <span className="text-primary text-lg xl:text-xl mb-8">
           {profissionais[departamento].cargo}
         </span>
-        <p className="lg:max-w-[85%] lg:text-right text-md lg:text-lg xl:text-xl">
+        <p className="lg:max-w-[85%] lg:text-right text-sm lg:text-md xl:text-xl mb-8">
           {profissionais[departamento].descricao}
         </p>
 

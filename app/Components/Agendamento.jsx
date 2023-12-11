@@ -2,12 +2,17 @@
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FaTimes } from "react-icons/fa";
-import { Input } from ".";
+import { Input, TextArea } from ".";
 
 const Agendamento = ({ servico }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [data, setData] = useState("");
+  const [mensagem, setMensagem] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,15 +21,20 @@ const Agendamento = ({ servico }) => {
     setSuccess(false);
 
     const body = {
-      nome: e.target[0].value,
-      email: e.target[1].value,
-      telefone: e.target[2].value,
-      data: e.target[3].value,
-      mensagem: e.target[4].value,
+      nome,
+      email,
+      telefone,
+      data,
+      mensagem,
       servico: servico.nome,
     };
-
-    console.log(body);
+    const res = await fetch("/api/pedidos", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   };
 
   return (
@@ -45,8 +55,9 @@ const Agendamento = ({ servico }) => {
             className="flex flex-col items-center justify-between gap-8 mt-24 w-full"
             onSubmit={handleSubmit}
           >
-            {/* type, label, required = false, mask */}
             <Input
+              state={nome}
+              setState={setNome}
               className={"!max-w-[75%]"}
               type={"text"}
               label={"Nome"}
@@ -54,6 +65,8 @@ const Agendamento = ({ servico }) => {
             />
 
             <Input
+              state={email}
+              setState={setEmail}
               className={"!max-w-[75%]"}
               type={"email"}
               label={"Email"}
@@ -61,6 +74,8 @@ const Agendamento = ({ servico }) => {
             />
 
             <Input
+              state={telefone}
+              setState={setTelefone}
               className={"!max-w-[75%]"}
               type={"tel"}
               label={"Telefone"}
@@ -69,16 +84,20 @@ const Agendamento = ({ servico }) => {
             />
 
             <Input
+              state={data}
+              setState={setData}
               className={"!max-w-[75%]"}
               type={"date"}
               label={"Data do Agendamento"}
               required={true}
             />
 
-            <Input
+            <TextArea
+              state={mensagem}
+              setState={setMensagem}
               className={"!max-w-[75%]"}
               type={"text"}
-              label={"Mensagem"}
+              label={"Digite informações de horário e dia"}
               required={true}
               mask={""}
             />

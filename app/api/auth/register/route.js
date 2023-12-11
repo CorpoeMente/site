@@ -1,7 +1,7 @@
 import User from "../../../models/User";
 import dbConnect from "../../../utils/dbConnect";
 import bcrypt from "bcryptjs";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 export const POST = async (request) => {
   const { nome, email, telefone, password } = await request.json();
@@ -15,6 +15,7 @@ export const POST = async (request) => {
     email,
     telefone,
     password: hashedPassword,
+    role: "admin",
   });
 
   try {

@@ -1,31 +1,33 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { Input } from "../../Components";
+import { ImSpinner8 } from "react-icons/im";
 
 const Form = () => {
-  const session = useSession();
-  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const formSubmit = (e) => {
     e.preventDefault();
     setError("");
-
-    const email = e.target[0];
-    const password = e.target[1];
+    setLoading(true);
 
     signIn("credentials", {
-      email: email.value,
-      password: password.value,
+      email,
+      password,
+      callbackUrl: `${window.location.origin}/panel`,
+    }).then((res) => {
+      if (res.error) {
+        setError("Email e/ou senha incorretos");
+      }
+      setLoading(false);
     });
   };
-  useEffect(() => {
-    if (session.status === "authenticated") {
-      router.push("/panel");
-    }
-  }, [session.status, router]);
+
   return (
     <form
       onSubmit={formSubmit}
@@ -39,9 +41,27 @@ const Form = () => {
         />
         <h1 className="text-2xl font-bold text-primary mt-2">Corpo e Mente</h1>
       </a>
+      {loading ? (
+        <ImSpinner8 className="animate-spin text-primary text-4xl" />
+      ) : (
+        <fieldset className="w-full flex flex-col items-center gap-y-8">
+          <Input
+            type="email"
+            label="Email"
+            state={email}
+            setState={setEmail}
+            required
+          />
+          <Input
+            type="password"
+            label="Senha"
+            state={password}
+            setState={setPassword}
+            required
+          />
+        </fieldset>
+      )}
 
-      <Input type="email" label="Email" name="email" required={true} />
-      <Input type="password" label="Password" name="password" required={true} />
       <button className="bg-primary hover:bg-secondary w-full max-w-[400px] py-3 rounded-lg text-white font-bold text-xl  transition duration-300 ease-in-out mt-6">
         Log In
       </button>

@@ -1,5 +1,5 @@
 "use client";
-import { CiLogout, CiTimer, CiChat2, CiUser } from "react-icons/ci";
+import { CiLogout, CiTimer, CiChat2, CiUser, CiBoxList } from "react-icons/ci";
 import { useRouter } from "next/navigation";
 export default function SidePanel() {
   const router = useRouter();
@@ -24,6 +24,10 @@ export default function SidePanel() {
     router.push("/panel");
   };
 
+  const handlePedidos = () => {
+    router.push("/panel/pedidos");
+  };
+
   return (
     <aside className="w-72 h-screen flex flex-col items-center justify-between bg-[#202020] shadow-[2px_0px_16px_4px_rgba(0,0,0,0.3)]">
       <div
@@ -46,6 +50,13 @@ export default function SidePanel() {
           >
             <CiTimer />
             Agendamentos
+          </li>
+          <li
+            onClick={handlePedidos}
+            className="flex  items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+          >
+            <CiBoxList />
+            Pedidos
           </li>
           <li
             onClick={handleMensagens}

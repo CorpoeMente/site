@@ -1,23 +1,26 @@
 import { NextResponse } from "next/server";
-import { Message } from "../../models";
+import { PedidoAgendamento } from "../../models";
 import dbConnect from "../../utils/dbConnect";
 import handlePermissions from "../../utils/serverSession";
 
 export async function POST(request) {
-  const { nome, telefone, email, mensagem } = await request.json();
+  const { nome, telefone, email, servico, data, mensagem } =
+    await request.json();
 
   await dbConnect();
 
-  const newMessage = new Message({
+  const newPedidoAgendamento = new PedidoAgendamento({
     nome,
     telefone,
     email,
+    servico,
+    data,
     mensagem,
   });
 
   try {
-    await newMessage.save();
-    return new NextResponse("Message has been created", {
+    await newPedidoAgendamento.save();
+    return new NextResponse("PedidoAgendamento has been created", {
       status: 201,
     });
   } catch (err) {
@@ -28,13 +31,12 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
-  if (await handlePermissions()) {
-    return new NextResponse("Unauthorized", { status: 401 });
-  }
+  const permission = handlePermissions();
+  await dbConnect();
 
   try {
-    const messages = await Message.find({});
-    return new NextResponse(JSON.stringify(messages), {
+    const PedidoAgendamentos = await PedidoAgendamento.find({});
+    return new NextResponse(JSON.stringify(PedidoAgendamentos), {
       status: 200,
     });
   } catch (err) {
@@ -48,14 +50,14 @@ export async function DELETE(request) {
   if (await handlePermissions()) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
-  const data = await request.json();
-  const { id } = data;
+
+  const { id } = request.query;
+
   await dbConnect();
 
   try {
-    await Message.findByIdAndDelete(id);
-    const messages = await Message.find({});
-    return new NextResponse(JSON.stringify(messages), {
+    await PedidoAgendamento.findByIdAndDelete(id);
+    return new NextResponse("PedidoAgendamento has been deleted", {
       status: 200,
     });
   } catch (err) {

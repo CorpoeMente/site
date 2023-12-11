@@ -1,26 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { Servico } from "../../models";
-import { getSession } from "next-auth/react";
 import dbConnect from "../../utils/dbConnect";
-
-// nome
-// descricao
-// type
-// departamento
-
-const handlePermissions = async (request) => {
-  const session = await getSession({ req: request });
-
-  if (!session || !session.user || session.user.role !== "admin") {
-    return new NextResponse("Unauthorized", { status: 401 });
-  }
-
-  return null; // Permissões concedidas
-};
+import handlePermissions from "../../utils/serverSession";
 
 export async function POST(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { nome, descricao, type, departamento } = await request.json();
 
@@ -61,8 +47,9 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { id } = request.query;
   const { nome, descricao, type, departamento } = await request.json();
@@ -87,8 +74,9 @@ export async function PUT(request) {
 }
 
 export async function DELETE(request) {
-  const response = handlePermissions(request);
-  if (response) return response;
+  if (await handlePermissions()) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
 
   const { id } = request.query;
 
