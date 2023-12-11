@@ -51,8 +51,7 @@ export async function PUT(request) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
-  const { id } = request.query;
-  const { nome, descricao, type, departamento } = await request.json();
+  const { id, nome, descricao, type, departamento } = await request.json();
 
   await dbConnect();
 
@@ -77,8 +76,8 @@ export async function DELETE(request) {
   if (await handlePermissions()) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
-
-  const { id } = request.query;
+  const data = await request.json();
+  const { id } = data;
 
   await dbConnect();
 

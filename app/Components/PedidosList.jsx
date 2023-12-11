@@ -1,9 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { Table, TableRow } from ".";
+import { FaTrashAlt } from "react-icons/fa";
+import { Mensagem } from ".";
 
 const Pedidos = () => {
   const [pedidos, setPedidos] = useState([]);
-
+  const formatDate = (dateStr) => {
+    const [year, month, day] = dateStr.split("-");
+    let newDate = `${day}/${month}/${year}`;
+    return newDate;
+  };
   useEffect(() => {
     const getpedidos = async () => {
       const res = await fetch("/api/pedidos");
@@ -13,36 +20,37 @@ const Pedidos = () => {
     getpedidos();
   }, []);
 
+  const deletePedido = async (id) => {
+    const res = await fetch(`/api/pedidos`, {
+      method: "DELETE",
+      body: JSON.stringify({ id }),
+    });
+    const data = await res.json();
+    setPedidos(data);
+  };
   return (
-    <div className="flex flex-col items-center justify-center">
-      {pedidos &&
-        pedidos.map((pedido, index) => {
-          return (
-            <div
-              className="flex flex-col items-center justify-center gap-4"
-              key={index}
+    <Table
+      headers={["Nome", "Email", "Telefone", "Serviço", "Mensagem", "Data", ""]}
+    >
+      {pedidos.map((pedido) => (
+        <TableRow key={pedido._id}>
+          <td className="px-4 py-2">{pedido.nome}</td>
+          <td className="px-4 py-2">{pedido.email}</td>
+          <td className="px-4 py-2">{pedido.telefone}</td>
+          <td className="px-4 py-2">{pedido.servico}</td>
+          <td className="px-4 py-2">{formatDate(pedido.data.split("T")[0])}</td>
+          <td className="px-4 py-2 flex items-center justify-center gap-x-4">
+            <button
+              className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
+              onClick={() => deletePedido(pedido._id)}
             >
-              <div className="flex flex-row items-center justify-center gap-4">
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{pedido.nome}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{pedido.email}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{pedido.telefone}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{pedido.data}</h1>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <h1 className="text-xl font-semibold">{pedido.servico}</h1>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-    </div>
+              <FaTrashAlt />
+            </button>
+            <Mensagem mensagem={pedido} />
+          </td>
+        </TableRow>
+      ))}
+    </Table>
   );
 };
 

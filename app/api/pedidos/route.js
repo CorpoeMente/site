@@ -50,8 +50,8 @@ export async function DELETE(request) {
   if (await handlePermissions()) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
-
-  const { id } = request.query;
+  const data = await request.json();
+  const { id } = data;
 
   await dbConnect();
 

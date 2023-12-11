@@ -86,8 +86,7 @@ export async function DELETE(request) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
-  const { id } = request.query;
-  const { nome, email, telefone, password } = await request.json();
+  const { id, nome, email, telefone, password } = await request.json();
 
   await dbConnect();
 
