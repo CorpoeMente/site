@@ -34,17 +34,12 @@ const Footer = () => {
 
           <div className="flex items-start gap-x-12 mt-auto mb-8">
             <a
-              href=""
+              href="https://instagram.com/clinicacorpoemente_"
               className="bg-white p-3 rounded-full text-primary cursor-pointer hover:bg-[#e0e0e0] transition duration-300 ease-in-out"
             >
               <BsInstagram className="text-2xl" />
             </a>
-            <a
-              href=""
-              className="bg-white p-3 rounded-full text-primary cursor-pointer hover:bg-[#e0e0e0] transition duration-300 ease-in-out"
-            >
-              <BsFacebook className="text-2xl" />
-            </a>
+
             <a
               href="https://api.whatsapp.com/send?phone=5561998036582"
               className="bg-white p-3 rounded-full text-primary cursor-pointer hover:bg-[#e0e0e0] transition duration-300 ease-in-out"
