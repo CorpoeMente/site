@@ -28,11 +28,11 @@ const Servico = ({ servico, index }) => {
       <h4 className="font-bold text-xl  text-clamp-2">{servico.nome}</h4>
 
       <p>{servico.descricao}</p>
-      {servico.valor && (
+      {/* {servico.valor && (
         <span className="text-primary font-bold text-xl">
           R$ {servico.valor.toFixed(2)}
         </span>
-      )}
+      )} */}
 
       <Agendamento servico={servico} />
     </div>
