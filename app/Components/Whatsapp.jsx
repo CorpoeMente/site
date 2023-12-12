@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const FloatingWhatsapp = () => {
   const handleWhatsappRedirect = () => {
-    window.open("https://wa.me/");
+    window.open("https://api.whatsapp.com/send?phone=5561998036582");
   };
   return (
     <Tooltip.Provider delayDuration={300}>

@@ -3,15 +3,32 @@ import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FaTimes } from "react-icons/fa";
 
-const Modal = ({ buttonText, title, children, className }) => {
+const Modal = ({
+  buttonText,
+  title,
+  children,
+  className,
+  variant = "button",
+}) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button
-          className={`text-white bg-gradient-45 from-[#225690] to-primary font-bold mt-auto lg:mt-auto py-2 lg:py-4 text-xl px-4 lg:px-32 rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300 ${className}`}
-        >
-          {buttonText}
-        </button>
+        {
+          {
+            button: (
+              <button
+                className={`${className} text-white bg-primary font-bold mt-8 lg:mt-auto py-2 lg:py-4 text-xl  rounded-lg shadow-lg hover:from-0% hover:scale-110 hover:bg-secondary hover:text-primary transition ease-in-out duration-300`}
+              >
+                {buttonText}
+              </button>
+            ),
+            link: (
+              <a className={className} href="#">
+                {buttonText}
+              </a>
+            ),
+          }[variant]
+        }
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="backdrop-blur bg-[#00000020] z-40 fixed top-0 left-0 bottom-0 right-0" />

@@ -40,19 +40,19 @@ const Agendamento = ({ servico }) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-white bg-primary font-bold mt-8 lg:mt-auto py-2 lg:py-4 text-xl w-full  rounded-lg shadow-lg hover:from-0% hover:scale-110 hover:bg-secondary hover:text-primary transition ease-in-out duration-300">
+        <button className="text-white bg-primary font-bold py-2 lg:py-4 text-xl w-full  rounded-lg shadow-lg hover:from-0% hover:scale-110 hover:bg-secondary hover:text-primary transition ease-in-out duration-300">
           Solicitar Agendamento
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay bg-primary z-40 relative" />
-        <Dialog.Content className="DialogContent bg-primary z-40 relative">
-          <Dialog.Title className="text-2xl text-primary text-center font-bold ">
+        <Dialog.Content className="DialogContent bg-primary z-40 relative overflow-y-auto !h-[1600px]">
+          <Dialog.Title className="text-2xl text-primary text-center font-bold">
             Agendamento de {servico.nome}
           </Dialog.Title>
 
           <form
-            className="flex flex-col items-center justify-between gap-8 mt-24 w-full"
+            className="flex flex-col items-center justify-between gap-8 mt-8 w-full"
             onSubmit={handleSubmit}
           >
             <Input
@@ -95,7 +95,9 @@ const Agendamento = ({ servico }) => {
             <TextArea
               state={mensagem}
               setState={setMensagem}
-              className={"!max-w-[75%]"}
+              className={
+                "w-full md:w-[110%] md:ms-[-5%] xl:w-[140%] xl:ms-[-20%]"
+              }
               type={"text"}
               label={"Digite informações de horário e dia"}
               required={true}

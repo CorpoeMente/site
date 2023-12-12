@@ -3,10 +3,11 @@ import React from "react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FaRegUser } from "react-icons/fa";
+import { Planos } from ".";
 
 const Nav = () => {
   return (
-    <nav className="fixed top-0 left-0 w-screen flex items-center justify-between bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[70px] z-50 shadow-xl">
+    <nav className="fixed top-0 left-0 w-screen flex items-center justify-between bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[70px] z-40 shadow-xl">
       <div className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%]">
         <img
           src="/logo-primary.svg"
@@ -26,10 +27,9 @@ const Nav = () => {
         <a href="#contato" className="nav-btn">
           Contato
         </a>
-        <a
-          href="#servicos"
-          className="z-10 text-white py-1 px-2 bg-gradient-to-r from-[#4489c1] to-primary rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300"
-        >
+
+        <Planos />
+        <a href="#servicos" className="nav-btn text-secondary">
           Agendamentos
         </a>
         <a
@@ -71,18 +71,19 @@ const Nav = () => {
                   </a>
                 </Dialog.Close>
               </li>
+
               <li>
                 <Dialog.Close asChild>
-                  <a
-                    href="#servicos"
-                    className="z-10 text-white p-2 bg-gradient-to-r from-[#4489c1] to-primary rounded-lg shadow-lg hover:from-0% hover:scale-110 transition ease-in-out duration-300"
-                    aria-label="Close"
-                  >
+                  <Planos />
+                </Dialog.Close>
+              </li>
+              <li>
+                <Dialog.Close asChild>
+                  <a href="#servicos" className="nav-btn" aria-label="Close">
                     Agendamentos
                   </a>
                 </Dialog.Close>
               </li>
-
               <li>
                 <Dialog.Close asChild>
                   <a

@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center gap-x-8">
             <FaPhoneAlt className="text-2xl" />
-            <span className="text-md font-bold">(61) 99999-9999</span>
+            <span className="text-md font-bold">(61) 99803-6582</span>
           </div>
           <div className="flex items-center gap-x-8">
             <FaEnvelope className="text-2xl" />
@@ -46,7 +46,7 @@ const Footer = () => {
               <BsFacebook className="text-2xl" />
             </a>
             <a
-              href=""
+              href="https://api.whatsapp.com/send?phone=5561998036582"
               className="bg-white p-3 rounded-full text-primary cursor-pointer hover:bg-[#e0e0e0] transition duration-300 ease-in-out"
             >
               <BsWhatsapp className="text-2xl" />
@@ -59,12 +59,12 @@ const Footer = () => {
           </h4>
           <span className="text-md">Segunda-Feira</span>
           <span className="text-md text-end xl:text-start mb-2">
-            08:00 - 18:00
+            08:00 - 21:20
           </span>
 
           <span className="text-md">Terça-Feira</span>
           <span className="text-md text-end xl:text-start mb-2">
-            08:00 - 18:00
+            08:00 - 21:20
           </span>
 
           <span className="text-md">Quarta-Feira</span>
@@ -74,7 +74,7 @@ const Footer = () => {
 
           <span className="text-md">Quinta-Feira</span>
           <span className="text-md text-end xl:text-start mb-2">
-            08:00 - 18:00
+            08:00 - 23:10
           </span>
 
           <span className="text-md">Sexta-Feira</span>
@@ -84,7 +84,7 @@ const Footer = () => {
 
           <span className="text-md">Sábado</span>
           <span className="text-md text-end xl:text-start mb-2">
-            08:00 - 18:00
+            08:00 - 13:00
           </span>
 
           <span className="text-md">Domingo e Feriados</span>

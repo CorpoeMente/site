@@ -7,7 +7,7 @@ const Servico = ({ servico, index }) => {
   return (
     <div
       key={index}
-      className="flex flex-col items-center justify-start gap-8 min-w-[250px] max-w-[300px] lg:max-w-[400px] h-full bg-white rounded-xl shadow-xl p-8 text-center w-full h-full max-h-[600px] relative overflow-hidden"
+      className="flex flex-col items-center justify-between min-w-[250px] max-w-[300px] lg:max-w-[400px] min-h-[500px] bg-white rounded-xl shadow-xl p-8 text-center w-full h-full max-h-[600px] relative overflow-hidden"
     >
       <div
         className={`${
@@ -28,6 +28,11 @@ const Servico = ({ servico, index }) => {
       <h4 className="font-bold text-xl  text-clamp-2">{servico.nome}</h4>
 
       <p>{servico.descricao}</p>
+      {servico.valor && (
+        <span className="text-primary font-bold text-xl">
+          R$ {servico.valor.toFixed(2)}
+        </span>
+      )}
 
       <Agendamento servico={servico} />
     </div>

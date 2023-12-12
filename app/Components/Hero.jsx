@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-// create an fetch post to create admin user
+// create a fetch post to create an admin user
 
 const Hero = () => {
   return (
@@ -17,22 +17,27 @@ const Hero = () => {
         </h1>
 
         <p className="text-center w-full sm:w-2/3 text-white  font-regular text-lg xl:text-xl drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] xl:w-3/4 xl:text-start">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi.
-          Aliquam in hendrerit.
+          Encontre equilíbrio e bem-estar através de cuidados especializados em
+          <span className="text-secondary font-semibold">
+            {" "}
+            psicologia, neuropsicologia e nutrição
+          </span>
+          . Nossa clínica oferece um ambiente acolhedor para apoiar você em sua
+          jornada de autocuidado.
         </p>
 
-        <div className="flex flex-col lg:flex-row items-start gap-12 w-2/3">
+        <div className="flex flex-col lg:flex-row items-start gap-12 w-full lg:w-[80%]">
           <a
             href="#contato"
-            className="bg-secondary text-white text-lg  xl:text-xl py-4 rounded-xl font-bold cursor-pointer hover:scale-110 w-full xl:w-72 text-center"
+            className="bg-secondary text-white py-4 rounded-xl font-bold cursor-pointer hover:scale-110 w-full xl:w-72 text-center"
           >
-            Entrar em Contato
+            Entre em Contato
           </a>
           <a
             href="#servicos"
-            className="border-secondary border text-white py-4  rounded-xl text-lg xl:text-xl font-bold cursor-pointer hover:bg-secondary w-full xl:w-72 text-center"
+            className="border-secondary border text-white py-4  rounded-xl font-bold cursor-pointer hover:bg-secondary w-full xl:w-72 text-center"
           >
-            Serviços
+            Conheça Nossos Serviços
           </a>
         </div>
       </div>

@@ -31,3 +31,5 @@ export { default as PedidosList } from "./PedidosList";
 export { default as Table } from "./Table";
 export { default as TableRow } from "./TableRow";
 export { default as Mensagem } from "./Mensagem";
+export { default as Planos } from "./Planos";
+export { default as Accordion } from "./Accordion";

@@ -9,86 +9,98 @@ const Servicos = () => {
     {
       nome: "Terapia ABA (terapia do autismo)",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "Oferecemos a terapia ABA como uma abordagem eficaz no tratamento de distúrbios do espectro autista, promovendo o desenvolvimento e a qualidade de vida.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "TCC (cognitivo comportamental)",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A Terapia Cognitivo-Comportamental é uma abordagem focada na solução de problemas, auxiliando no tratamento de diversos transtornos psicológicos.",
       departamento: "psicologia",
       type: "Exame",
+      valor: 200,
     },
     {
       nome: "Psicanalista",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A Psicanálise é uma abordagem profunda que busca compreender os processos mentais inconscientes, promovendo o autoconhecimento e a transformação pessoal.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Psicopedagogia",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A Psicopedagogia visa auxiliar no desenvolvimento das habilidades cognitivas e emocionais, proporcionando um ambiente favorável ao aprendizado.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Neuropsicologia",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "Nossos neuropsicólogos utilizam abordagens inovadoras para avaliar e tratar distúrbios cognitivos relacionados ao sistema nervoso, promovendo a reabilitação neuropsicológica.",
       departamento: "neuropsicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Psicóloga da infância",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A psicologia da infância visa compreender e intervir nos aspectos psicológicos do desenvolvimento infantil, promovendo o equilíbrio emocional e comportamental.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Psicóloga infanto-juvenil",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A psicologia infanto-juvenil abrange a compreensão e o tratamento das questões emocionais e comportamentais em crianças e adolescentes, visando o desenvolvimento saudável.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Terapeuta de casal e família",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A terapia de casal e família busca fortalecer os laços afetivos e resolver conflitos, promovendo relações saudáveis e harmoniosas.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Parecer Psicológico",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "O Parecer Psicológico é uma avaliação detalhada realizada por nossos psicólogos, fornecendo insights valiosos para diversas situações.",
       departamento: "psicologia",
       type: "exame",
+      valor: 200,
     },
     {
       nome: "Terapia ocupacional",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A Terapia Ocupacional busca promover a autonomia e independência através de atividades terapêuticas, contribuindo para a melhoria da qualidade de vida.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Fonoaudiologia",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "A Fonoaudiologia abrange a prevenção, avaliação e intervenção em questões relacionadas à comunicação oral e escrita, voz, audição e funções orofaciais.",
       departamento: "psicologia",
       type: "servico",
+      valor: 200,
     },
     {
       nome: "Nutricionista",
       descricao:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit.",
+        "Nossos nutricionistas fornecem orientação especializada para promover hábitos alimentares saudáveis e personalizados, visando o bem-estar e a saúde integral.",
       departamento: "nutricao",
       type: "servico",
+      valor: 200,
     },
   ];
 
@@ -110,14 +122,12 @@ const Servicos = () => {
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
-
     handleFilter(e.target.value, departamento);
   };
 
   const handleDepartamentoChange = (value) => {
     if (value === "-1") return setDepartamento(null);
     setDepartamento(departamentos[value]);
-
     handleFilter(search, departamentos[value]);
   };
 
@@ -135,16 +145,16 @@ const Servicos = () => {
   }, []);
 
   const handleFilter = (srch = null, dept = null) => {
-    // Filter with search and departamento
+    // Filtrar com pesquisa e departamento
 
-    // Filter with search
+    // Filtrar com pesquisa
     const filtered = servicos.filter(
       (servico) =>
         servico.nome.toLowerCase().includes(srch.toLowerCase()) ||
         servico.descricao.toLowerCase().includes(srch.toLowerCase())
     );
 
-    // Filter with departamento
+    // Filtrar com departamento
     if (dept === null) return setFilteredServicos(filtered);
     const filtered2 = filtered.filter(
       (servico) => servico.departamento === dept
@@ -163,7 +173,7 @@ const Servicos = () => {
         className="absolute w-full h-full top-0 left-0 opacity-[8%] bg-cover object-top object-cover bg-center pointer-events-none"
         id="bg-servicos"
       />
-      <h3 className="text-lg xl:text-xl  font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg">
+      <h3 className="text-lg xl:text-xl -mb-2 font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg">
         Solicite seu Agendamento
       </h3>
       <h2 className="text-3xl xl:text-5xl  font-bold text-white drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] mb-20">
@@ -193,7 +203,7 @@ const Servicos = () => {
         </select>
       </form>
 
-      <div className="flex flex-row items-center justify-center flex-wrap gap-8 relative mt-24 w-full sm:max-w-[80vw] !md:max-w-screen w-screen">
+      <div className="flex flex-row flex-wrap items-start justify-center gap-8 relative mt-24 w-full sm:max-w-[80vw] !md:max-w-screen w-screen">
         <img
           src="/dots-2.svg"
           className="absolute left-[-40px] top-[-40px] pointer-events-none"
