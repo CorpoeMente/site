@@ -29,14 +29,15 @@ const Nav = () => {
         </a>
 
         <Planos />
-        <a href="#servicos" className="nav-btn text-secondary">
+        <a href="#servicos" className="nav-btn text-primary">
           Agendamentos
         </a>
         <a
           href="/login"
-          className="z-10 p-2 rounded-lg bg-white shadow-[1px_1px_4px_1px_rgba(0,0,0,0.2)] text-primary hover:scale-110 transition ease-in-out duration-300"
+          className="z-10 py-2 px-4 rounded-lg bg-primary shadow-[1px_1px_4px_1px_rgba(0,0,0,0.2)] text-white text-lg !font-thin hover:bg-secondary hover:text-primary transition ease-in-out duration-300 flex items-center justify-center gap-x-2"
         >
           <FaRegUser className="text-xl" />
+          Entrar
         </a>
       </div>
 
