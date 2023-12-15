@@ -40,7 +40,7 @@ const Agendamento = ({ servico }) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-white bg-primary font-bold py-2 lg:py-4 text-xl w-full  rounded-lg shadow-lg hover:from-0% hover:scale-110 hover:bg-secondary hover:text-primary transition ease-in-out duration-300">
+        <button className="text-white bg-primary font-bold py-2 lg:py-4 text-sm xl:text-md w-full  rounded-lg shadow-lg hover:from-0% hover:scale-[1.03] hover:bg-secondary hover:text-primary transition ease-in-out duration-300">
           Solicitar Agendamento
         </button>
       </Dialog.Trigger>
@@ -95,9 +95,7 @@ const Agendamento = ({ servico }) => {
             <TextArea
               state={mensagem}
               setState={setMensagem}
-              className={
-                "w-full md:w-[110%] md:ms-[-5%] xl:w-[140%] xl:ms-[-20%]"
-              }
+              className={"w-full md:w-[100%]"}
               type={"text"}
               label={"Digite informações de horário e dia"}
               required={true}

@@ -42,14 +42,15 @@ const Contato = () => {
       className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[280px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
       id="contato"
     >
-      <img
-        src="equipe.jpg"
-        alt="Foto da equipe do Espaço Clínico Corpo e Mente"
-        className="hidden lg:block bg-[#e0e0e0] w-[40%] rounded-l-xl object-cover object-center"
-      />
+      <div
+        className="hidden lg:block bg-[#e0e0e0] w-1/2 rounded-l-xl object-cover object-center bg-no-repeat bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/equipe.jpg')",
+        }}
+      ></div>
 
       <form
-        className="w-4/5 lg:w-3/5 flex flex-col items-center justify-between py-12 gap-8"
+        className="w-4/5 lg:w-1/2 flex flex-col items-center justify-between py-12 gap-8"
         onSubmit={(e) => handleSubmit(e)}
       >
         <h2 className="text-primary text-xl xl:text-4xl font-bold text-center">

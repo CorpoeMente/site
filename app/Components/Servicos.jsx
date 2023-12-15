@@ -22,6 +22,7 @@ const Servicos = () => {
           price: 320,
         },
       ],
+      valorSocial: true,
     },
     {
       nome: "TCC (cognitivo comportamental)",
@@ -39,6 +40,7 @@ const Servicos = () => {
           price: 320,
         },
       ],
+      valorSocial: true,
     },
     {
       nome: "Psicanalista",
@@ -46,7 +48,7 @@ const Servicos = () => {
         "A Psicanálise é uma abordagem profunda que busca compreender os processos mentais inconscientes, promovendo o autoconhecimento e a transformação pessoal.",
       departamento: "psicologia",
       type: "servico",
-      valor: [
+      valores: [
         {
           title: "Avulsa",
           price: 80,
@@ -56,6 +58,7 @@ const Servicos = () => {
           price: 320,
         },
       ],
+      valorSocial: true,
     },
     {
       nome: "Psicopedagogia",
@@ -63,7 +66,7 @@ const Servicos = () => {
         "A Psicopedagogia visa auxiliar no desenvolvimento das habilidades cognitivas e emocionais, proporcionando um ambiente favorável ao aprendizado.",
       departamento: "psicologia",
       type: "servico",
-      valor: 0,
+      valores: false,
     },
     {
       nome: "Psiquiatria",
@@ -71,12 +74,13 @@ const Servicos = () => {
         "A Psiquiatria é uma especialidade médica que visa diagnosticar e tratar transtornos mentais, promovendo a saúde mental e o bem-estar.",
       departamento: "psicologia",
       type: "servico",
-      valor: [
+      valores: [
         {
           title: "Avulsa (Online)",
           price: 190,
         },
       ],
+      valorSocial: false,
     },
     {
       nome: "Neuropsicologia",
@@ -84,7 +88,7 @@ const Servicos = () => {
         "Nossos neuropsicólogos utilizam abordagens inovadoras para avaliar e tratar distúrbios cognitivos relacionados ao sistema nervoso, promovendo a reabilitação neuropsicológica.",
       departamento: "neuropsicologia",
       type: "servico",
-      valor: [
+      valores: [
         {
           title: "Com a guia Amor Saúde",
           price: 1400,
@@ -98,6 +102,7 @@ const Servicos = () => {
           price: 2300,
         },
       ],
+      valorSocial: false,
     },
     {
       nome: "Psicólogia da infância",
@@ -115,6 +120,7 @@ const Servicos = () => {
           price: 320,
         },
       ],
+      valorSocial: true,
     },
     {
       nome: "Psicóloga infanto-juvenil",
@@ -132,6 +138,7 @@ const Servicos = () => {
           price: 320,
         },
       ],
+      valorSocial: true,
     },
     {
       nome: "Terapeuta de casal e família",
@@ -139,7 +146,7 @@ const Servicos = () => {
         "A terapia de casal e família busca fortalecer os laços afetivos e resolver conflitos, promovendo relações saudáveis e harmoniosas.",
       departamento: "psicologia",
       type: "servico",
-      valor: [
+      valores: [
         {
           title: "Avulsa",
           price: 200,
@@ -149,6 +156,7 @@ const Servicos = () => {
           price: 650,
         },
       ],
+      valorSocial: false,
     },
     {
       nome: "Parecer Psicológico",
@@ -156,12 +164,13 @@ const Servicos = () => {
         "O Parecer Psicológico é uma avaliação detalhada realizada por nossos psicólogos, fornecendo insights valiosos para diversas situações.",
       departamento: "psicologia",
       type: "exame",
-      valor: [
+      valores: [
         {
           title: "Avulsa",
           price: 250,
         },
       ],
+      valorSocial: true,
     },
   ];
 
@@ -227,7 +236,7 @@ const Servicos = () => {
   return (
     <section
       id="servicos"
-      className="w-screen flex flex-col items-center justify-between xl:px-[15%] py-[2%] relative h-auto"
+      className="w-screen flex flex-col items-center justify-start xl:px-[15%] py-[2%] relative h-auto  min-h-[150vh]"
     >
       <img
         src="/fundo-preto-e-branco-ondulado.jpg"
@@ -297,19 +306,21 @@ const Servicos = () => {
             </span>
           </div>
         )}
-        <FaChevronLeft
-          className={`text-white text-4xl cursor-pointer hover:text-secondary absolute left-8 lg:left-0 top-1/2 transform -translate-y-1/2 ${
-            page === 0 && "hidden"
-          }`}
-          onClick={() => handlePageChange(-1)}
-        />
-        <FaChevronRight
-          className={`text-white text-4xl cursor-pointer hover:text-secondary absolute right-8 lg:right-0 top-1/2 transform -translate-y-1/2 ${
-            page + 1 === filteredServicos.length / servicosPerPage && "hidden"
-          }`}
-          onClick={() => handlePageChange(1)}
-        />
       </div>
+      <FaChevronLeft
+        className={`text-white text-4xl cursor-pointer hover:text-secondary absolute left-8 top-1/2 lg:left-[10%] xl:top-[58%] transform -translate-y-1/2 ${
+          page === 0 && "hidden"
+        }`}
+        onClick={() => handlePageChange(-1)}
+      />
+      <FaChevronRight
+        className={`text-white text-4xl cursor-pointer hover:text-secondary absolute right-8 top-1/2 lg:right-[10%] xl:top-[58%] transform -translate-y-1/2 ${
+          (page + 1 >= filteredServicos.length / servicosPerPage ||
+            filteredServicos.length <= 1) &&
+          "hidden"
+        }`}
+        onClick={() => handlePageChange(1)}
+      />
     </section>
   );
 };

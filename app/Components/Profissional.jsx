@@ -4,8 +4,7 @@ const profissionais = [
   {
     nome: "Profissional de Neuropsicologia",
     cargo: "Neuropsicólogo e Psicólogo",
-    imagem:
-      "https://media-gig4-1.cdn.whatsapp.net/v/t61.24694-24/209605740_946893555875123_5389400469944571154_n.jpg?ccb=11-4&oh=01_AdQX94evdAZLxoHq5qlSWsXDHYKoUdGSunJFKuX8wJSAUA&oe=6574D7C5&_nc_sid=e6ed6c&_nc_cat=102",
+    imagem: "/Vagner.jpg",
     descricao:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit.",
     curriculo: [
@@ -23,8 +22,7 @@ const profissionais = [
   },
   {
     nome: "Profissional de Psicologia",
-    imagem:
-      "https://media-gig4-1.cdn.whatsapp.net/v/t61.24694-24/209605740_946893555875123_5389400469944571154_n.jpg?ccb=11-4&oh=01_AdQX94evdAZLxoHq5qlSWsXDHYKoUdGSunJFKuX8wJSAUA&oe=6574D7C5&_nc_sid=e6ed6c&_nc_cat=102",
+    imagem: "/Thayane.jpg",
     cargo: "Psicólogo",
     descricao:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit.",
@@ -43,8 +41,7 @@ const profissionais = [
   },
   {
     nome: "Profissional de Nutricionismo",
-    imagem:
-      "https://media-gig4-1.cdn.whatsapp.net/v/t61.24694-24/209605740_946893555875123_5389400469944571154_n.jpg?ccb=11-4&oh=01_AdQX94evdAZLxoHq5qlSWsXDHYKoUdGSunJFKuX8wJSAUA&oe=6574D7C5&_nc_sid=e6ed6c&_nc_cat=102",
+    imagem: "",
     cargo: "Nutricionista",
     descricao:
       "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit.",
@@ -65,15 +62,20 @@ const profissionais = [
 const Profissional = ({ departamento }) => {
   return (
     <div
-      className="w-full max-w-[80vw] flex flex-col lg:flex-row items-center justify-center h-[800px] lg:h-[600px] mt-16 rounded-xl card-shadow relative self-center"
+      className="w-full max-w-[80vw] flex flex-col lg:flex-row items-center justify-center h-[800px] lg:h-[800px] mt-16 rounded-xl card-shadow relative self-center"
       id="profissional"
     >
       <img
         src="./dots.svg"
         className="absolute top-[-12%] right-[-7%] pointer-events-none"
       />
-      <div className="bg-[#a0a0a0] w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10"></div>
-      <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 bg-white border-[1px] border-[#f4f4f4] rounded-r-xl z-10">
+      <div
+        className="w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10 object-cover object-top bg-top lg:object-center  no-repeat bg-cover bg-no-repeat lg:bg-center z-10"
+        style={{
+          backgroundImage: `url(${profissionais[departamento].imagem})`,
+        }}
+      ></div>
+      <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 bg-white border-[1px] border-[#f4f4f4] rounded-b-xl lg:rounded-r-xl z-10">
         <h1 className="text-[#606060] text-2xl xl:text-4xl font-bold mb-2">
           {profissionais[departamento].nome}
         </h1>
