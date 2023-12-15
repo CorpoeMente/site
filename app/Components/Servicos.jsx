@@ -7,12 +7,21 @@ import { Servico } from ".";
 const Servicos = () => {
   const servicos = [
     {
-      nome: "Terapia ABA (terapia do autismo)",
+      nome: "Psicoterapia",
       descricao:
-        "Oferecemos a terapia ABA como uma abordagem eficaz no tratamento de distúrbios do espectro autista, promovendo o desenvolvimento e a qualidade de vida.",
+        "A Psicoterapia é um tratamento psicológico que visa promover o autoconhecimento e o equilíbrio emocional, auxiliando no tratamento de diversos transtornos mentais.",
       departamento: "psicologia",
       type: "servico",
-      valor: 200,
+      valores: [
+        {
+          title: "Avulsa",
+          price: 100,
+        },
+        {
+          title: "Pacote 4 sessões",
+          price: 320,
+        },
+      ],
     },
     {
       nome: "TCC (cognitivo comportamental)",
@@ -20,7 +29,16 @@ const Servicos = () => {
         "A Terapia Cognitivo-Comportamental é uma abordagem focada na solução de problemas, auxiliando no tratamento de diversos transtornos psicológicos.",
       departamento: "psicologia",
       type: "Exame",
-      valor: 200,
+      valores: [
+        {
+          title: "Avulsa",
+          price: 100,
+        },
+        {
+          title: "Pacote 4 sessões",
+          price: 320,
+        },
+      ],
     },
     {
       nome: "Psicanalista",
@@ -28,7 +46,16 @@ const Servicos = () => {
         "A Psicanálise é uma abordagem profunda que busca compreender os processos mentais inconscientes, promovendo o autoconhecimento e a transformação pessoal.",
       departamento: "psicologia",
       type: "servico",
-      valor: 200,
+      valor: [
+        {
+          title: "Avulsa",
+          price: 80,
+        },
+        {
+          title: "Pacote 4 sessões",
+          price: 320,
+        },
+      ],
     },
     {
       nome: "Psicopedagogia",
@@ -36,7 +63,20 @@ const Servicos = () => {
         "A Psicopedagogia visa auxiliar no desenvolvimento das habilidades cognitivas e emocionais, proporcionando um ambiente favorável ao aprendizado.",
       departamento: "psicologia",
       type: "servico",
-      valor: 200,
+      valor: 0,
+    },
+    {
+      nome: "Psiquiatria",
+      descricao:
+        "A Psiquiatria é uma especialidade médica que visa diagnosticar e tratar transtornos mentais, promovendo a saúde mental e o bem-estar.",
+      departamento: "psicologia",
+      type: "servico",
+      valor: [
+        {
+          title: "Avulsa (Online)",
+          price: 190,
+        },
+      ],
     },
     {
       nome: "Neuropsicologia",
@@ -44,15 +84,37 @@ const Servicos = () => {
         "Nossos neuropsicólogos utilizam abordagens inovadoras para avaliar e tratar distúrbios cognitivos relacionados ao sistema nervoso, promovendo a reabilitação neuropsicológica.",
       departamento: "neuropsicologia",
       type: "servico",
-      valor: 200,
+      valor: [
+        {
+          title: "Com a guia Amor Saúde",
+          price: 1400,
+        },
+        {
+          title: "Sem a guia Amor Saúde",
+          price: 2000,
+        },
+        {
+          title: "Sem a guia (parcelado)",
+          price: 2300,
+        },
+      ],
     },
     {
-      nome: "Psicóloga da infância",
+      nome: "Psicólogia da infância",
       descricao:
         "A psicologia da infância visa compreender e intervir nos aspectos psicológicos do desenvolvimento infantil, promovendo o equilíbrio emocional e comportamental.",
       departamento: "psicologia",
       type: "servico",
-      valor: 200,
+      valores: [
+        {
+          title: "Avulsa",
+          price: 100,
+        },
+        {
+          title: "Pacote 4 sessões",
+          price: 320,
+        },
+      ],
     },
     {
       nome: "Psicóloga infanto-juvenil",
@@ -60,7 +122,16 @@ const Servicos = () => {
         "A psicologia infanto-juvenil abrange a compreensão e o tratamento das questões emocionais e comportamentais em crianças e adolescentes, visando o desenvolvimento saudável.",
       departamento: "psicologia",
       type: "servico",
-      valor: 200,
+      valores: [
+        {
+          title: "Avulsa",
+          price: 100,
+        },
+        {
+          title: "Pacote 4 sessões",
+          price: 320,
+        },
+      ],
     },
     {
       nome: "Terapeuta de casal e família",
@@ -68,7 +139,16 @@ const Servicos = () => {
         "A terapia de casal e família busca fortalecer os laços afetivos e resolver conflitos, promovendo relações saudáveis e harmoniosas.",
       departamento: "psicologia",
       type: "servico",
-      valor: 200,
+      valor: [
+        {
+          title: "Avulsa",
+          price: 200,
+        },
+        {
+          title: "Pacote 4 sessões",
+          price: 650,
+        },
+      ],
     },
     {
       nome: "Parecer Psicológico",
@@ -76,31 +156,12 @@ const Servicos = () => {
         "O Parecer Psicológico é uma avaliação detalhada realizada por nossos psicólogos, fornecendo insights valiosos para diversas situações.",
       departamento: "psicologia",
       type: "exame",
-      valor: 200,
-    },
-    {
-      nome: "Terapia ocupacional",
-      descricao:
-        "A Terapia Ocupacional busca promover a autonomia e independência através de atividades terapêuticas, contribuindo para a melhoria da qualidade de vida.",
-      departamento: "psicologia",
-      type: "servico",
-      valor: 200,
-    },
-    {
-      nome: "Fonoaudiologia",
-      descricao:
-        "A Fonoaudiologia abrange a prevenção, avaliação e intervenção em questões relacionadas à comunicação oral e escrita, voz, audição e funções orofaciais.",
-      departamento: "psicologia",
-      type: "servico",
-      valor: 200,
-    },
-    {
-      nome: "Nutricionista",
-      descricao:
-        "Nossos nutricionistas fornecem orientação especializada para promover hábitos alimentares saudáveis e personalizados, visando o bem-estar e a saúde integral.",
-      departamento: "nutricao",
-      type: "servico",
-      valor: 200,
+      valor: [
+        {
+          title: "Avulsa",
+          price: 250,
+        },
+      ],
     },
   ];
 

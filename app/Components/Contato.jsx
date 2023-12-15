@@ -39,7 +39,7 @@ const Contato = () => {
 
   return (
     <div
-      className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[250px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
+      className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[280px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
       id="contato"
     >
       <img
@@ -52,7 +52,7 @@ const Contato = () => {
         className="w-4/5 lg:w-3/5 flex flex-col items-center justify-between py-12 gap-8"
         onSubmit={(e) => handleSubmit(e)}
       >
-        <h2 className="text-primary text-4xl font-bold text-center">
+        <h2 className="text-primary text-xl xl:text-4xl font-bold text-center">
           Entre em Contato Conosco
         </h2>
         {success && (

@@ -5,7 +5,7 @@ import { FaQuoteRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const DepoimentoMobile = ({ depoimento }) => {
   return (
-    <div className="absolute top-[-50%] xl:top-[-25%] transform translate-y-1/4 z-40 flex flex-col items-start justify-start gap-4 bg-white rounded-xl shadow-2xl p-8 text-center min-w-[80vw] w-full min-h-[250px] z-10 relative basis-1/3 card-shadow">
+    <div className="absolute top-[-60%] min-[400px]:top-[-15%] min-[600px]:top-[20%] transform translate-y-1/4 z-40 flex flex-col items-start justify-start gap-4 bg-white rounded-xl shadow-2xl p-8 text-center min-w-[80vw] w-full min-h-[250px] z-10 relative basis-1/3 card-shadow">
       <img
         src={depoimento.profile_photo_url}
         className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
@@ -14,7 +14,7 @@ const DepoimentoMobile = ({ depoimento }) => {
         {depoimento.author_name.charAt(0).toUpperCase() +
           depoimento.author_name.slice(1)}{" "}
       </h4>
-      <p className="my-auto text-start font-medium text-lg font-inter drop-shadow-md z-10">
+      <p className="my-auto text-start font-medium text-md font-inter drop-shadow-[1px_1px_2px_rgba(0,0,0,0.8)] z-10">
         {depoimento.text}
       </p>
 

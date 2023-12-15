@@ -65,27 +65,29 @@ const DepoimentosMobile = () => {
 
   return (
     <section
-      className="w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[140vh] xl:h-[160vh]"
+      className="w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[100vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] min-[1200px]:h-[150vh]"
       id="departamentos"
     >
       <img
         src="/depoimentos-background.jpg"
-        className="absolute top-0 left-0 w-screen h-[140vh] xl:h-[160vh] opacity-[17%] bg-cover object-top object-cover bg-center"
+        className="absolute top-0 left-0 w-screen h-[100vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] opacity-[17%] bg-cover object-top object-cover bg-center"
       />
-      <span className="text-secondary text-2xl font-bold">Depoimentos</span>
-      <h2 className="text-primary text-4xl font-bold text-center">
+      <span className="text-secondary text-lg xl:font-xl font-bold">
+        Depoimentos
+      </span>
+      <h2 className="text-primary text-2xl xl:font-3xl font-black text-center w-3/4">
         Oque Nosso Paciente Pensa de Nós
       </h2>
-      <div className="flex items-center justify-center mt-[30vh] xl:mt-72 xl:mb-48 w-screen relative">
+      <div className="flex items-center justify-center mt-32 w-screen relative">
         {selectedReview && <DepoimentoMobile depoimento={selectedReview} />}
 
         <FaChevronLeft
           onClick={handlePrev}
-          className="absolute top-[15%] xl:top-[40%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-lg left-[15px] md:left-[36px] transform z-40 large-drop-shadow"
+          className="absolute top-[8%] min-[400px]:top-[50%] min-[600px]:top-[75%] min-[1200px]:top-[90%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-[0px_0px_2px_rgba(0,0,0,0.5)] left-[4px] min-[400px]:left-[10px] md:left-[36px] transform z-40 large-drop-shadow"
         />
         <FaChevronRight
           onClick={handleNext}
-          className="absolute top-[15%] xl:top-[40%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-lg right-[15px] md:right-[36px] transform z-40 large-drop-shadow "
+          className="absolute top-[8%] min-[400px]:top-[50%] min-[600px]:top-[75%] min-[1200px]:top-[90%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-[0px_0px_2px_rgba(0,0,0,0.5)] right-[4px] min-[400px]:right-[8px] md:right-[36px] transform z-40 large-drop-shadow "
         />
       </div>
 

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Table = ({ headers, children }) => {
+const Table = ({ headers, className = "", children }) => {
   return (
-    <table className="table-auto border-[1px] border-[#d0d0d0]">
+    <table className={`table-auto border-[1px] border-[#d0d0d0] ${className}`}>
       <thead className="border-b-[1px]">
         <tr>
           {headers.map((header, index) => (

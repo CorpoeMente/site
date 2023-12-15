@@ -10,7 +10,7 @@ const Hero = () => {
         src="/background.webp"
         className="absolute top-0 left-0 h-screen -z-10 bg-contain bg-center pointer-events-none"
       />
-      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full 2xl:w-1/2 gap-12 px-[10%] 2xl:px-[0] h-[110%] 2xl:h-auto slide-bottom z-40">
+      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full 2xl:w-1/2 gap-12 px-[10%] 2xl:px-[0] h-[110%] 2xl:h-auto slide-bottom z-30">
         <h1 className="text-4xl lg:text-6xl w-full lg:w-3/4 xl:w-full  font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
           Cuidar do <span className="text-secondary">Corpo</span> e
           <span className="text-secondary"> Mente</span> em um só lugar

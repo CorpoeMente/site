@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Agendamento } from ".";
+import { Agendamento, Valores } from ".";
 import { LiaFileMedicalAltSolid } from "react-icons/lia";
 import { FaUserDoctor } from "react-icons/fa6";
 const Servico = ({ servico, index }) => {
@@ -28,11 +28,8 @@ const Servico = ({ servico, index }) => {
       <h4 className="font-bold text-xl  text-clamp-2">{servico.nome}</h4>
 
       <p>{servico.descricao}</p>
-      {/* {servico.valor && (
-        <span className="text-primary font-bold text-xl">
-          R$ {servico.valor.toFixed(2)}
-        </span>
-      )} */}
+
+      {servico.valores && <Valores valores={servico.valores} />}
 
       <Agendamento servico={servico} />
     </div>
