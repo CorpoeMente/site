@@ -7,7 +7,7 @@ const Curriculo = ({ profissional }) => {
     <Modal
       buttonText={"Ver Currículo"}
       title={"Currículo"}
-      className={"w-1/3 !text-sm"}
+      className={"w-full lg:w-1/3 !text-sm mt-auto"}
     >
       <Timeline>
         {profissional.curriculo.map((item, index) => (

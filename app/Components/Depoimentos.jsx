@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Contato, Depoimento } from "../Components";
 import { useLoadScript } from "@react-google-maps/api";
 import { FaStar } from "react-icons/fa";
+import { DepoimentoLoading } from "../Components";
 const libraries = ["places"];
 
 const Depoimentos = () => {
@@ -40,11 +41,9 @@ const Depoimentos = () => {
       };
     }
   }, [isLoaded, loadError]);
-  if (!isLoaded) return;
-  if (window.innerWidth <= 1580) return;
   return (
     <section
-      className="w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex flex-col items-center xl:px-[15%] pt-[5%] relative h-[180vh]"
+      className="hidden 2xl:flex w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex-col items-center xl:px-[15%] pt-[5%] relative h-[180vh]"
       id="depoimentos"
     >
       <img
@@ -58,9 +57,13 @@ const Depoimentos = () => {
         Oque Nosso Paciente Pensa de Nós
       </h2>
       <div className="flex flex-wrap items-center justify-center mt-32 -mb-24">
-        {reviews.map((depoimento, index) => (
-          <Depoimento key={index} depoimento={depoimento} index={index} />
-        ))}
+        {isLoaded
+          ? reviews.map((depoimento, index) => (
+              <Depoimento key={index} depoimento={depoimento} index={index} />
+            ))
+          : [...Array(4)].map((_, index) => (
+              <DepoimentoLoading key={index} index={index} />
+            ))}
       </div>
 
       <div className="flex items-center justify-center rounded-full bg-secondary h-[600px] w-[600px] absolute top-[35%] left-[50%] -translate-y-1/2 -translate-x-1/2 opacity-[75%] z-0">

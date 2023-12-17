@@ -42,7 +42,6 @@ const DepoimentosMobile = () => {
     }
   }, [isLoaded, loadError]);
   if (!isLoaded) return;
-  if (window && window.innerWidth > 1580) return;
 
   const handleNext = () => {
     const index = reviews.indexOf(selectedReview);
@@ -65,8 +64,8 @@ const DepoimentosMobile = () => {
 
   return (
     <section
-      className="w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[100vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] min-[1200px]:h-[150vh]"
-      id="departamentos"
+      className="block 2xl:hidden w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[130vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] min-[1200px]:h-[150vh]"
+      id="depoimentos"
     >
       <img
         src="/depoimentos-background.jpg"

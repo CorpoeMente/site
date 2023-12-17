@@ -70,7 +70,7 @@ const Profissional = ({ departamento }) => {
         className="absolute top-[-12%] right-[-7%] pointer-events-none"
       />
       <div
-        className="w-full h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10 object-cover object-top bg-top lg:object-center  no-repeat bg-cover bg-no-repeat lg:bg-center z-10"
+        className="w-full h-1/2 lg:h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10 object-cover object-top bg-top lg:object-center  no-repeat bg-cover bg-no-repeat lg:bg-center z-10"
         style={{
           backgroundImage: `url(${profissionais[departamento].imagem})`,
         }}

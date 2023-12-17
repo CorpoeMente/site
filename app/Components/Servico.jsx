@@ -7,7 +7,7 @@ const Servico = ({ servico, index }) => {
   return (
     <div
       key={index}
-      className="flex flex-col items-center justify-between min-w-[250px] max-w-[300px] lg:max-w-[400px] min-h-[500px] bg-white rounded-xl shadow-xl p-8 text-center w-full h-full max-h-[600px] relative overflow-hidden"
+      className="flex flex-col items-center justify-between min-w-[250px] max-w-[300px] lg:max-w-[400px] min-h-[500px] max-h-[600px] bg-white rounded-xl shadow-xl p-8 text-center w-full h-full relative overflow-hidden"
     >
       <div
         className={`${

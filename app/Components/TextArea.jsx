@@ -11,9 +11,9 @@ const TextArea = ({
   className,
 }) => {
   return (
-    <div className="w-full max-w-[400px] relative !max-w-[75%]">
+    <div className="w-full max-w-[400px] relative lg:!max-w-[75%]">
       <textarea
-        className={` overflow-y-auto w-full border bg-[#fafafa] rounded shadow-lg focus:shadow-secondary font-inter text-sm lg:text-lg focus:border-secondary focus:bg-white h-32 xl:h-72 ${
+        className={`overflow-y-auto w-full border bg-[#fafafa] rounded shadow-lg focus:shadow-secondary font-inter text-sm lg:text-lg focus:border-secondary focus:bg-white h-32 xl:h-72 ${
           state ? "border-secondary bg-white" : "border-[#e0e0e0]"
         } py-4 px-4 peer outline-none transition duration-300 ease-in-out ${className}`}
         type={type}

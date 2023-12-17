@@ -28,6 +28,14 @@ export default function SidePanel() {
     router.push("/panel/pedidos");
   };
 
+  const handleServicos = () => {
+    router.push("/panel/servicos");
+  };
+
+  const handleDepartamentos = () => {
+    router.push("/panel/departamentos");
+  };
+
   return (
     <aside className="w-72 h-screen flex flex-col items-center justify-between bg-[#202020] shadow-[2px_0px_16px_4px_rgba(0,0,0,0.3)]">
       <div
@@ -71,6 +79,20 @@ export default function SidePanel() {
           >
             <CiUser />
             Usuários
+          </li>
+          <li
+            onClick={handleServicos}
+            className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+          >
+            <CiUser />
+            Serviços
+          </li>
+          <li
+            onClick={handleDepartamentos}
+            className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+          >
+            <CiUser />
+            Departamentos
           </li>
         </ul>
       </nav>

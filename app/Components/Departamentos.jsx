@@ -8,23 +8,16 @@ const deps = [
     name: "Neuropsicologia",
     img: "/neuropsicologia.svg",
     color: "#B173DF",
-    Icone: PiBrainThin,
-    description:
-      "Nossa equipe de neuropsicologia utiliza abordagens inovadoras para avaliar e tratar distúrbios cognitivos e emocionais relacionados ao sistema nervoso.",
   },
   {
     name: "Psicologia",
     img: "/psychology.svg",
     color: "#79D1E5",
-    description:
-      "Os profissionais de psicologia da nossa clínica estão comprometidos em oferecer suporte emocional e orientação em diversas áreas, promovendo o bem-estar psicológico.",
   },
   {
     name: "Nutrição",
     img: "/nutrition.svg",
     color: "#84FB98",
-    description:
-      "A equipe de nutrição especializada na Clínica Corpo e Mente proporciona orientação personalizada para promover hábitos alimentares saudáveis e equilibrados.",
   },
 ];
 

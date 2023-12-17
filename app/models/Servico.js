@@ -17,7 +17,12 @@ const ServicoSchema = new mongoose.Schema(
       enum: ["servico", "exame"],
     },
     departamento: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Departamento",
+      required: true,
+    },
+    valores: {
+      type: Array,
       required: true,
     },
   },

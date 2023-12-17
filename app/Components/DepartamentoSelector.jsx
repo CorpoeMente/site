@@ -3,7 +3,7 @@ import { Icone } from ".";
 
 const DepartamentoSelector = ({ deps, active, setActive }) => {
   return (
-    <div className="flex flex-wrap items-center mx-auto xl:mx-0 md:self-start lg:items-start justify-center gap-4 lg:gap-8 max-w-[80vw]">
+    <div className="flex items-start overflow-x-auto md:self-start gap-4 lg:gap-8 max-w-[80vw] scrollbar-hidden">
       {deps.map((departamento, index) => (
         <Icone
           key={index}

@@ -37,11 +37,11 @@ body {
 }
 
 .pulsing {
-  animation: pulse 3s infinite;
+  animation: pump 3s infinite;
 }
 
 
-@keyframes pulse {
+@keyframes pump {
   0% {
     transform: scale(1);
   }
@@ -288,4 +288,8 @@ fieldset {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
 }

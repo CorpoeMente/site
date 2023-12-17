@@ -39,7 +39,7 @@ const Contato = () => {
 
   return (
     <div
-      className="absolute bottom-[-15%] lg:bottom-[-10%] z-10 bg-white flex items-stretch justify-center min-w-[280px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
+      className="absolute bottom-[-15%] lg:bottom-[-10%] left-1/2 transform -translate-x-1/2 z-10 bg-white flex items-stretch justify-center min-w-[280px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
       id="contato"
     >
       <div
@@ -57,7 +57,7 @@ const Contato = () => {
           Entre em Contato Conosco
         </h2>
         {success && (
-          <p className="text-center text-lg font-medium text-[#060]">
+          <p className="text-center text-xs lg:text-lg font-medium text-[#060]">
             Mensagem enviada com sucesso!
           </p>
         )}

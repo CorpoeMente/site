@@ -48,7 +48,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="grid grid-cols-2 self-center xl:self-start  text-white h-full gap-x-12 xl:w-1/3">
+        <div className="grid grid-cols-2 self-center xl:self-start  text-white max-w-[80vw] h-full gap-x-12 xl:w-1/3">
           <h4 className="col-span-2 font-bold text-3xl mb-8 text-center xl:text-start">
             Horário de Funcionamento
           </h4>

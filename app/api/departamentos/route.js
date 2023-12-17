@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Servico } from "../../models";
+import { Departamento } from "../../models";
 import dbConnect from "../../utils/dbConnect";
 import handlePermissions from "../../utils/serverSession";
 
@@ -8,20 +8,19 @@ export async function POST(request) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
-  const { nome, descricao, type, departamento } = await request.json();
+  const { name, color, img } = await request.json();
 
   await dbConnect();
 
-  const newServico = new Servico({
-    nome,
-    descricao,
-    type,
-    departamento,
+  const newDepartamento = new Departamento({
+    name,
+    color,
+    img,
   });
 
   try {
-    await newServico.save();
-    return new NextResponse("Servico has been created", {
+    await newDepartamento.save();
+    return new NextResponse("Departamento has been created", {
       status: 201,
     });
   } catch (err) {
@@ -34,30 +33,8 @@ export async function POST(request) {
 export async function GET(request) {
   await dbConnect();
 
-  // Get params from request
-  const { query } = request;
-  if (query) {
-    const { search, departamento_id, type } = query;
-    // Search database lookin for name, departamento_id, type, description
-
-    if (search) {
-      const servicos = await Servico.find({
-        $or: [
-          { nome: { $regex: search, $options: "i" } },
-          { descricao: { $regex: search, $options: "i" } },
-        ],
-
-        ...(departamento_id && { departamento: departamento_id }),
-        ...(type && { type }),
-      });
-      return new NextResponse(JSON.stringify(servicos), {
-        status: 200,
-      });
-    }
-  }
-
   try {
-    const servicos = await Servico.find({});
+    const servicos = await Departamento.find({});
     return new NextResponse(JSON.stringify(servicos), {
       status: 200,
     });
@@ -73,18 +50,18 @@ export async function PUT(request) {
     return new NextResponse("Unauthorized", { status: 401 });
   }
 
-  const { id, nome, descricao, type, departamento } = await request.json();
+  const { id, name, color, img } = await request.json();
 
   await dbConnect();
 
   try {
-    await Servico.findByIdAndUpdate(id, {
-      nome,
-      descricao,
-      type,
-      departamento,
+    await Departamento.findByIdAndUpdate(id, {
+      name,
+
+      color,
+      img,
     });
-    return new NextResponse("Servico has been updated", {
+    return new NextResponse("Departamento has been updated", {
       status: 200,
     });
   } catch (err) {
@@ -104,8 +81,8 @@ export async function DELETE(request) {
   await dbConnect();
 
   try {
-    await Servico.findByIdAndDelete(id);
-    return new NextResponse("Servico has been deleted", {
+    await Departamento.findByIdAndDelete(id);
+    return new NextResponse("Departamento has been deleted", {
       status: 200,
     });
   } catch (err) {

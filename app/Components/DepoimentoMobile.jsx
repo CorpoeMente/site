@@ -14,7 +14,7 @@ const DepoimentoMobile = ({ depoimento }) => {
         {depoimento.author_name.charAt(0).toUpperCase() +
           depoimento.author_name.slice(1)}{" "}
       </h4>
-      <p className="my-auto text-start font-medium text-md font-inter drop-shadow-[1px_1px_2px_rgba(0,0,0,0.8)] z-10">
+      <p className="my-auto text-start font-medium text-md font-inter drop-shadow-[0px_0px_1px_rgba(0,0,0,0.4)] z-10">
         {depoimento.text}
       </p>
 

@@ -32,7 +32,7 @@ const Modal = ({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="backdrop-blur bg-[#00000020] z-40 fixed top-0 left-0 bottom-0 right-0" />
-        <Dialog.Content className="bg-white w-[800px] h-[800px] max-w-[90vw] lg:max-w-[80vw] rounded-xl shadow-xl z-40 fixed left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 z-50 p-8">
+        <Dialog.Content className="bg-white w-[800px] h-[800px] max-h-[90vh] overflow-y-auto max-w-[90vw] lg:max-w-[80vw] rounded-xl shadow-xl z-40 fixed left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 z-50 p-8">
           <Dialog.Title className="text-2xl text-primary font-bold  mb-12">
             {title}
           </Dialog.Title>
