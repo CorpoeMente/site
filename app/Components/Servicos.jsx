@@ -186,8 +186,8 @@ const Servicos = () => {
 
   function detectServicosPerPage() {
     if (window.innerWidth <= 1280 && window.innerWidth >= 1024) return 4;
-    if (window.innerWidth < 1024 && window.innerWidth >= 750) return 2;
-    if (window.innerWidth < 750) return 1;
+    if (window.innerWidth < 1024 && window.innerWidth > 800) return 2;
+    if (window.innerWidth <= 800) return 1;
     return 6;
   }
 
@@ -238,7 +238,7 @@ const Servicos = () => {
   return (
     <section
       id="servicos"
-      className="w-screen flex flex-col items-center justify-start xl:px-[15%] py-[2%] relative h-auto min-h-[120vh] lg:min-h-[150vh]"
+      className="w-screen flex flex-col items-center justify-start xl:px-[15%] py-[2%] relative h-auto min-h-[120vh] lg:min-h-[150vh] min-[2560px]:min-h-[100vh] min-[2560px]:h-[100vh]"
     >
       <img
         src="/fundo-preto-e-branco-ondulado.jpg"
@@ -275,7 +275,7 @@ const Servicos = () => {
         </select>
       </form>
 
-      <div className="relative grid grid-cols-1 place-items-center place-content-start md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16 lg:mt-24 w-full sm:max-w-[90vw] lg:max-w-[70vw] xl:max-w-[80vw] 2xl:max-w-[75vw] w-screen h-[500px] lg:h-[1040px]">
+      <div className="relative grid grid-cols-1 place-items-center place-content-start md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16 lg:mt-24 w-full sm:max-w-[90vw] lg:max-w-[70vw] xl:max-w-[80vw] 2xl:max-w-[75vw] w-screen h-[500px] md:h-[1040px]">
         <img
           src="/dots-2.svg"
           className="hidden lg:block absolute left-[-12px] top-[-36px] pointer-events-none"
@@ -285,7 +285,7 @@ const Servicos = () => {
           className="hidden lg:block absolute right-[-12px] bottom-[-36px] pointer-events-none"
         />
         {loading ? (
-          [...Array(6)].map((_, index) => (
+          [...Array(1)].map((_, index) => (
             <ServicoLoading key={index} index={index} />
           ))
         ) : filteredServicos.length === 0 ? (

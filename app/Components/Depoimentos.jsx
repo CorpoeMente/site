@@ -43,7 +43,7 @@ const Depoimentos = () => {
   }, [isLoaded, loadError]);
   return (
     <section
-      className="hidden 2xl:flex w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex-col items-center xl:px-[15%] pt-[5%] relative h-[180vh]"
+      className="hidden xl:flex w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex-col items-center xl:px-[15%] pt-[5%] relative h-[185vh] min-[2560px]:h-[120vh]"
       id="depoimentos"
     >
       <img

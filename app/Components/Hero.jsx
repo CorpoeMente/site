@@ -5,12 +5,11 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="w-screen h-screen flex items-start  justify-between xl:px-[15%] py-[120px] xl:py-[15%] relative">
-      <img
-        src="/background.webp"
-        className="absolute top-0 left-0 h-screen -z-10 bg-contain bg-center pointer-events-none"
-      />
-      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full 2xl:w-1/2 gap-12 px-[10%] 2xl:px-[0] h-[110%] 2xl:h-auto slide-bottom z-30">
+    <section
+      className="w-screen h-screen   flex items-start  justify-between xl:px-[10%] 2xl:px-[15%] py-[120px] xl:py-[15%] relative bg-crop bg-center bg-no-repeat overflow-hidden"
+      style={{ backgroundImage: `url(/background.webp)` }}
+    >
+      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full xl:w-1/2 gap-12 px-[10%] xl:px-[0] h-[110%] xl:h-auto slide-bottom z-30">
         <h1 className="text-4xl lg:text-6xl w-full lg:w-3/4 xl:w-full  font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
           Cuidar do <span className="text-secondary">Corpo</span> e
           <span className="text-secondary"> Mente</span> em um só lugar
@@ -43,9 +42,9 @@ const Hero = () => {
       </div>
 
       <img
-        src="/logo-white.svg"
+        src="logo-white.svg"
         alt=""
-        className="opacity-[0.4] pointer-events-none w-2/3 transform translate-x-[-47%] left-1/2 absolute top-[15%] 2xl:top-[15%] 2xl:right-0 2xl:-translate-x-[5%] 2xl:w-2/3 max-w-[800px] drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
+        className="opacity-[0.4] pointer-events-none absolute top-1/2 right-1/2 transform translate-x-1/2 xl:-translate-x-1/2 xl:right-[0%] -translate-y-1/2 w-2/3 max-w-[800px] lg:max-w-[500px] drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
       />
     </section>
   );

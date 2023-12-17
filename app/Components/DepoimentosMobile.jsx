@@ -64,12 +64,12 @@ const DepoimentosMobile = () => {
 
   return (
     <section
-      className="block 2xl:hidden w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[130vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] min-[1200px]:h-[150vh]"
+      className="block xl:hidden w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[130vh] min-[1024px]:h-[120vh]"
       id="depoimentos"
     >
       <img
         src="/depoimentos-background.jpg"
-        className="absolute top-0 left-0 w-screen h-[100vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] opacity-[17%] bg-cover object-top object-cover bg-center"
+        className="absolute top-0 left-0 w-screen h-[100vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] min-[1200px]:h-[120vh] opacity-[37%] bg-cover object-top object-cover bg-center"
       />
       <span className="text-secondary text-lg xl:font-xl font-bold">
         Depoimentos
@@ -77,21 +77,17 @@ const DepoimentosMobile = () => {
       <h2 className="text-primary text-2xl xl:font-3xl font-black text-center w-3/4">
         Oque Nosso Paciente Pensa de Nós
       </h2>
-      <div className="flex items-center justify-center mt-32 w-screen relative">
+      <div className="flex items-center justify-center mt-16 w-screen relative">
         {selectedReview && <DepoimentoMobile depoimento={selectedReview} />}
 
         <FaChevronLeft
           onClick={handlePrev}
-          className="absolute top-[8%] min-[400px]:top-[50%] min-[600px]:top-[75%] min-[1200px]:top-[90%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-[0px_0px_2px_rgba(0,0,0,0.5)] left-[4px] min-[400px]:left-[10px] md:left-[36px] transform z-40 large-drop-shadow"
+          className="absolute top-1/2 transform -translate-y-1/2 text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-[0px_0px_2px_rgba(0,0,0,0.5)] left-[4px] min-[400px]:left-[10px] md:left-[36px] transform z-40 large-drop-shadow"
         />
         <FaChevronRight
           onClick={handleNext}
-          className="absolute top-[8%] min-[400px]:top-[50%] min-[600px]:top-[75%] min-[1200px]:top-[90%] text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-[0px_0px_2px_rgba(0,0,0,0.5)] right-[4px] min-[400px]:right-[8px] md:right-[36px] transform z-40 large-drop-shadow "
+          className="absolute top-1/2 transform -translate-y-1/2 text-[#fff] text-4xl cursor-pointer hover:text-secondary absolute drop-shadow-[0px_0px_2px_rgba(0,0,0,0.5)] right-[4px] min-[400px]:right-[8px] md:right-[36px] transform z-40 large-drop-shadow "
         />
-      </div>
-
-      <div className="hidden min-[400px]:flex absolute items-center justify-center rounded-full bg-secondary aspect-square w-[600px] max-w-[90vw]  top-[35%] left-[50%] -translate-y-1/2 -translate-x-1/2 opacity-[75%] z-0">
-        <div className="rounded-full bg-primary  aspect-square w-[440px] max-w-[65vw] opacity-[75%] z-0 pulsing"></div>
       </div>
 
       <Contato />
