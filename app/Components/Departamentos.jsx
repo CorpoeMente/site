@@ -1,28 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DepartamentoSelector, Profissional } from "../Components";
 import { PiBrainThin } from "react-icons/pi";
 
-const deps = [
-  {
-    name: "Neuropsicologia",
-    img: "/neuropsicologia.svg",
-    color: "#B173DF",
-  },
-  {
-    name: "Psicologia",
-    img: "/psychology.svg",
-    color: "#79D1E5",
-  },
-  {
-    name: "Nutrição",
-    img: "/nutrition.svg",
-    color: "#84FB98",
-  },
-];
-
 const Departamentos = () => {
   const [active, setActive] = useState(0);
+  const [deps, setDeps] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/departamentos")
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error) {
+          alert(res.message);
+        } else {
+          setDeps(res.departamentos);
+        }
+      });
+  }, []);
 
   return (
     <section

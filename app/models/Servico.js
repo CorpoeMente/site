@@ -22,8 +22,8 @@ const ServicoSchema = new mongoose.Schema(
       required: true,
     },
     valores: {
-      type: Array,
-      required: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ValorServico",
     },
   },
   { timestamps: true }

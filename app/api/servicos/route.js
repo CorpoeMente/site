@@ -21,13 +21,23 @@ export async function POST(request) {
 
   try {
     await newServico.save();
-    return new NextResponse("Servico has been created", {
-      status: 201,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: "Serviço has been created",
+      }),
+      {
+        status: 201,
+      }
+    );
   } catch (err) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: err.message,
+      }),
+      {
+        status: 500,
+      }
+    );
   }
 }
 
@@ -62,9 +72,14 @@ export async function GET(request) {
       status: 200,
     });
   } catch (err) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: err.message,
+      }),
+      {
+        status: 500,
+      }
+    );
   }
 }
 
@@ -84,9 +99,14 @@ export async function PUT(request) {
       type,
       departamento,
     });
-    return new NextResponse("Servico has been updated", {
-      status: 200,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: "Serviço has been updated",
+      }),
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
     return new NextResponse(err.message, {
       status: 500,
@@ -105,9 +125,15 @@ export async function DELETE(request) {
 
   try {
     await Servico.findByIdAndDelete(id);
-    return new NextResponse("Servico has been deleted", {
-      status: 200,
-    });
+
+    return new NextResponse(
+      JSON.stringify({
+        message: "Serviço has been deleted",
+      }),
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
     return new NextResponse(err.message, {
       status: 500,

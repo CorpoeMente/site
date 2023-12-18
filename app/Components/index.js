@@ -40,3 +40,5 @@ export { default as TextLoading } from "./TextLoading";
 export { default as DepoimentoLoading } from "./DepoimentoLoading";
 export { default as ServicoLoading } from "./ServicoLoading";
 export { default as ButtonLoading } from "./ButtonLoading";
+export { default as NovoServico } from "./NovoServico";
+export { default as NovoDepartamento } from "./NovoDepartamento";

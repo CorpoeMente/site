@@ -5,7 +5,9 @@ import handlePermissions from "../../utils/serverSession";
 
 export async function POST(request) {
   if (await handlePermissions()) {
-    return new NextResponse("Unauthorized", { status: 401 });
+    return new NextResponse(JSON.stringify({ message: "Unauthorized" }), {
+      status: 401,
+    });
   }
 
   const { name, color, img } = await request.json();
@@ -20,13 +22,21 @@ export async function POST(request) {
 
   try {
     await newDepartamento.save();
-    return new NextResponse("Departamento has been created", {
-      status: 201,
-    });
+    return new NextResponse(
+      JSON.stringify({ message: "Departamento has been created" }),
+      {
+        status: 201,
+      }
+    );
   } catch (err) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: err.message,
+      }),
+      {
+        status: 500,
+      }
+    );
   }
 }
 
@@ -34,20 +44,27 @@ export async function GET(request) {
   await dbConnect();
 
   try {
-    const servicos = await Departamento.find({});
-    return new NextResponse(JSON.stringify(servicos), {
+    const departamentos = await Departamento.find({});
+    return new NextResponse(JSON.stringify({ departamentos: departamentos }), {
       status: 200,
     });
   } catch (err) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: err.message,
+      }),
+      {
+        status: 500,
+      }
+    );
   }
 }
 
 export async function PUT(request) {
   if (await handlePermissions()) {
-    return new NextResponse("Unauthorized", { status: 401 });
+    return new NextResponse(JSON.stringify({ message: "Unauthorized" }), {
+      status: 401,
+    });
   }
 
   const { id, name, color, img } = await request.json();
@@ -61,19 +78,29 @@ export async function PUT(request) {
       color,
       img,
     });
-    return new NextResponse("Departamento has been updated", {
-      status: 200,
-    });
+    return new NextResponse(
+      JSON.stringify({ message: "Departamento has been updated" }),
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: err.message,
+      }),
+      {
+        status: 500,
+      }
+    );
   }
 }
 
 export async function DELETE(request) {
   if (await handlePermissions()) {
-    return new NextResponse("Unauthorized", { status: 401 });
+    return new NextResponse(JSON.stringify({ message: "Unauthorized" }), {
+      status: 401,
+    });
   }
   const data = await request.json();
   const { id } = data;
@@ -82,12 +109,20 @@ export async function DELETE(request) {
 
   try {
     await Departamento.findByIdAndDelete(id);
-    return new NextResponse("Departamento has been deleted", {
-      status: 200,
-    });
+    return new NextResponse(
+      JSON.stringify({ message: "Departamento has been deleted" }),
+      {
+        status: 200,
+      }
+    );
   } catch (err) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+    return new NextResponse(
+      JSON.stringify({
+        message: err.message,
+      }),
+      {
+        status: 500,
+      }
+    );
   }
 }
