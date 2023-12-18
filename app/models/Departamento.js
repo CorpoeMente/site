@@ -14,6 +14,11 @@ const DepartamentoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    responsavel: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Profissional",
+      required: true,
+    },
   },
   { timestamps: true }
 );
