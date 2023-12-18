@@ -12,13 +12,12 @@ const Departamentos = () => {
       .then((res) => res.json())
       .then((res) => {
         if (res.error) {
-          alert(res.message);
+          //
         } else {
           setDeps(res.departamentos);
         }
       });
   }, []);
-
   return (
     <section
       className="w-screen bg-white flex flex-col items-start px-[10%] xl:px-[15%] py-[48px] relative"

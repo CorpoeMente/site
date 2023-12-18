@@ -31,6 +31,7 @@ const Pedidos = () => {
   return (
     <Table
       headers={["Nome", "Email", "Telefone", "Serviço", "Mensagem", "Data", ""]}
+      className="w-full"
     >
       {pedidos.map((pedido) => (
         <TableRow key={pedido._id}>

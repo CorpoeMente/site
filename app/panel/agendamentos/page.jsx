@@ -6,13 +6,8 @@ const page = () => {
     <div className="flex items-center justify-center">
       <SidePanel />
 
-      <div className="flex flex-col items-center justify-center w-screen">
-        <h1 className="text-4xl font-semibold">Agendamentos</h1>
-        <div className="flex flex-col items-center justify-center">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <AgendamentosList />
-          </div>
-        </div>
+      <div className="w-full h-screen flex flex-col items-start justify-start bg-white p-12">
+        <AgendamentosList />
       </div>
     </div>
   );

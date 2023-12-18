@@ -32,7 +32,10 @@ const MensagensList = () => {
   };
 
   return (
-    <Table headers={["Nome", "Email", "Telefone", "Data", ""]}>
+    <Table
+      headers={["Nome", "Email", "Telefone", "Data", ""]}
+      className="w-full"
+    >
       {mensagens &&
         mensagens.map((mensagem, index) => {
           return (

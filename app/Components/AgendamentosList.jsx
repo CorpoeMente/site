@@ -13,7 +13,10 @@ const AgendamentosList = () => {
     getAgendamentos();
   }, []);
   return (
-    <Table headers={["Nome", "Email", "Telefone", "Data", "Serviço", ""]}>
+    <Table
+      headers={["Nome", "Email", "Telefone", "Data", "Serviço", ""]}
+      className="w-full"
+    >
       {agendamentos &&
         agendamentos.map((agendamento, index) => {
           return (

@@ -26,15 +26,20 @@ const UsersList = () => {
   };
 
   return (
-    <Table headers={["Nome", "Email", "Telefone", "Função", ""]}>
+    <Table
+      headers={["Nome", "Email", "Telefone", "Função", ""]}
+      className="w-full"
+    >
       {users &&
         users.map((user, index) => {
           return (
             <TableRow key={index}>
-              <td className="px-4 py-2">{user.nome}</td>
-              <td className="px-4 py-2">{user.email}</td>
-              <td className="px-4 py-2">{user.telefone}</td>
-              <td className="px-4 py-2">{user.role.toUpperCase()}</td>
+              <td className="px-4 py-2 text-center">{user.nome}</td>
+              <td className="px-4 py-2 text-center">{user.email}</td>
+              <td className="px-4 py-2 text-center">{user.telefone}</td>
+              <td className="px-4 py-2 text-center">
+                {user.role.toUpperCase()}
+              </td>
               <td className="flex items-center justify-center p-4">
                 <button
                   className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
