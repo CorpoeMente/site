@@ -21,10 +21,13 @@ const ServicoSchema = new mongoose.Schema(
       ref: "Departamento",
       required: true,
     },
-    valores: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "ValorServico",
-    },
+    valores: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ValorServico",
+        required: true,
+      },
+    ],
   },
   { timestamps: true }
 );
