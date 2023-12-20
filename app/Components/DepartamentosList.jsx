@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Table, TableRow } from "../Components";
+import { Table, TableRow, EditarDepartamento } from "../Components";
 import { FaTrashAlt } from "react-icons/fa";
 
 const DepartamentosList = () => {
@@ -46,13 +46,15 @@ const DepartamentosList = () => {
           <TableRow key={index}>
             <td className="p-2 text-center">{departamento.name}</td>
             <td className="p-2 text-center">{departamento.img}</td>
-            <td className="p-2 text-center">
+            <td className="p-2 text-center flex items-center justify-center gap-x-4">
               <button
                 className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
                 onClick={() => handleDelete(departamento._id)}
               >
                 <FaTrashAlt />
               </button>
+
+              <EditarDepartamento departamento={departamento} />
             </td>
           </TableRow>
         ))

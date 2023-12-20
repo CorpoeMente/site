@@ -43,20 +43,20 @@ const Depoimentos = () => {
   }, [isLoaded, loadError]);
   return (
     <section
-      className="hidden xl:flex w-screen bg-gradient-180 from-white via-40% to-[#f0f0f0] flex-col items-center xl:px-[15%] pt-[5%] relative h-[185vh] min-[2560px]:h-[120vh]"
+      className="hidden xl:grid w-screen place-items-center grid grid-cols-1 xl:px-[15%] py-[5%] relative h-auto"
       id="depoimentos"
     >
       <img
         src="/depoimentos-background.jpg"
-        className="absolute top-0 left-0 w-screen h-full opacity-[17%] bg-cover object-top object-cover bg-center"
+        className="absolute -z-10 top-0 left-0 w-full h-full opacity-[20%] bg-cover object-top object-cover bg-center"
       />
-      <span className="text-secondary text-2xl font-bold drop-shadow-2xl drop-shadow-[0_0px_2px_rgba(0,52,8,0.2)] m-[-6px]">
+      <span className="z-10 text-secondary text-2xl font-bold drop-shadow-2xl drop-shadow-[0_0px_2px_rgba(0,52,8,0.2)] m-[-6px]">
         Depoimentos
       </span>
-      <h2 className="text-primary text-4xl font-bold drop-shadow-[0_0px_3px_rgba(89,182,222,0.2)]">
+      <h2 className="z-10 text-primary text-4xl font-bold drop-shadow-[0_0px_3px_rgba(89,182,222,0.2)]">
         Oque Nosso Paciente Pensa de Nós
       </h2>
-      <div className="flex flex-wrap items-center justify-center mt-32 -mb-24">
+      <div className="flex flex-wrap items-center justify-center my-32">
         {isLoaded
           ? reviews.map((depoimento, index) => (
               <Depoimento key={index} depoimento={depoimento} index={index} />

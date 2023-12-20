@@ -6,16 +6,16 @@ import React from "react";
 const Hero = () => {
   return (
     <section
-      className="w-screen h-screen   flex items-start  justify-between xl:px-[10%] 2xl:px-[15%] py-[120px] xl:py-[15%] relative bg-crop bg-center bg-no-repeat overflow-hidden"
+      className="w-screen grid grid-cols-1 xl:grid-cols-2 place-content-center place-items-center justify-between px-[5%] py-[15%] xl:p-[200px] mt-[70px] relative bg-crop bg-start bg-no-repeat overflow-hidden"
       style={{ backgroundImage: `url(/background.webp)` }}
     >
-      <div className="relative flex flex-col items-center  xl:items-start justify-end w-full xl:w-1/2 gap-12 px-[10%] xl:px-[0] h-[110%] xl:h-auto slide-bottom z-30">
-        <h1 className="text-4xl lg:text-6xl w-full lg:w-3/4 xl:w-full  font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
+      <div className="relative center-grid flex flex-col items-center xl:items-center justify-center gap-12 px-[10%] xl:px-[15%] h-[110%] xl:h-auto slide-bottom z-30">
+        <h1 className="text-4xl lg:text-6xl w-full xl:w-3/4 font-black text-white text-center xl:text-start drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)]">
           Cuidar do <span className="text-secondary">Corpo</span> e
           <span className="text-secondary"> Mente</span> em um só lugar
         </h1>
 
-        <p className="text-center w-full sm:w-2/3 text-white  font-regular text-lg xl:text-xl drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] xl:w-3/4 xl:text-start">
+        <p className="text-center w-full xl:w-2/3 text-white  font-regular text-lg xl:text-xl drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] xl:w-3/4 xl:text-start">
           Encontre equilíbrio e bem-estar através de cuidados especializados em
           <span className="text-secondary font-semibold">
             {" "}
@@ -25,7 +25,7 @@ const Hero = () => {
           jornada de autocuidado.
         </p>
 
-        <div className="flex flex-col lg:flex-row items-start gap-12 w-full lg:w-[80%]">
+        <div className="flex flex-col lg:flex-row items-start gap-12 w-full xl:w-[80%]">
           <a
             href="#contato"
             className="bg-secondary text-white py-4 rounded-xl font-bold cursor-pointer hover:scale-110 w-full xl:w-72 text-center"
@@ -44,7 +44,7 @@ const Hero = () => {
       <img
         src="logo-white.svg"
         alt=""
-        className="opacity-[0.4] pointer-events-none absolute top-1/2 right-1/2 transform translate-x-1/2 xl:-translate-x-1/2 xl:right-[0%] -translate-y-1/2 w-2/3 max-w-[800px] lg:max-w-[500px] drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left"
+        className="opacity-[0.4] justify-self-center self-start center-grid pointer-events-none drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left w-2/3"
       />
     </section>
   );

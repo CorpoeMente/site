@@ -1,13 +1,22 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { DepartamentoSelector, Profissional } from "../Components";
-import { PiBrainThin } from "react-icons/pi";
+import {
+  DepartamentoSelector,
+  DepartamentosLoading,
+  Profissional,
+} from "../Components";
 
 const Departamentos = () => {
   const [active, setActive] = useState(0);
   const [deps, setDeps] = useState([]);
+  const [profissionais, setProfissionais] = useState([]);
 
   useEffect(() => {
+    getDepartamentos();
+    getProfissionais();
+  }, []);
+
+  const getDepartamentos = () => {
     fetch("/api/departamentos")
       .then((res) => res.json())
       .then((res) => {
@@ -15,9 +24,37 @@ const Departamentos = () => {
           //
         } else {
           setDeps(res.departamentos);
+          setActive(res.departamentos[0]._id);
         }
       });
-  }, []);
+  };
+
+  const getProfissionais = () => {
+    fetch("/api/profissionais")
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error) {
+          //
+        } else {
+          setProfissionais(res.profissionais);
+        }
+      });
+  };
+
+  const getProfissional = (id) => {
+    return profissionais.find((profissional) => profissional._id === id);
+  };
+
+  const getDepartamento = (id) => {
+    return deps.find((dep) => dep._id === id);
+  };
+
+  const getResponsavel = (id) => {
+    var dep = getDepartamento(id);
+    if (!dep) return null;
+    return getProfissional(dep.responsavel);
+  };
+
   return (
     <section
       className="w-screen bg-white flex flex-col items-start px-[10%] xl:px-[15%] py-[48px] relative"
@@ -32,8 +69,17 @@ const Departamentos = () => {
         qualificados.
       </span>
 
-      <DepartamentoSelector deps={deps} active={active} setActive={setActive} />
-      <Profissional departamento={active} />
+      {deps.length > 0 ? (
+        <DepartamentoSelector
+          deps={deps}
+          active={active}
+          setActive={setActive}
+        />
+      ) : (
+        <DepartamentosLoading />
+      )}
+
+      <Profissional profissional={getResponsavel(active)} />
     </section>
   );
 };

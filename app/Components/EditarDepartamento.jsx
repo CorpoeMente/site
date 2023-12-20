@@ -1,14 +1,15 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Modal } from "../Components";
+import { FaPencil } from "react-icons/fa6";
 
-const NovoDepartamento = () => {
-  const [name, setName] = useState("");
-  const [color, setColor] = useState("");
-  const [img, setImg] = useState("");
+const EditarDepartamento = ({ departamento }) => {
+  const [name, setName] = useState(departamento.name);
+  const [color, setColor] = useState(departamento.color);
+  const [img, setImg] = useState(departamento.img);
   const [message, setMessage] = useState("");
-  const [responsavel, setResponsavel] = useState("");
   const [profissionais, setProfissionais] = useState([]);
+  const [responsavel, setResponsavel] = useState(departamento.responsavel);
 
   useEffect(() => {
     fetch("/api/profissionais")
@@ -25,12 +26,16 @@ const NovoDepartamento = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(name, color, img, responsavel);
+
     fetch("/api/departamentos", {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify({
+        id: departamento._id,
         name,
         color,
         img,
+        responsavel,
       }),
     })
       .then((res) => res.json())
@@ -38,18 +43,16 @@ const NovoDepartamento = () => {
         if (res.error) {
           setMessage("Erro ao cadastrar departamento");
         } else {
-          setName("");
-          setColor("");
-          setImg("");
+          window.location.reload();
         }
       });
   };
 
   return (
     <Modal
-      buttonText={"Novo Departamento"}
-      title={"Novo Departamento"}
-      className={"w-auto p-2 !py-2 !text-sm !mt-0 mb-4 ms-auto"}
+      buttonText={<FaPencil />}
+      title={"Editar Departamento"}
+      className="text-white !p-2 !rounded-md !bg-[#ffe72b] !text-lg hover:scale-110 hover:!text-white transition duration-300 ease-in-out"
     >
       <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
         <form onSubmit={handleSubmit} className="w-2/3">
@@ -109,10 +112,12 @@ const NovoDepartamento = () => {
               value={responsavel}
               onChange={(e) => setResponsavel(e.target.value)}
             >
+              <option value="">Responsável</option>
+
               {profissionais &&
                 profissionais.map((profissional) => (
-                  <option key={profissional.id} value={profissional.id}>
-                    {profissional.name}
+                  <option key={profissional._id} value={profissional._id}>
+                    {profissional.nome}
                   </option>
                 ))}
             </select>
@@ -129,4 +134,4 @@ const NovoDepartamento = () => {
   );
 };
 
-export default NovoDepartamento;
+export default EditarDepartamento;

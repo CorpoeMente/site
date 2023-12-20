@@ -174,13 +174,12 @@ const Servicos = () => {
     },
   ];
 
-  const departamentos = ["neuropsicologia", "nutricao", "psicologia"];
-
   const [search, setSearch] = useState("");
   const [filteredServicos, setFilteredServicos] = useState(servicos);
   const [page, setPage] = useState(0); // 6 servicos por pagina
   const [servicosPerPage, setServicosPerPage] = useState(); // 6 servicos por pagina
   const [loading, setLoading] = useState(true);
+  const [departamentos, setDepartamentos] = useState([]);
 
   const [departamento, setDepartamento] = useState(null);
 
@@ -198,8 +197,8 @@ const Servicos = () => {
 
   const handleDepartamentoChange = (value) => {
     if (value === "-1") return setDepartamento(null);
-    setDepartamento(departamentos[value]);
-    handleFilter(search, departamentos[value]);
+    setDepartamento(value);
+    handleFilter(search, value);
   };
 
   const handlePageChange = (value) => {
@@ -213,6 +212,17 @@ const Servicos = () => {
 
   useEffect(() => {
     setServicosPerPage(detectServicosPerPage());
+
+    fetch("/api/departamentos")
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.error) {
+          //
+        } else {
+          setDepartamentos(res.departamentos);
+        }
+      });
+
     setLoading(false);
   }, []);
 
@@ -225,11 +235,11 @@ const Servicos = () => {
         servico.nome.toLowerCase().includes(srch.toLowerCase()) ||
         servico.descricao.toLowerCase().includes(srch.toLowerCase())
     );
-
+    console.log(dept);
     // Filtrar com departamento
     if (dept === null) return setFilteredServicos(filtered);
     const filtered2 = filtered.filter(
-      (servico) => servico.departamento === dept
+      (servico) => servico.departamento === dept.toLowerCase()
     );
 
     setFilteredServicos(filtered2);
@@ -238,7 +248,7 @@ const Servicos = () => {
   return (
     <section
       id="servicos"
-      className="w-screen flex flex-col items-center justify-start xl:px-[15%] py-[2%] relative h-auto min-h-[120vh] lg:min-h-[150vh] min-[2560px]:min-h-[100vh] min-[2560px]:h-[100vh]"
+      className="w-screen flex flex-col items-center justify-start xl:px-[15%] py-[10%] relative h-auto"
     >
       <img
         src="/fundo-preto-e-branco-ondulado.jpg"
@@ -269,13 +279,15 @@ const Servicos = () => {
           onChange={(e) => handleDepartamentoChange(e.target.value)}
         >
           <option defaultValue={-1}>Departamento</option>
-          <option value="0">Neuropsicologia</option>
-          <option value="1">Nutrição</option>
-          <option value="2">Psicologia</option>
+          {departamentos.map((departamento, index) => (
+            <option key={index} value={departamento.name}>
+              {departamento.name}
+            </option>
+          ))}
         </select>
       </form>
 
-      <div className="relative grid grid-cols-1 place-items-center place-content-start md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16 lg:mt-24 w-full sm:max-w-[90vw] lg:max-w-[70vw] xl:max-w-[80vw] 2xl:max-w-[75vw] w-screen h-[500px] md:h-[1040px]">
+      <div className="relative grid grid-cols-1 place-items-center place-content-start md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16 lg:mt-24 w-full sm:max-w-[90vw] lg:max-w-[70vw] xl:max-w-[80vw] 2xl:max-w-[75vw] w-screen">
         <img
           src="/dots-2.svg"
           className="hidden lg:block absolute left-[-12px] top-[-36px] pointer-events-none"
@@ -289,11 +301,14 @@ const Servicos = () => {
             <ServicoLoading key={index} index={index} />
           ))
         ) : filteredServicos.length === 0 ? (
-          <div className="flex flex-col items-center justify-center gap-4">
+          <div className="absolute top-12 left-1/2 transform  -translate-x-1/2 flex flex-col items-center justify-center gap-4">
             <PiSmileySad className="text-secondary text-4xl" />
             <span className="text-secondary text-xl font-bold">
-              Nenhum serviço encontrado
+              Nenhum serviço encontrado!
             </span>
+            <p className="text-white text-md font-bold">
+              Veja se digitou tudo corretamente, ou tente utilizar outro termo.
+            </p>
           </div>
         ) : (
           filteredServicos

@@ -27,6 +27,13 @@
 
 }
 
+@media screen and (max-width: 1080px) {
+  .center-grid {
+    grid-area: 1/1/2/2;
+  }
+}
+
+
 
 
 input[type="color"]::-webkit-color-swatch-wrapper {

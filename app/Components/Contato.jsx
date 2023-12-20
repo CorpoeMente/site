@@ -39,7 +39,7 @@ const Contato = () => {
 
   return (
     <div
-      className="absolute bottom-[-15%] lg:bottom-[-10%] left-1/2 transform -translate-x-1/2 z-10 bg-white flex items-stretch justify-center min-w-[280px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow"
+      className="z-10 bg-white flex items-stretch justify-center min-w-[280px] w-full max-w-[80vw] max-w-[1600px]  rounded-xl  min-h-[600px] card-shadow -mb-72"
       id="contato"
     >
       <div
@@ -50,7 +50,7 @@ const Contato = () => {
       ></div>
 
       <form
-        className="w-4/5 lg:w-1/2 flex flex-col items-center justify-between py-12 gap-8"
+        className="w-4/5 lg:w-1/2 grid grid-cols-1 place-items-center py-12 gap-8"
         onSubmit={(e) => handleSubmit(e)}
       >
         <h2 className="text-primary text-xl xl:text-4xl font-bold text-center">

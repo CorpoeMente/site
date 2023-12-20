@@ -64,20 +64,22 @@ const DepoimentosMobile = () => {
 
   return (
     <section
-      className="block xl:hidden w-screen bg-white flex flex-col items-center xl:px-[15%] py-[5%] relative h-[130vh] min-[1024px]:h-[120vh]"
+      className="block xl:hidden w-screen bg-white place-items-center grid grid-cols-1 xl:px-[15%] py-[5%] relative h-auto"
       id="depoimentos"
     >
       <img
         src="/depoimentos-background.jpg"
-        className="absolute top-0 left-0 w-screen h-[100vh] min-[400px]:h-[120vh] min-[600px]:h-[140vh] min-[1200px]:h-[120vh] opacity-[37%] bg-cover object-top object-cover bg-center"
+        className="absolute top-0 left-0 w-full h-full opacity-[37%] bg-cover object-top object-cover bg-center"
       />
-      <span className="text-secondary text-lg xl:font-xl font-bold">
-        Depoimentos
-      </span>
-      <h2 className="text-primary text-2xl xl:font-3xl font-black text-center w-3/4">
-        Oque Nosso Paciente Pensa de Nós
-      </h2>
-      <div className="flex items-center justify-center mt-16 w-screen relative">
+      <div className="flex flex-col items-center justify-center w-full mb-16 z-10">
+        <span className="text-secondary text-lg xl:font-xl font-bold">
+          Depoimentos
+        </span>
+        <h2 className="text-primary text-2xl xl:font-3xl font-black text-center w-3/4">
+          Oque Nosso Paciente Pensa de Nós
+        </h2>
+      </div>
+      <div className="flex items-center justify-center w-screen relative mb-16 md:mb-48">
         {selectedReview && <DepoimentoMobile depoimento={selectedReview} />}
 
         <FaChevronLeft

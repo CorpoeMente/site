@@ -1,7 +1,7 @@
 import {
   SidePanel,
-  DepartamentosList,
-  NovoDepartamento,
+  NovoProfissional,
+  ProfissionaisList,
 } from "../../Components";
 
 export default function page() {
@@ -9,8 +9,8 @@ export default function page() {
     <main className="flex items-center justify-between">
       <SidePanel />
       <div className="w-full h-screen  flex flex-col items-start justify-start bg-white p-12">
-        <NovoDepartamento />
-        <DepartamentosList />
+        <NovoProfissional />
+        <ProfissionaisList />
       </div>
     </main>
   );

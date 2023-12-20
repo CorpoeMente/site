@@ -67,17 +67,20 @@ export async function PUT(request) {
     });
   }
 
-  const { id, name, color, img } = await request.json();
-
+  const { id, name, color, img, responsavel } = await request.json();
   await dbConnect();
 
   try {
-    await Departamento.findByIdAndUpdate(id, {
-      name,
-
-      color,
-      img,
-    });
+    await Departamento.findByIdAndUpdate(
+      id,
+      {
+        name,
+        color,
+        img,
+        responsavel,
+      },
+      { strict: false }
+    );
     return new NextResponse(
       JSON.stringify({ message: "Departamento has been updated" }),
       {

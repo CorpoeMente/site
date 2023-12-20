@@ -42,3 +42,8 @@ export { default as ServicoLoading } from "./ServicoLoading";
 export { default as ButtonLoading } from "./ButtonLoading";
 export { default as NovoServico } from "./NovoServico";
 export { default as NovoDepartamento } from "./NovoDepartamento";
+export { default as ExperienciaProfissionalForm } from "./ExperienciaProfissionalForm";
+export { default as NovoProfissional } from "./NovoProfissional";
+export { default as ProfissionaisList } from "./ProfissionaisList";
+export { default as EditarDepartamento } from "./EditarDepartamento";
+export { default as DepartamentosLoading } from "./DepartamentosLoading";

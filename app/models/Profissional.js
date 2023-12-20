@@ -1,5 +1,22 @@
 import mongoose from "mongoose";
 
+const ExperienciaProfissionalSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+    },
+  },
+  { _id: false } // Para evitar a criação de um novo ObjectId para cada experiência profissional
+);
+
 const ProfissionalSchema = new mongoose.Schema(
   {
     nome: {
@@ -18,13 +35,7 @@ const ProfissionalSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    curriculo: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "ExperienciaProfissional",
-        required: true,
-      },
-    ],
+    curriculo: [ExperienciaProfissionalSchema],
     email: {
       type: String,
       required: true,

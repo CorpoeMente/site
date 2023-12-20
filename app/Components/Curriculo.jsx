@@ -10,16 +10,17 @@ const Curriculo = ({ profissional }) => {
       className={"w-full lg:w-1/3 !text-sm mt-auto"}
     >
       <Timeline>
-        {profissional.curriculo.map((item, index) => (
-          <TimelineItem
-            key={index}
-            title={item.title}
-            text={item.text}
-            date={item.date}
-          >
-            {item.description}
-          </TimelineItem>
-        ))}
+        {profissional.curriculo &&
+          profissional.curriculo.map((item, index) => (
+            <TimelineItem
+              key={index}
+              title={item.title}
+              text={item.text}
+              date={item.date}
+            >
+              {item.description}
+            </TimelineItem>
+          ))}
       </Timeline>
     </Modal>
   );

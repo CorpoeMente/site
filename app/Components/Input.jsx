@@ -14,7 +14,9 @@ const Input = ({
   disabled = false,
 }) => {
   return (
-    <div className={`w-full max-w-[400px] relative ${className}`}>
+    <div
+      className={`w-full max-w-[400px] relative ${className} lg:!max-w-[75%]`}
+    >
       {mask ? (
         <InputMask
           mask={mask}

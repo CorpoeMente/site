@@ -7,7 +7,6 @@ const DepartamentoSelector = ({ deps, active, setActive }) => {
       {deps.map((departamento, index) => (
         <Icone
           key={index}
-          index={index}
           departamento={departamento}
           setActive={setActive}
           active={active}

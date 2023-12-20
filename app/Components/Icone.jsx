@@ -1,8 +1,8 @@
 import React from "react";
 
-const Icone = ({ index, departamento, setActive, active, Icone = null }) => {
+const Icone = ({ departamento, setActive, active, Icone = null }) => {
   const handleClick = () => {
-    setActive(index);
+    setActive(departamento._id);
     const profissionaisDiv = document.getElementById("profissional");
     profissionaisDiv.scrollIntoView({ behavior: "smooth" });
   };
@@ -10,7 +10,7 @@ const Icone = ({ index, departamento, setActive, active, Icone = null }) => {
   return (
     <div
       className={`flex flex-row items-center justify-start text-lg  font-light  bg-[#fcfcfc]  gap-4 cursor-pointer p-4 w-80 rounded-xl border-2 border-[#a0a0a] relative z-30   ${
-        active === index
+        active === departamento._id
           ? `text-white !bg-secondary hover:text-white`
           : "text-primary"
       } hover:bg-[#e1e9eC] hover:text-primary transition-all`}

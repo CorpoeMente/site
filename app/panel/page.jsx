@@ -7,7 +7,7 @@ export default async function Dashboard() {
   return (
     <main className="flex items-center justify-between">
       <SidePanel />
-      <main className="w-4/5 h-screen bg-white"></main>
+      <main className="w-4/5 h-screen  bg-white"></main>
     </main>
   );
 }
