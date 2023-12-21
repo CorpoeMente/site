@@ -1,14 +1,14 @@
-"use client";
-import { signOut } from "next-auth/react";
+'use client'
+import { signOut } from 'next-auth/react'
 
 const page = () => {
-  signOut(
-    {
-      callbackUrl: "/login",
-    },
-    { redirect: false }
-  );
-  return;
-};
+    signOut(
+        {
+            callbackUrl: '/login',
+        },
+        { redirect: false }
+    )
+    return
+}
 
-export default page;
+export default page

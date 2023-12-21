@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const ButtonLoading = ({ className, innerText }) => {
-  return <button className={className}>{innerText}</button>;
-};
+    return <button className={className}>{innerText}</button>
+}
 
-export default ButtonLoading;
+export default ButtonLoading

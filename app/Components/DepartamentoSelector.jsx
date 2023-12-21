@@ -1,20 +1,20 @@
-import React from "react";
-import { Icone } from ".";
+import React from 'react'
+import { Icone } from '.'
 
 const DepartamentoSelector = ({ deps, active, setActive }) => {
-  return (
-    <div className="flex items-start overflow-x-auto md:self-start gap-4 lg:gap-8 max-w-[80vw] scrollbar-hidden">
-      {deps.map((departamento, index) => (
-        <Icone
-          key={index}
-          departamento={departamento}
-          setActive={setActive}
-          active={active}
-          Icone={departamento.Icone}
-        />
-      ))}
-    </div>
-  );
-};
+    return (
+        <div className="flex items-start overflow-x-auto md:self-start gap-4 lg:gap-8 max-w-[80vw] scrollbar-hidden">
+            {deps.map((departamento, index) => (
+                <Icone
+                    key={index}
+                    departamento={departamento}
+                    setActive={setActive}
+                    active={active}
+                    Icone={departamento.Icone}
+                />
+            ))}
+        </div>
+    )
+}
 
-export default DepartamentoSelector;
+export default DepartamentoSelector

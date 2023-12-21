@@ -1,26 +1,26 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
 const DepartamentoSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
+    {
+        name: {
+            type: String,
+            required: true,
+        },
+        color: {
+            type: String,
+            required: true,
+        },
+        img: {
+            type: String,
+            required: true,
+        },
+        responsavel: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Profissional',
+        },
     },
-    color: {
-      type: String,
-      required: true,
-    },
-    img: {
-      type: String,
-      required: true,
-    },
-    responsavel: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Profissional",
-    },
-  },
-  { timestamps: true }
-);
+    { timestamps: true }
+)
 
 export default mongoose.models.Departamento ||
-  mongoose.model("Departamento", DepartamentoSchema);
+    mongoose.model('Departamento', DepartamentoSchema)
