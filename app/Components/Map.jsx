@@ -1,28 +1,34 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLoadScript } from '@react-google-maps/api'
 
 const libraries = ['places']
+
+// Convert string to floating point number
+const lat = process.env.NEXT_PUBLIC_LATITUDE
+const long = process.env.NEXT_PUBLIC_LONGITUDE
+const placeId = process.env.NEXT_PUBLIC_PLACE_ID
 
 const Map = () => {
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
         libraries,
     })
-
+    const latitude = parseFloat(lat)
+    const longitude = parseFloat(long)
     useEffect(() => {
         if (isLoaded && !loadError) {
             const mapDiv = document.getElementById('map')
 
             const map = new google.maps.Map(mapDiv, {
-                center: { lat: -15.8230074, lng: -48.0664254 },
+                center: { lat: latitude, lng: longitude },
                 zoom: 18,
             })
             var marker = new google.maps.Marker({
                 map: map,
                 place: {
-                    placeId: 'ChIJpTOxo44zWpMRmykTswG9dQI',
-                    location: { lat: -15.8225384, lng: -48.0664254 },
+                    placeId: placeId,
+                    location: { lat: latitude, lng: longitude },
                 },
             })
 

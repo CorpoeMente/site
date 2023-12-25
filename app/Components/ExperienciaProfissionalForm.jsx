@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
     const addExperienciaProfissional = () => {
@@ -29,6 +29,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
                         placeholder="Título / Cargo / Formação"
                         className="w-full border-2 border-primary rounded-lg p-2 mb-4"
                         onChange={(event) => handleChange(index, event)}
+                        value={experienciaProfissional.title}
                     />
 
                     <input
@@ -37,6 +38,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
                         placeholder="Instituição"
                         className="w-full border-2 border-primary rounded-lg p-2 mb-4"
                         onChange={(event) => handleChange(index, event)}
+                        value={experienciaProfissional.text}
                     />
 
                     <input
@@ -45,6 +47,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
                         placeholder="Data (Ex: 2010 - 2015)"
                         className="w-full border-2 border-primary rounded-lg p-2 mb-4"
                         onChange={(event) => handleChange(index, event)}
+                        value={experienciaProfissional.date}
                     />
                     <button
                         type="button"
@@ -57,6 +60,12 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
             )
         })
     }
+
+    useEffect(() => {
+        if (curriculo.length > 0) {
+            renderExperienciasProfissionais()
+        }
+    }, [])
 
     return (
         <div className="flex flex-col items-center justify-center w-full">

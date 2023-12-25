@@ -61,13 +61,13 @@ const Departamentos = () => {
             id="departamentos"
         >
             <h1 className="text-primary self-center md:self-start text-3xl xl:text-4xl font-bold mb-4">
-                Departamentos
+                Equipe
             </h1>
             <span className="w-full xl:w-[50%] mb-12 text-lg">
-                Explore nossos departamentos e descubra como podemos cuidar
-                melhor de você. Cada departamento é liderado por profissionais
-                dedicados e qualificados, que buscam atender todos os nossos
-                pacientes da melhor forma possível.
+                Explore nossa equipe e descubra como podemos cuidar melhor de
+                você. Cada departamento é liderado por profissionais dedicados e
+                qualificados, que buscam atender todos os nossos pacientes da
+                melhor forma possível.
             </span>
 
             {deps.length > 0 ? (

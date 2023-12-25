@@ -45,6 +45,10 @@ const ProfissionalSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        departamento: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Departamento',
+        },
     },
     { timestamps: true }
 )

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { Table, TableRow } from '../Components'
+import { Table, TableRow, EditarServico } from '../Components'
 import { FaTrashAlt } from 'react-icons/fa'
 
 const ServicosList = () => {
@@ -44,7 +44,8 @@ const ServicosList = () => {
                     <TableRow key={index}>
                         <td className="p-2 text-center">{servico.nome}</td>
                         <td className="p-2 text-center">{servico.type}</td>
-                        <td className="p-2 text-center">
+                        <td className="p-2 text-center flex items-center justify-center gap-x-4">
+                            <EditarServico servico={servico} />
                             <button
                                 className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
                                 onClick={() => handleDelete(servico._id)}

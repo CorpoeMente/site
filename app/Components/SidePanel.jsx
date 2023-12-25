@@ -68,49 +68,49 @@ export default function SidePanel() {
                 <ul className="flex flex-col items-center justify-center text-white gap-y-2">
                     <li
                         onClick={handleAgendamentos}
-                        className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <CiTimer />
                         Agendamentos
                     </li>
                     <li
                         onClick={handlePedidos}
-                        className="flex  items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <CiBoxList />
                         Pedidos
                     </li>
                     <li
                         onClick={handleMensagens}
-                        className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <CiChat2 />
                         Mensagens
                     </li>
                     <li
                         onClick={handleUsuarios}
-                        className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <CiUser />
                         Usuários
                     </li>
                     <li
                         onClick={handleServicos}
-                        className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <CiWavePulse1 />
                         Serviços
                     </li>
                     <li
                         onClick={handleDepartamentos}
-                        className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <CiBank />
                         Departamentos
                     </li>
                     <li
                         onClick={handleProfissionais}
-                        className="flex items-center justify-start gap-x-4 px-12 py-2 hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
+                        className="flex items-center justify-start gap-x-4 px-12 py-2 focus:outline-none outline-none hover:bg-[#e0e0e0] hover:text-black transition duration-300 ease-in-out w-full text-md font-semibold cursor-pointer"
                     >
                         <FaUserDoctor className="text-sm" />
                         Profissionais

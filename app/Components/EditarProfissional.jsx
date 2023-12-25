@@ -1,17 +1,18 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { Modal, ExperienciaProfissionalForm } from '../Components'
+import { FaPencil } from 'react-icons/fa6'
 
-const NovoProfissional = () => {
-    const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('')
-    const [descricao, setDescricao] = useState('')
-    const [departamento, setDepartamento] = useState('')
+const NovoProfissional = ({ profissional }) => {
+    const [nome, setNome] = useState(profissional.nome)
+    const [cargo, setCargo] = useState(profissional.cargo)
+    const [imagem, setImagem] = useState(profissional.imagem)
+    const [descricao, setDescricao] = useState(profissional.descricao)
+    const [departamento, setDepartamento] = useState(profissional.departamento)
     const [departamentos, setDepartamentos] = useState([])
-    const [telefone, setTelefone] = useState('')
-    const [email, setEmail] = useState('')
-    const [curriculo, setCurriculo] = useState([])
+    const [telefone, setTelefone] = useState(profissional.telefone)
+    const [email, setEmail] = useState(profissional.email)
+    const [curriculo, setCurriculo] = useState(profissional.curriculo)
 
     useEffect(() => {
         fetch('/api/departamentos')
@@ -29,8 +30,9 @@ const NovoProfissional = () => {
         e.preventDefault()
 
         fetch('/api/profissionais', {
-            method: 'POST',
+            method: 'PUT',
             body: JSON.stringify({
+                id: profissional._id,
                 nome,
                 cargo,
                 imagem,
@@ -52,9 +54,11 @@ const NovoProfissional = () => {
 
     return (
         <Modal
-            buttonText={'Novo Profissional'}
-            title={'Novo Profissional'}
-            className={'w-auto p-2 !py-2 !text-sm !mt-0 mb-4 ms-auto'}
+            buttonText={<FaPencil />}
+            title={'Editar Profissional'}
+            className={
+                'w-auto p-2 !py-2 !text-sm !bg-[#f4b804] hover:bg-[#e4a800] hover:color-[#000]'
+            }
         >
             <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
                 <form onSubmit={handleSubmit}>
@@ -81,6 +85,7 @@ const NovoProfissional = () => {
                             type="text"
                             placeholder="Imagem"
                             className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            required
                         />
                         <textarea
                             value={descricao}
@@ -97,11 +102,17 @@ const NovoProfissional = () => {
                         >
                             <option value="">Departamento</option>
                             {departamentos &&
-                                departamentos.map((item, index) => (
-                                    <option key={index} value={item._id}>
-                                        {item.name}
-                                    </option>
-                                ))}
+                                departamentos.map((item, index) =>
+                                    item._id === departamento ? (
+                                        <option value={item._id} selected>
+                                            {item.name}
+                                        </option>
+                                    ) : (
+                                        <option value={item._id}>
+                                            {item.name}
+                                        </option>
+                                    )
+                                )}
                         </select>
                         <input
                             value={telefone}

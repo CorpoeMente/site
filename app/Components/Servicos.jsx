@@ -6,31 +6,27 @@ import { ServicoLoading, Servico } from '.'
 
 const Servicos = () => {
     const [search, setSearch] = useState('')
-    const [filteredServicos, setFilteredServicos] = useState()
     const [page, setPage] = useState(0) // 6 servicos por pagina
     const [servicosPerPage, setServicosPerPage] = useState() // 6 servicos por pagina
     const [loading, setLoading] = useState(true)
     const [departamentos, setDepartamentos] = useState([])
     const [servicos, setServicos] = useState([])
+    const [departamento, setDepartamento] = useState('')
 
-    const [departamento, setDepartamento] = useState(null)
+    let filteredServicos = servicos.filter(
+        (servico) =>
+            (servico.nome.toLowerCase().includes(search.toLowerCase()) ||
+                servico.descricao
+                    .toLowerCase()
+                    .includes(search.toLowerCase())) &&
+            servico.departamento.toLowerCase().includes(departamento)
+    )
 
     function detectServicosPerPage() {
         if (window.innerWidth <= 1280 && window.innerWidth >= 1024) return 4
         if (window.innerWidth < 1024 && window.innerWidth > 800) return 2
         if (window.innerWidth <= 800) return 1
         return 6
-    }
-
-    const handleSearch = (e) => {
-        setSearch(e.target.value)
-        handleFilter(e.target.value, departamento)
-    }
-
-    const handleDepartamentoChange = (value) => {
-        if (value === '-1') return setDepartamento(null)
-        setDepartamento(value)
-        handleFilter(search, value)
     }
 
     const handlePageChange = (value) => {
@@ -59,29 +55,9 @@ const Servicos = () => {
             .then((response) => response.json())
             .then((data) => {
                 setServicos(data)
-                setFilteredServicos(data)
                 setLoading(false)
             })
     }, [])
-
-    const handleFilter = (srch = null, dept = null) => {
-        // Filtrar com pesquisa e departamento
-
-        // Filtrar com pesquisa
-        const filtered = servicos.filter(
-            (servico) =>
-                servico.nome.toLowerCase().includes(srch.toLowerCase()) ||
-                servico.descricao.toLowerCase().includes(srch.toLowerCase())
-        )
-        console.log(dept)
-        // Filtrar com departamento
-        if (dept === null) return setFilteredServicos(filtered)
-        const filtered2 = filtered.filter(
-            (servico) => servico.departamento === dept.toLowerCase()
-        )
-
-        setFilteredServicos(filtered2)
-    }
 
     const handleServicoColor = (departamento) => {
         // look for department in departments
@@ -114,18 +90,18 @@ const Servicos = () => {
                         type="text"
                         placeholder="Pesquisar Serviço"
                         value={search}
-                        onChange={handleSearch}
+                        onChange={(e) => setSearch(e.target.value)}
                         className="peer rounded-lg border-b-2 border-white ps-20 py-2 text-md md:text-lg xl:text-xl font-bold text-white bg-[#ffffff00] w-[1200px] focus:text-white focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)] focus:border-secondary outline-none transition duration-300 ease-in-out"
                     />
                 </div>
                 <select
                     name="departamentos"
                     className="w-[90vw] lg:w-50 bg-[#ffffff00] rounded-lg border-b-2 border-white text-md md:text-lg xl:text-xl text-white font-bold  outline-none transition duration-300 ease-in-out p-2  cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)]"
-                    onChange={(e) => handleDepartamentoChange(e.target.value)}
+                    onChange={(e) => setDepartamento(e.target.value)}
                 >
-                    <option defaultValue={-1}>Departamento</option>
+                    <option value="">Departamento</option>
                     {departamentos.map((departamento, index) => (
-                        <option key={index} value={departamento.name}>
+                        <option key={index} value={departamento._id}>
                             {departamento.name}
                         </option>
                     ))}
@@ -142,9 +118,7 @@ const Servicos = () => {
                     className="hidden lg:block absolute right-[-12px] bottom-[-36px] pointer-events-none"
                 />
                 {loading ? (
-                    [...Array(1)].map((_, index) => (
-                        <ServicoLoading key={index} index={index} />
-                    ))
+                    <ServicoLoading index={0} />
                 ) : filteredServicos.length === 0 ? (
                     <div className="absolute top-12 left-1/2 transform  -translate-x-1/2 flex flex-col items-center justify-center gap-4">
                         <PiSmileySad className="text-secondary text-4xl" />
