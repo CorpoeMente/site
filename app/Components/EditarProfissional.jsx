@@ -104,11 +104,15 @@ const NovoProfissional = ({ profissional }) => {
                             {departamentos &&
                                 departamentos.map((item, index) =>
                                     item._id === departamento ? (
-                                        <option value={item._id} selected>
+                                        <option
+                                            key={index}
+                                            value={item._id}
+                                            selected
+                                        >
                                             {item.name}
                                         </option>
                                     ) : (
-                                        <option value={item._id}>
+                                        <option key={index} value={item._id}>
                                             {item.name}
                                         </option>
                                     )
