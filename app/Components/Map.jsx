@@ -4,16 +4,15 @@ import { useLoadScript } from '@react-google-maps/api'
 
 const libraries = ['places']
 
-// Convert string to floating point number
-const lat = process.env.NEXT_PUBLIC_LATITUDE
-const long = process.env.NEXT_PUBLIC_LONGITUDE
-const placeId = process.env.NEXT_PUBLIC_PLACE_ID
-
 const Map = () => {
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
         libraries,
     })
+    // Convert string to floating point number
+    const lat = process.env.NEXT_PUBLIC_LATITUDE
+    const long = process.env.NEXT_PUBLIC_LONGITUDE
+    const placeId = process.env.NEXT_PUBLIC_PLACE_ID
     const latitude = parseFloat(lat)
     const longitude = parseFloat(long)
     useEffect(() => {
