@@ -70,16 +70,17 @@ const Profissional = ({ profissional }) => {
                     />
                 </div>
             )}
-            <div className="flex flex-col lg:items-end lg:justify-start lg:w-1/2 h-full p-8 bg-white border-[1px] border-[#f4f4f4] rounded-b-xl lg:rounded-r-xl z-10">
+            <div className="flex flex-col lg:items-start lg:justify-start lg:w-1/2 h-full p-8 xl:p-12 bg-white border-[1px] border-[#f4f4f4] rounded-b-xl lg:rounded-r-xl z-10">
                 <h1 className="text-[#606060] text-2xl xl:text-4xl font-bold mb-2">
                     {profissional.nome}
                 </h1>
                 <span className="text-primary text-lg xl:text-xl mb-8">
                     {profissional.cargo}
                 </span>
-                <p className="lg:max-w-[85%] lg:text-right text-sm lg:text-md xl:text-xl mb-8">
-                    {profissional.descricao}
-                </p>
+                <p
+                    className="lg:max-w-full lg:text-left text-sm lg:text-lg mb-8"
+                    dangerouslySetInnerHTML={{ __html: profissional.descricao }}
+                ></p>
 
                 <Curriculo profissional={profissional} />
             </div>

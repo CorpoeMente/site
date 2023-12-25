@@ -11,7 +11,7 @@ const ProfissionaisList = () => {
             .then((res) => res.json())
             .then((res) => {
                 if (res.error) {
-                    alert(res.message)
+                    //
                 } else {
                     console.log(res)
                     setProfissionais(res.profissionais)
@@ -21,26 +21,28 @@ const ProfissionaisList = () => {
     }, [])
 
     const handleDelete = (id) => {
-        fetch('/api/profissionais', {
-            method: 'DELETE',
-            body: JSON.stringify({ id }),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                if (res.error) {
-                    alert(res.message)
-                } else {
-                    setProfissionais(
-                        profissionais.filter((profissional) => {
-                            return profissional._id !== id
-                        })
-                    )
-                }
+        if (confirm('Tem certeza que deseja remover este profissional?')) {
+            fetch('/api/profissionais', {
+                method: 'DELETE',
+                body: JSON.stringify({ id }),
             })
+                .then((res) => res.json())
+                .then((res) => {
+                    if (res.error) {
+                        //
+                    } else {
+                        setProfissionais(
+                            profissionais.filter((profissional) => {
+                                return profissional._id !== id
+                            })
+                        )
+                    }
+                })
+        }
     }
 
     return (
-        <Table headers={['Nome', 'Cargo', 'Ações']} className="w-full">
+        <Table headers={['Nome', 'Cargo', '']} className="w-full">
             {loading ? (
                 <TableRow>
                     <td>Carregando...</td>
