@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { Profissional } from '../../models'
 import dbConnect from '../../utils/dbConnect'
 import handlePermissions from '../../utils/serverSession'
+import handleFileSave from '@/app/utils/handleFile'
 
 export async function POST(request) {
     if (await handlePermissions()) {
@@ -22,8 +23,6 @@ export async function POST(request) {
     } = await request.json()
 
     await dbConnect()
-
-    console.log(curriculo)
 
     const newProfissional = new Profissional({
         nome,
@@ -103,12 +102,38 @@ export async function PUT(request) {
         })
     }
 
-    const { id, nome, cargo, imagem, descricao, email, telefone, curriculo } =
-        await request.json()
+    const formData = await request.formData()
+    const fields = Array.from(formData).reduce((acc, [name, value]) => {
+        acc[name] = value
+        return acc
+    }, {})
 
+    const {
+        id,
+        nome,
+        cargo,
+        descricao,
+        departamento,
+        telefone,
+        email,
+        curriculo,
+    } = fields
+
+    var imagem = formData.get('imagem')
+    if (typeof imagem != 'string') {
+        imagem = await handleFileSave(imagem)
+    }
+
+    if (!id) {
+        return new NextResponse(JSON.stringify({ message: 'Missing ID' }), {
+            status: 400,
+        })
+    }
     await dbConnect()
 
     try {
+        const curriculoAsObject = JSON.parse(curriculo)
+
         await Profissional.findByIdAndUpdate(id, {
             nome,
             cargo,
@@ -116,7 +141,7 @@ export async function PUT(request) {
             descricao,
             email,
             telefone,
-            curriculo,
+            curriculo: curriculoAsObject,
         })
         return new NextResponse(
             JSON.stringify({ message: 'Profissional has been updated' }),

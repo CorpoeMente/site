@@ -21,25 +21,30 @@ const Profissional = ({ profissional }) => {
                 </div>
                 <div className="flex flex-col items-center justify-start lg:w-1/2 h-full py-8 px-4 lg:p-8 bg-white border-[1px] border-[#f4f4f4] rounded-b-xl lg:rounded-r-xl z-10">
                     <h2 className="text-xl xl:text-3xl text-primary font-bold w-full text-center">
-                        Em breve contaremos com profissionais para este
-                        departamento!
+                        Em breve contaremos com profissionais para atender
+                        outras especialidades.
                     </h2>
                     <p className="text-primary font-regular mt-16 w-full">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Descubra
                         a diversidade de especialidades em nossa clínica! Além
                         dos serviços de psicologia, neuropsicologia e psicologia
                         infantil, estamos expandindo para oferecer em breve
-                        serviços de{' '}
+                        atendimentos em{' '}
+                        <b className="text-secondary">fonoaudiologia</b>,{' '}
+                        <b className="text-secondary">nutrição</b>,{' '}
+                        <b className="text-secondary">fisioterapia</b>,{' '}
                         <b className="text-secondary">psiquiatria</b> e{' '}
-                        <b className="text-secondary">nutrição</b>.
+                        <b className="text-secondary">curativos de feridas</b>.
                     </p>
-                    <p className="text-primary font-regular mt-4 w-full">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Conheça
-                        nossos profissionais altamente qualificados em cada área
-                        e encontre a expertise necessária para promover o seu
-                        bem-estar integral. Navegue pela variedade de talentos e
-                        descubra como nossa equipe multidisciplinar pode atender
-                        às suas necessidades de saúde de maneira abrangente.
+                    <p className="text-primary font-regular mt-4 w-full text-center">
+                        <a
+                            href="https://instagram.com/clinicacorpoemente_"
+                            target="_blank"
+                            className="text-primary font-bold"
+                        >
+                            Nos acompanhe nas redes sociais para ficar por
+                            dentro das novidades!
+                        </a>
                     </p>
                 </div>
             </div>

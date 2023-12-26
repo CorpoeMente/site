@@ -13,7 +13,6 @@ const ProfissionaisList = () => {
                 if (res.error) {
                     //
                 } else {
-                    console.log(res)
                     setProfissionais(res.profissionais)
                     setLoading(false)
                 }

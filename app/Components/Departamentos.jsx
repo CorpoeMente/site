@@ -57,30 +57,32 @@ const Departamentos = () => {
 
     return (
         <section
-            className="w-screen bg-white flex flex-col items-start px-[10%] xl:px-[15%] py-[48px] relative"
+            className="w-screen bg-white flex flex-col items-center justify-center px-[10%] xl:px-[15%] py-[48px] relative"
             id="departamentos"
         >
-            <h1 className="text-primary self-center md:self-start text-3xl xl:text-4xl font-bold mb-4">
-                Equipe
-            </h1>
-            <span className="w-full xl:w-[50%] mb-12 text-lg">
-                Explore nossa equipe e descubra como podemos cuidar melhor de
-                você. Cada departamento é liderado por profissionais dedicados e
-                qualificados, que buscam atender todos os nossos pacientes da
-                melhor forma possível.
-            </span>
+            <div className="flex flex-col items-start w-full max-w-[90vw] sm:!max-w-[1900px]">
+                <h1 className="text-primary self-center md:self-start text-3xl xl:text-4xl font-bold mb-4">
+                    Equipe
+                </h1>
+                <span className="w-full xl:w-[50%] mb-12 text-lg">
+                    Explore nossa equipe e descubra como podemos cuidar melhor
+                    de você. Cada departamento é liderado por profissionais
+                    dedicados e qualificados, que buscam atender todos os nossos
+                    pacientes da melhor forma possível.
+                </span>
 
-            {deps.length > 0 ? (
-                <DepartamentoSelector
-                    deps={deps}
-                    active={active}
-                    setActive={setActive}
-                />
-            ) : (
-                <DepartamentosLoading />
-            )}
+                {deps.length > 0 ? (
+                    <DepartamentoSelector
+                        deps={deps}
+                        active={active}
+                        setActive={setActive}
+                    />
+                ) : (
+                    <DepartamentosLoading />
+                )}
 
-            <Profissional profissional={getResponsavel(active)} />
+                <Profissional profissional={getResponsavel(active)} />
+            </div>
         </section>
     )
 }

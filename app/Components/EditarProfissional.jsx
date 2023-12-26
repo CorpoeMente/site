@@ -13,7 +13,7 @@ const NovoProfissional = ({ profissional }) => {
     const [telefone, setTelefone] = useState(profissional.telefone)
     const [email, setEmail] = useState(profissional.email)
     const [curriculo, setCurriculo] = useState(profissional.curriculo)
-
+    const [imagemPreview, setImagemPreview] = useState(profissional.imagem)
     useEffect(() => {
         fetch('/api/departamentos')
             .then((res) => res.json())
@@ -26,30 +26,56 @@ const NovoProfissional = ({ profissional }) => {
             })
     }, [])
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        fetch('/api/profissionais', {
-            method: 'PUT',
-            body: JSON.stringify({
-                id: profissional._id,
-                nome,
-                cargo,
-                imagem,
-                descricao,
-                departamento,
-                telefone,
-                email,
-                curriculo,
-            }),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                if (res.error) {
-                    alert(res.message)
-                } else {
-                }
+        const formData = new FormData()
+        formData.append('id', profissional._id)
+        formData.append('nome', nome)
+        formData.append('cargo', cargo)
+        formData.append('imagem', imagem)
+        formData.append('descricao', descricao)
+        formData.append('departamento', departamento)
+        formData.append('telefone', telefone)
+        formData.append('email', email)
+        formData.append('curriculo', JSON.stringify(curriculo))
+
+        try {
+            const response = await fetch('/api/profissionais', {
+                method: 'PUT',
+                body: formData,
             })
+
+            const resJson = await response.json()
+            if (resJson.error) {
+                alert(resJson.message)
+            } else {
+                // Lógica de sucesso
+            }
+        } catch (error) {
+            // Lógica para lidar com erros na requisição
+        }
+    }
+
+    const handleImagemChange = (e) => {
+        const file = e.target.files[0]
+
+        // Validar se é uma imagem (você pode ajustar as extensões conforme necessário)
+        const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i
+        if (!allowedExtensions.exec(file.name)) {
+            alert('Por favor, selecione uma imagem válida (jpg, jpeg, png).')
+            return
+        }
+
+        // Atualizar o estado da imagem
+        setImagem(file)
+
+        // Adicionar lógica para exibir a pré-visualização da imagem
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            setImagemPreview(reader.result)
+        }
+        reader.readAsDataURL(file)
     }
 
     return (
@@ -80,13 +106,19 @@ const NovoProfissional = ({ profissional }) => {
                             required
                         />
                         <input
-                            value={imagem}
-                            onChange={(e) => setImagem(e.target.value)}
-                            type="text"
-                            placeholder="Imagem"
+                            type="file"
+                            accept=".jpg, .jpeg, .png"
+                            onChange={handleImagemChange}
                             className="w-full border-2 border-primary rounded-lg p-2 mb-4"
-                            required
                         />
+                        {/* Adicionar um elemento para exibir a pré-visualização da imagem */}
+                        {imagemPreview && (
+                            <img
+                                src={imagemPreview}
+                                alt="Imagem Preview"
+                                className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            />
+                        )}
                         <textarea
                             value={descricao}
                             onChange={(e) => setDescricao(e.target.value)}
