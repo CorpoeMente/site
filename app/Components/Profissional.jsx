@@ -10,11 +10,13 @@ const Profissional = ({ profissional }) => {
                 id="profissional"
             >
                 <img
+                    alt="Imagem de fundo com pontos"
                     src="./dots.svg"
                     className="absolute top-[-12%] right-[-7%] pointer-events-none"
                 />
                 <div className="w-full grid grid-rows-1 grid-cols-1 bg-[#d0d0d0] place-items-center h-1/2 lg:h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10">
                     <img
+                        alt="Logo da Clínica Corpo e Mente"
                         src="./logo-white.svg"
                         className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-2/3 opacity-[0.2]"
                     />
@@ -57,6 +59,7 @@ const Profissional = ({ profissional }) => {
             id="profissional"
         >
             <img
+                alt="Imagem de fundo com pontos"
                 src="./dots.svg"
                 className="absolute top-[-12%] right-[-7%] pointer-events-none"
             />
@@ -70,6 +73,7 @@ const Profissional = ({ profissional }) => {
             ) : (
                 <div className="w-full grid grid-rows-1 grid-cols-1 bg-[#d0d0d0] place-items-center h-1/2 lg:h-full lg:w-1/2 lg:rounded-l-xl lg:rounded-r-none rounded-t-xl  relative z-10">
                     <img
+                        alt="Logo da Clínica Corpo e Mente"
                         src="./logo-white.svg"
                         className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-2/3 opacity-[0.2]"
                     />

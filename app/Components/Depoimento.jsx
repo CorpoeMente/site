@@ -14,6 +14,7 @@ const Depoimento = ({ depoimento, index }) => {
         >
             <img
                 src={depoimento.profile_photo_url}
+                alt={depoimento.author_name}
                 className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
             ></img>
             <h4 className="font-bold text-xl  mt-4 self-center text-center capitalize">

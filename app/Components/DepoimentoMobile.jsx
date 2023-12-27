@@ -8,6 +8,7 @@ const DepoimentoMobile = ({ depoimento }) => {
         <div className="flex flex-col items-start justify-start gap-4 bg-white rounded-xl shadow-2xl p-8 text-center min-w-[80vw] w-full min-h-[250px] relative basis-1/3 card-shadow">
             <img
                 src={depoimento.profile_photo_url}
+                alt={depoimento.author_name}
                 className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
             ></img>
             <h4 className="font-bold text-xl  mt-4 self-center text-center">

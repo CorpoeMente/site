@@ -72,6 +72,7 @@ const Servicos = () => {
             className="w-screen flex flex-col items-center justify-start xl:px-[15%] py-12 xl:py-24 relative h-auto"
         >
             <img
+                alt="Serviços"
                 src="/fundo-preto-e-branco-ondulado.jpg"
                 className="absolute w-full h-full top-0 left-0 opacity-[8%] bg-cover object-top object-cover bg-center pointer-events-none"
                 id="bg-servicos"
@@ -111,10 +112,12 @@ const Servicos = () => {
 
                 <div className="relative grid grid-cols-1 place-items-center place-content-start md:grid-cols-2 xl:grid-cols-3 gap-8 mt-16 lg:mt-24 w-full">
                     <img
+                        alt="Imagem de fundo com pontos"
                         src="/dots-2.svg"
                         className="hidden lg:block absolute left-[-12px] top-[-36px] pointer-events-none"
                     />
                     <img
+                        alt="Imagem de fundo com pontos"
                         src="/dots-2.svg"
                         className="hidden lg:block absolute right-[-12px] bottom-[-36px] pointer-events-none"
                     />

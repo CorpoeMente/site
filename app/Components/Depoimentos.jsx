@@ -47,6 +47,7 @@ const Depoimentos = () => {
             id="depoimentos"
         >
             <img
+                alt="Depoimentos"
                 src="/depoimentos-background.jpg"
                 className="absolute -z-10 top-0 left-0 w-full h-full opacity-[20%] bg-cover object-top object-cover bg-center"
             />

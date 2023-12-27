@@ -12,7 +12,7 @@ const Nav = () => {
                 <div className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%]">
                     <img
                         src="/logo-primary.svg"
-                        alt=""
+                        alt="Logo da Clínica Corpo e Mente"
                         className="w-12 pointer-events-none"
                     />
                     <span className="lg:block text-sm lg:text-lg xl:text-2xl text-primary font-bold  drop-shadow text-center">

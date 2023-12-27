@@ -68,6 +68,7 @@ const DepoimentosMobile = () => {
             id="depoimentos"
         >
             <img
+                alt="Depoimentos"
                 src="/depoimentos-background.jpg"
                 className="absolute top-0 left-0 w-full h-full opacity-[37%] bg-cover object-top object-cover bg-center"
             />

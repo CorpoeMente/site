@@ -25,6 +25,7 @@ const Icone = ({ departamento, setActive, active, Icone = null }) => {
                 ) : (
                     <img
                         src={departamento.img}
+                        alt={departamento.name}
                         className="absolute !min-w-32 top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 pointer-events-none"
                     />
                 )}
