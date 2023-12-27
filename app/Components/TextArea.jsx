@@ -20,6 +20,7 @@ const TextArea = ({
                 value={state}
                 onChange={(e) => setState(e.target.value)}
                 {...(disabled && { disabled: true })}
+                aria-label={label}
             />
             <Label.Root
                 className={`absolute text-sm lg:text-lg top-[35px] left-2 px-2 transform -translate-y-1/2 transition duration-300 ease-in-out ${

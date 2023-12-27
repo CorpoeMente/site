@@ -17,9 +17,9 @@ const Depoimento = ({ depoimento, index }) => {
                 alt={depoimento.author_name}
                 className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
             ></img>
-            <h4 className="font-bold text-xl  mt-4 self-center text-center capitalize">
+            <span className="font-bold text-xl  mt-4 self-center text-center capitalize">
                 {depoimento.author_name}
-            </h4>
+            </span>
             <p className="my-auto text-start font-medium text-lg font-inter drop-shadow-[0px_0px_1px_rgba(0,0,0,0.2)] z-10 line-clamp-4 nowrap">
                 {depoimento.text}
             </p>

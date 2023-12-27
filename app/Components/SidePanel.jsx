@@ -10,7 +10,6 @@ import {
 } from 'react-icons/ci'
 import { FaUserDoctor } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
-import { CgWorkAlt } from 'react-icons/cg'
 export default function SidePanel() {
     const router = useRouter()
 

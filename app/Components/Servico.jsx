@@ -20,9 +20,9 @@ const Servico = ({ servico, color, index }) => {
                 )}
             </div>
 
-            <h4 className="font-bold text-xl  text-clamp-2 mb-4">
+            <span className="font-bold text-xl  text-clamp-2 mb-4">
                 {servico.nome}
-            </h4>
+            </span>
 
             <p>{servico.descricao}</p>
 

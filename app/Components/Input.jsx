@@ -29,6 +29,7 @@ const Input = ({
                     autoComplete="off"
                     required={required}
                     {...(disabled && { disabled: true })}
+                    aria-label={label}
                 />
             ) : (
                 <input
@@ -45,6 +46,7 @@ const Input = ({
                     autoComplete="off"
                     required={required}
                     {...(disabled && { disabled: true })}
+                    aria-label={label}
                 />
             )}
             {type != 'date' && type != 'time' ? (

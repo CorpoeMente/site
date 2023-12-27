@@ -78,9 +78,9 @@ const Servicos = () => {
                 id="bg-servicos"
             />
             <div className="flex flex-col items-center justify-start w-full max-w-[90vw] sm:!max-w-[1900px]">
-                <h3 className="text-lg xl:text-xl -mb-2 font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg mt-8 lg:mt-0">
+                <span className="text-lg xl:text-xl -mb-2 font-bold text-secondary drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] drop-shadow-lg mt-8 lg:mt-0">
                     Solicite seu Agendamento
-                </h3>
+                </span>
                 <h2 className="text-3xl xl:text-5xl  font-bold text-white drop-shadow-[0px_0px_2px_rgba(200,222,255,0.4)] mb-8 lg:mb-20">
                     Serviços e Exames
                 </h2>
@@ -100,6 +100,7 @@ const Servicos = () => {
                         name="departamentos"
                         className="bg-[#ffffff00] rounded-lg border-b-2 border-white text-md md:text-lg xl:text-xl text-white font-bold  outline-none transition duration-300 ease-in-out p-2  cursor-pointer z-10 relative focus:shadow-[0_0px_12px_4px_rgba(89,182,222,0.5)] w-full lg:w-1/3"
                         onChange={(e) => setDepartamento(e.target.value)}
+                        aria-label="Departamentos"
                     >
                         <option value="">Departamento</option>
                         {departamentos.map((departamento, index) => (

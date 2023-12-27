@@ -10,10 +10,14 @@ const Footer = () => {
                 <Map />
                 <div className="flex flex-col items-center  text-white self-center xl:self-start gap-y-8 gap-x-2 w-full max-w-[80vw] xl:w-1/3 h-full">
                     <div className="flex items-center justify-center gap-x-2">
-                        <img src="/logo-white.svg" className="w-24 h-24" />
-                        <h2 className="text-2xl font-bold ">
+                        <img
+                            alt="Logo da Clínica Corpo e Mente"
+                            src="/logo-white.svg"
+                            className="w-24 h-24"
+                        />
+                        <span className="text-2xl font-bold ">
                             Clínica Corpo e <br></br>Mente
-                        </h2>
+                        </span>
                     </div>
                     <div className="flex items-center gap-x-8">
                         <FaLocationArrow className="text-xl " />
@@ -39,6 +43,7 @@ const Footer = () => {
                         <a
                             href="https://instagram.com/clinicacorpoemente_"
                             className="bg-white p-3 rounded-full text-primary cursor-pointer hover:bg-[#e0e0e0] transition duration-300 ease-in-out"
+                            aria-label="Instagram"
                         >
                             <BsInstagram className="text-2xl" />
                         </a>
@@ -46,15 +51,16 @@ const Footer = () => {
                         <a
                             href="https://api.whatsapp.com/send?phone=5561998036582"
                             className="bg-white p-3 rounded-full text-primary cursor-pointer hover:bg-[#e0e0e0] transition duration-300 ease-in-out"
+                            aria-label="Whatsapp"
                         >
                             <BsWhatsapp className="text-2xl" />
                         </a>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 self-center xl:self-start  text-white max-w-[80vw] h-full gap-x-12 xl:w-1/3">
-                    <h4 className="col-span-2 font-bold text-3xl mb-8 text-center xl:text-start">
+                    <span className="col-span-2 font-bold text-3xl mb-8 text-center xl:text-start">
                         Horário de Funcionamento
-                    </h4>
+                    </span>
                     <span className="text-md">Segunda-Feira</span>
                     <span className="text-md text-end mb-2">08:00 - 21:20</span>
 
