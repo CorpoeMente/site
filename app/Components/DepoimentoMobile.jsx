@@ -11,10 +11,10 @@ const DepoimentoMobile = ({ depoimento }) => {
                 alt={depoimento.author_name}
                 className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
             ></img>
-            <h4 className="font-bold text-xl  mt-4 self-center text-center">
+            <span className="font-bold text-xl  mt-4 self-center text-center">
                 {depoimento.author_name.charAt(0).toUpperCase() +
                     depoimento.author_name.slice(1)}{' '}
-            </h4>
+            </span>
             <p className="my-auto text-start font-medium text-md font-inter drop-shadow-[0px_0px_1px_rgba(0,0,0,0.4)] z-10">
                 {depoimento.text}
             </p>

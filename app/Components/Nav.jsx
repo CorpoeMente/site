@@ -49,7 +49,10 @@ const Nav = () => {
                         className="lg:invisible absolute right-[10%]"
                         asChild
                     >
-                        <button className="Button violet">
+                        <button
+                            className="Button violet"
+                            aria-label="Botão para expandir menu de navegação"
+                        >
                             <RxHamburgerMenu className="lg:invisible text-4xl text-white cursor-pointer bg-primary rounded p-2 w-10 h-10" />
                         </button>
                     </Dialog.Trigger>
