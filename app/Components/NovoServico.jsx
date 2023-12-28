@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { Modal } from '../Components'
+import { Modal, ValorServicoForm } from '../Components'
 
 const NovoServico = () => {
     const [nome, setNome] = useState('')
@@ -8,7 +8,9 @@ const NovoServico = () => {
     const [descricao, setDescricao] = useState('')
     const [departamento, setDepartamento] = useState('')
     const [departamentos, setDepartamentos] = useState([])
+    const [valores, setValores] = useState([])
     const [message, setMessage] = useState('')
+    const [valorSocial, setValorSocial] = useState(false)
 
     useEffect(() => {
         fetch('/api/departamentos')
@@ -32,6 +34,8 @@ const NovoServico = () => {
                 type,
                 descricao,
                 departamento,
+                valores,
+                valorSocial,
             }),
         })
             .then((res) => res.json())
@@ -43,6 +47,9 @@ const NovoServico = () => {
                     setType('')
                     setDescricao('')
                     setDepartamento('')
+                    setValores([])
+                    setValorSocial(false)
+                    window.location.reload()
                 }
             })
     }
@@ -95,6 +102,20 @@ const NovoServico = () => {
                                     </option>
                                 ))}
                         </select>
+
+                        <div className="flex items-center justify-start gap-x-4 my-4">
+                            <label>Valor Social:</label>
+                            <input
+                                type="checkbox"
+                                value={valorSocial}
+                                onChange={(e) => setValorSocial(e.target.value)}
+                                className="border-2 border-primary rounded-lg p-2"
+                            />
+                        </div>
+                        <ValorServicoForm
+                            valores={valores}
+                            setValores={setValores}
+                        />
                     </fieldset>
                     <button
                         type="submit"

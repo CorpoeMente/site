@@ -8,7 +8,8 @@ export async function POST(request) {
         return new NextResponse('Unauthorized', { status: 401 })
     }
 
-    const { nome, descricao, type, departamento } = await request.json()
+    const { nome, descricao, type, departamento, valores, valorSocial } =
+        await request.json()
 
     await dbConnect()
 
@@ -17,6 +18,8 @@ export async function POST(request) {
         descricao,
         type,
         departamento,
+        valores,
+        valorSocial,
     })
 
     try {
@@ -88,16 +91,19 @@ export async function PUT(request) {
         return new NextResponse('Unauthorized', { status: 401 })
     }
 
-    const { id, nome, descricao, type, departamento } = await request.json()
+    const { id, nome, descricao, type, departamento, valores, valorSocial } =
+        await request.json()
 
     await dbConnect()
-
+    console.log(valores)
     try {
         await Servico.findByIdAndUpdate(id, {
             nome,
             descricao,
             type,
             departamento,
+            valores,
+            valorSocial,
         })
         return new NextResponse(
             JSON.stringify({

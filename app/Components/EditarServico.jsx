@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { Modal } from '../Components'
+import { Modal, ValorServicoForm } from '../Components'
 import { FaPencil } from 'react-icons/fa6'
 const EditarServico = ({ servico }) => {
     const [nome, setNome] = useState(servico.nome)
@@ -8,6 +8,8 @@ const EditarServico = ({ servico }) => {
     const [descricao, setDescricao] = useState(servico.descricao)
     const [departamento, setDepartamento] = useState(servico.departamento)
     const [departamentos, setDepartamentos] = useState([])
+    const [valores, setValores] = useState(servico.valores || [])
+    const [valorSocial, setValorSocial] = useState(servico.valorSocial || false)
     const [message, setMessage] = useState('')
 
     useEffect(() => {
@@ -33,6 +35,8 @@ const EditarServico = ({ servico }) => {
                 type,
                 descricao,
                 departamento,
+                valores,
+                valorSocial,
             }),
         })
             .then((res) => res.json())
@@ -44,6 +48,7 @@ const EditarServico = ({ servico }) => {
                     setType('')
                     setDescricao('')
                     setDepartamento('')
+                    window.location.reload()
                 }
             })
     }
@@ -108,6 +113,21 @@ const EditarServico = ({ servico }) => {
                                     )
                                 )}
                         </select>
+                        <div className="flex items-center justify-start gap-x-4 my-4">
+                            <label>Valor Social:</label>
+                            <input
+                                type="checkbox"
+                                checked={valorSocial}
+                                onChange={(e) =>
+                                    setValorSocial(valorSocial ? false : true)
+                                }
+                                className="border-2 border-primary rounded-lg p-2"
+                            />
+                        </div>
+                        <ValorServicoForm
+                            valores={valores}
+                            setValores={setValores}
+                        />
                     </fieldset>
                     <button
                         type="submit"

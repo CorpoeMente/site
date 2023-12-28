@@ -27,6 +27,10 @@ const Valores = ({ valores, valorSocial }) => {
                     valor.
                 </p>
             )}
+            <p className="text-center mt-4 font-bold">
+                * Para ver os planos de saúde que atendemos, vá ao menu superior
+                e clique em "Planos".
+            </p>
         </Modal>
     )
 }
