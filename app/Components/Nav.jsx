@@ -6,10 +6,16 @@ import { FaRegUser } from 'react-icons/fa'
 import { Planos } from '.'
 
 const Nav = () => {
+    const handleHomeNavigate = () => {
+        window.location.href = '/'
+    }
     return (
         <nav className="fixed grid grid-cols-1 place-content-center place-items-center top-0 left-0 w-screen flex items-center justify-between bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[70px] z-40 shadow-xl">
             <div className="flex items-center justify-between w-full max-w-[90vw] sm:!max-w-[1900px]">
-                <div className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%]">
+                <div
+                    className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%] cursor-pointer"
+                    onClick={handleHomeNavigate}
+                >
                     <img
                         src="/logo-primary.svg"
                         alt="Logo da Clínica Corpo e Mente"
@@ -31,7 +37,9 @@ const Nav = () => {
                         Contato
                     </a>
 
-                    <Planos />
+                    <a href="/planos" className="nav-btn">
+                        Planos
+                    </a>
                     <a href="#servicos" className="nav-btn text-primary">
                         Agendamentos
                     </a>
@@ -88,7 +96,9 @@ const Nav = () => {
 
                                 <li>
                                     <Dialog.Close asChild>
-                                        <Planos />
+                                        <a href="/planos" className="nav-btn">
+                                            Planos
+                                        </a>
                                     </Dialog.Close>
                                 </li>
                                 <li>

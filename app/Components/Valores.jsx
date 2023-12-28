@@ -28,8 +28,14 @@ const Valores = ({ valores, valorSocial }) => {
                 </p>
             )}
             <p className="text-center mt-4 font-bold">
-                * Para ver os planos de saúde que atendemos, vá ao menu superior
-                e clique em &quot;Planos&quot;.
+                * Para ver os planos de saúde que atendemos,{' '}
+                <a
+                    href="https://www.clinicacorpoemente.com/planos"
+                    target="_blank"
+                    className="text-primary hover:!underline"
+                >
+                    clique aqui
+                </a>
             </p>
         </Modal>
     )
