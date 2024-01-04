@@ -87,18 +87,6 @@ const Footer = () => {
                     <span className="text-md text-end mb-2">Fechado</span>
                 </div>
             </div>
-
-            <hr className="w-full h-[1px] text-white mt-24 xl:mt-auto" />
-            <span className="text-white text-md text-center justify-end my-4">
-                © Copyright 2023 All Rights Reserved by Espaço Clínico Corpo e
-                Mente | Developed by{' '}
-                <a
-                    href="https://github.com/Joaoaalves"
-                    className="underline text-bold  cursor-pointer"
-                >
-                    João Alves
-                </a>
-            </span>
         </footer>
     )
 }
