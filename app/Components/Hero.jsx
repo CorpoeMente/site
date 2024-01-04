@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const Hero = () => {
     return (
@@ -41,10 +42,14 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <img
-                    src="logo-white.svg"
+                <Image
+                    src="/logo-white.webp"
                     alt="Logo da Clínica Corpo e Mente"
                     className="opacity-[0.4] justify-self-center self-start center-grid pointer-events-none drop-shadow-[0_4px_1px_rgba(0,0,0,0.35)] slide-left w-2/3"
+                    width={720}
+                    height={720}
+                    placeholder="blur"
+                    blurDataURL="logo-white.webp"
                 />
             </div>
         </section>
