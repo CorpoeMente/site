@@ -71,13 +71,13 @@ const Agendamento = ({ servico }) => {
 
                     {error && (
                         <p className="text-[#f22] text-center font-bold">
-                            Erro ao enviar mensagem. Tente novamente mais tarde
+                            Erro ao fazer o pedido de agendamento
                         </p>
                     )}
 
                     {success && (
                         <p className="text-[#0a0] text-center font-bold my-4">
-                            Mensagem enviada com sucesso!
+                            Pedido de agendamento enviado com sucesso!
                         </p>
                     )}
 
