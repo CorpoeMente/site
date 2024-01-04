@@ -3,7 +3,7 @@ import React from 'react'
 const Hero = () => {
     return (
         <section
-            className="grid grid-cols-1 place-content-center place-items-center w-screen px-[5%] py-[15%] lg:py-[200px] mt-[70px] relative bg-crop bg-start bg-no-repeat overflow-hidden"
+            className="grid grid-cols-1 place-content-center place-items-center w-screen px-[5%] py-[15%] lg:py-[200px] mt-[70px] relative bg-crop bg-start bg-no-repeat overflow-hidden bg-primary"
             style={{ backgroundImage: `url(/background-hero.webp)` }}
         >
             <div className="grid grid-cols-1 lg:grid-cols-2 place-content-center place-items-center w-full max-w-[90vw] sm:!max-w-[1900px]">

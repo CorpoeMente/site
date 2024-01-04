@@ -36,6 +36,7 @@ const Valores = ({ valores, valorSocial }) => {
                 >
                     clique aqui
                 </a>
+                .
             </p>
         </Modal>
     )
