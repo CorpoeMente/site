@@ -8,6 +8,7 @@ const Agendamento = ({ servico }) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [success, setSuccess] = useState(false)
+
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState('')
@@ -34,6 +35,19 @@ const Agendamento = ({ servico }) => {
             headers: {
                 'Content-Type': 'application/json',
             },
+        }).then((res) => {
+            setLoading(false)
+            console.log(res)
+            if (res.ok) {
+                setSuccess(true)
+                setNome('')
+                setEmail('')
+                setTelefone('')
+                setData('')
+                setMensagem('')
+            } else {
+                setError(true)
+            }
         })
     }
 
@@ -50,6 +64,22 @@ const Agendamento = ({ servico }) => {
                     <Dialog.Title className="text-2xl text-primary text-center font-bold">
                         Agendamento de {servico.nome}
                     </Dialog.Title>
+                    <Dialog.Description className="text-primary text-center font-medium">
+                        Preencha o formulário abaixo para solicitar um
+                        agendamento de {servico.nome}
+                    </Dialog.Description>
+
+                    {error && (
+                        <p className="text-[#f22] text-center font-bold">
+                            Erro ao enviar mensagem. Tente novamente mais tarde
+                        </p>
+                    )}
+
+                    {success && (
+                        <p className="text-[#0a0] text-center font-bold my-4">
+                            Mensagem enviada com sucesso!
+                        </p>
+                    )}
 
                     <form
                         className="flex flex-col items-center justify-between gap-8 mt-8 w-full"
@@ -108,12 +138,6 @@ const Agendamento = ({ servico }) => {
                         >
                             {loading ? 'Enviando...' : 'Enviar'}
                         </button>
-
-                        <Dialog.Close asChild>
-                            <button className="bg-gray-dark py-2 px-6 absolute bottom-6 right-6 text-white font-bold  text-xl rounded-xl">
-                                Fechar
-                            </button>
-                        </Dialog.Close>
                     </form>
                     <Dialog.Close asChild>
                         <button

@@ -43,17 +43,24 @@ const Pedidos = () => {
         >
             {pedidos.map((pedido) => (
                 <TableRow key={pedido._id}>
-                    <td className="px-4 py-2">{pedido.nome}</td>
-                    <td className="px-4 py-2">{pedido.email}</td>
-                    <td className="px-4 py-2">{pedido.telefone}</td>
-                    <td className="px-4 py-2">{pedido.servico}</td>
-                    <td className="px-4 py-2">
+                    <td className="px-4 py-2 text-center">{pedido.nome}</td>
+                    <td className="px-4 py-2 text-center">{pedido.email}</td>
+                    <td className="px-4 py-2 text-center">{pedido.telefone}</td>
+                    <td className="px-4 py-2 text-center">{pedido.servico}</td>
+                    <td className="px-4 py-2 text-center">
                         {formatDate(pedido.data.split('T')[0])}
                     </td>
                     <td className="px-4 py-2 flex items-center justify-center gap-x-4">
                         <button
                             className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
-                            onClick={() => deletePedido(pedido._id)}
+                            onClick={() => {
+                                deletePedido(pedido._id)
+                                setPedidos(
+                                    pedidos.filter(
+                                        (item) => item._id !== pedido._id
+                                    )
+                                )
+                            }}
                         >
                             <FaTrashAlt />
                         </button>

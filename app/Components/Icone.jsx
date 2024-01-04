@@ -11,7 +11,7 @@ const Icone = ({ departamento, setActive, active, Icone = null }) => {
         <div
             className={`flex flex-row items-center justify-start text-lg  font-light  bg-[#fcfcfc]  gap-4 cursor-pointer p-4 rounded-xl w-auto border-2 border-[#a0a0a] relative z-30   ${
                 active === departamento._id
-                    ? `text-white !bg-secondary shadow-[0px_0px_4px_2px_rgba(0,0,0,0.2)] hover:text-white border-secondary`
+                    ? `text-primary !bg-secondary shadow-[0px_0px_4px_2px_rgba(0,0,0,0.2)] hover:text-white border-secondary`
                     : 'text-primary'
             } hover:bg-[#e1e9eC] hover:text-primary transition-all`}
             onClick={handleClick}
@@ -33,7 +33,7 @@ const Icone = ({ departamento, setActive, active, Icone = null }) => {
             <span
                 className={`text-xl font-bold mx-auto whitespace-nowrap ${
                     active === departamento._id
-                        ? 'drop-shadow-[0px_0px_2px_rgba(0,0,0,0.8)]'
+                        ? 'drop-shadow-[0px_0px_2px_rgba(255,255,255,0.2)]'
                         : ''
                 }`}
             >

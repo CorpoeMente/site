@@ -14,9 +14,11 @@ const Mensagem = ({ mensagem }) => {
                     {mensagem.mensagem}
                 </p>
                 <p className="text-lg text-primary mt-auto mb-4">
-                    {mensagem.email}
+                    <b>Email:</b> {mensagem.email}
                 </p>
-                <p className="text-lg text-primary">{mensagem.telefone}</p>
+                <p className="text-lg text-primary">
+                    <b>Telefone:</b> {mensagem.telefone}
+                </p>
             </div>
         </Modal>
     )

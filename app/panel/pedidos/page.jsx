@@ -1,7 +1,11 @@
 import React from 'react'
 import { SidePanel, PedidosList } from '@/app/Components'
-
-const page = () => {
+import { authOptions } from '@/app/utils/auth'
+import { getServerSession } from 'next-auth'
+import Login from '../../(auth)/login/page'
+export default async function page() {
+    const session = await getServerSession(authOptions)
+    if (!session) return <Login />
     return (
         <div className="flex items-center justify-center">
             <SidePanel />
@@ -12,5 +16,3 @@ const page = () => {
         </div>
     )
 }
-
-export default page

@@ -1,6 +1,10 @@
 import { SidePanel, ServicosList, NovoServico } from '../../Components'
-
-export default function page() {
+import { authOptions } from '@/app/utils/auth'
+import { getServerSession } from 'next-auth'
+import Login from '../../(auth)/login/page'
+export default async function page() {
+    const session = await getServerSession(authOptions)
+    if (!session) return <Login />
     return (
         <main className="flex items-center justify-between">
             <SidePanel />

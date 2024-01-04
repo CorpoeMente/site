@@ -1,6 +1,5 @@
 'use client'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { signIn, useSession } from 'next-auth/react'
 import { Input } from '../../Components'
 import { ImSpinner8 } from 'react-icons/im'

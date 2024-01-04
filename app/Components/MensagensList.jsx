@@ -40,10 +40,16 @@ const MensagensList = () => {
                 mensagens.map((mensagem, index) => {
                     return (
                         <TableRow key={index}>
-                            <td className="px-4 py-2">{mensagem.nome}</td>
-                            <td className="px-4 py-2">{mensagem.email}</td>
-                            <td className="px-4 py-2">{mensagem.telefone}</td>
-                            <td className="px-4 py-2">
+                            <td className="text-center px-4 py-2">
+                                {mensagem.nome}
+                            </td>
+                            <td className="text-center px-4 py-2">
+                                {mensagem.email}
+                            </td>
+                            <td className="text-center px-4 py-2">
+                                {mensagem.telefone}
+                            </td>
+                            <td className="text-center px-4 py-2">
                                 {formatDate(mensagem.updatedAt.split('T')[0])}
                             </td>
                             <td className="px-4 py-2 flex items-center justify-center gap-x-4">

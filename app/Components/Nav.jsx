@@ -30,17 +30,17 @@ const Nav = () => {
                     </span>
                 </div>
                 <div className="invisible lg:visible flex items-center justify-between lg:text-md xl:text-lg text-primary font-bold w-2/3 max-w-[630px] 2xl:w-1/3 z-10 gap-x-8 me-[10%]">
-                    <a href="#departamentos" className="nav-btn">
+                    <a href="/#departamentos" className="nav-btn">
                         Departamentos
                     </a>
-                    <a href="#contato" className="nav-btn">
+                    <a href="/#contato" className="nav-btn">
                         Contato
                     </a>
 
                     <a href="/planos" className="nav-btn">
                         Planos
                     </a>
-                    <a href="#servicos" className="nav-btn text-primary">
+                    <a href="/#servicos" className="nav-btn text-primary">
                         Agendamentos
                     </a>
                     <a
@@ -74,7 +74,7 @@ const Nav = () => {
                                 <li>
                                     <Dialog.Close asChild>
                                         <a
-                                            href="#departamentos"
+                                            href="/#departamentos"
                                             className="nav-btn"
                                             aria-label="Close"
                                         >
@@ -85,7 +85,7 @@ const Nav = () => {
                                 <li>
                                     <Dialog.Close asChild>
                                         <a
-                                            href="#contato"
+                                            href="/#contato"
                                             className="nav-btn"
                                             aria-label="Close"
                                         >
@@ -104,7 +104,7 @@ const Nav = () => {
                                 <li>
                                     <Dialog.Close asChild>
                                         <a
-                                            href="#servicos"
+                                            href="/#servicos"
                                             className="nav-btn"
                                             aria-label="Close"
                                         >
