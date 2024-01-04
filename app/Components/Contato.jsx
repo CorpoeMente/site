@@ -2,6 +2,7 @@
 import React from 'react'
 import { Input, TextArea } from '.'
 import { FiSend } from 'react-icons/fi'
+
 const Contato = () => {
     const [nome, setNome] = React.useState('')
     const [email, setEmail] = React.useState('')

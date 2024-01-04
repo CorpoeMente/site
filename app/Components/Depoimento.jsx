@@ -1,6 +1,6 @@
 import React from 'react'
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
-import { GoogleReview } from '.'
+import Image from 'next/image'
 import { FaQuoteRight } from 'react-icons/fa'
 
 const Depoimento = ({ depoimento, index }) => {
@@ -12,11 +12,14 @@ const Depoimento = ({ depoimento, index }) => {
             ${index == 2 ? 'me-[5%] mt-32' : ''}
             ${index == 3 ? 'ms-[5%] mt-32' : ''}`}
         >
-            <img
+            <Image
                 src={depoimento.profile_photo_url}
                 alt={depoimento.author_name}
                 className="rounded-ful w-16 absolute top-[-18px] drop-shadow-xl pointer-events-none"
-            ></img>
+                width={64}
+                height={64}
+                lazy="true"
+            />
             <span className="font-bold text-xl  mt-4 self-center text-center capitalize">
                 {depoimento.author_name}
             </span>

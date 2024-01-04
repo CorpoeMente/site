@@ -2,6 +2,7 @@ import React from 'react'
 import { FaLocationArrow, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 import { BsInstagram, BsFacebook, BsWhatsapp } from 'react-icons/bs'
 import { Map } from '.'
+import Image from 'next/image'
 
 const Footer = () => {
     return (
@@ -10,10 +11,13 @@ const Footer = () => {
                 <Map />
                 <div className="flex flex-col items-center  text-white self-center xl:self-start gap-y-8 gap-x-2 w-full max-w-[80vw] xl:w-1/3 h-full">
                     <div className="flex items-center justify-center gap-x-2">
-                        <img
+                        <Image
                             alt="Logo da Clínica Corpo e Mente"
                             src="/logo-white.svg"
                             className="w-24 h-24"
+                            width={96}
+                            height={96}
+                            lazy="true"
                         />
                         <span className="text-2xl font-bold ">
                             Clínica Corpo e <br></br>Mente
