@@ -3,7 +3,7 @@ import React from 'react'
 import { RxHamburgerMenu, RxCross2 } from 'react-icons/rx'
 import * as Dialog from '@radix-ui/react-dialog'
 import { FaRegUser } from 'react-icons/fa'
-import { Planos } from '.'
+import Image from 'next/image'
 
 const Nav = () => {
     const handleHomeNavigate = () => {
@@ -16,10 +16,12 @@ const Nav = () => {
                     className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%] cursor-pointer"
                     onClick={handleHomeNavigate}
                 >
-                    <img
+                    <Image
                         src="/logo-primary.svg"
                         alt="Logo da Clínica Corpo e Mente"
                         className="w-12 pointer-events-none"
+                        width={48}
+                        height={48}
                     />
                     <span className="lg:block text-sm lg:text-lg xl:text-2xl text-primary font-bold  drop-shadow text-center">
                         Corpo{' '}

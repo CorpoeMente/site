@@ -73,7 +73,7 @@ const Servicos = () => {
         >
             <img
                 alt="Serviços"
-                src="/fundo-preto-e-branco-ondulado.jpg"
+                src="/fundo-preto-e-branco-ondulado.webp"
                 className="absolute w-full h-full top-0 left-0 opacity-[8%] bg-cover object-top object-cover bg-center pointer-events-none"
                 id="bg-servicos"
             />
