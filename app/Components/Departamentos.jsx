@@ -62,13 +62,12 @@ const Departamentos = () => {
         >
             <div className="flex flex-col items-start w-full max-w-[90vw] sm:!max-w-[1900px]">
                 <h1 className="text-primary self-center md:self-start text-3xl xl:text-4xl font-bold mb-4">
-                    Equipe
+                    Quem Somos?
                 </h1>
                 <span className="w-full xl:w-[50%] mb-12 text-lg">
-                    Explore nossa equipe e descubra como podemos cuidar melhor
-                    de você. Cada departamento é liderado por profissionais
-                    dedicados e qualificados, que buscam atender todos os nossos
-                    pacientes da melhor forma possível.
+                    Somos uma clínica de psicologia, psicopedagogia,
+                    neuropsicologia, fonoaudiologia e nutrição em Brasília - DF
+                    - Taguatinga Norte
                 </span>
 
                 {deps.length > 0 ? (
