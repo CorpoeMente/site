@@ -65,9 +65,12 @@ const Departamentos = () => {
                     Quem Somos?
                 </h1>
                 <span className="w-full xl:w-[50%] mb-12 text-lg">
-                    Somos uma clínica de psicologia, psicopedagogia,
-                    neuropsicologia, fonoaudiologia e nutrição em Brasília - DF
-                    - Taguatinga Norte
+                    O Espaço Clínico Corpo e Mente oferece atendimentos nas
+                    áreas de psicologia, psicopedagogia, neuropsicologia,
+                    fonoaudiologia e nutrição. Conta com uma equipe de
+                    profissionais acolhedores e de muita competência técnica.
+                    Atende crianças, adolescentes, adultos e idosos. Conheça
+                    nossa equipe abaixo:
                 </span>
 
                 {deps.length > 0 ? (
