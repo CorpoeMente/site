@@ -6,7 +6,7 @@ const libraries = ['places']
 
 const Map = () => {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.GOOGLE_API_KEY,
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
         libraries,
     })
     // Convert string to floating point number
