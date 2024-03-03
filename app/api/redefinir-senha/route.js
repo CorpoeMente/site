@@ -73,7 +73,7 @@ const Email = ({ token }) => {
             <p>
                 Clique no link abaixo para recuperar sua senha:{' '}
                 <a
-                    href={`http://localhost:3000/redefinir-senha?token=${token}`}
+                    href={`https://www.clinicacorpoemente.com/redefinir-senha?token=${token}`}
                 >
                     Recuperar senha
                 </a>
