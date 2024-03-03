@@ -1,7 +1,7 @@
 import { Resend } from 'resend'
 
 const resend = new Resend({
-    apiKey: process.env.NEXT_PUBLIC_RESEND_API_KEY,
+    apiKey: process.env.RESEND_API_KEY,
 })
 
 const Email = ({ token }) => {

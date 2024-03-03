@@ -10,7 +10,7 @@ const Depoimentos = () => {
     const [reviews, setReviews] = useState([])
     const [rating, setRating] = useState(0)
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
+        googleMapsApiKey: process.env.GOOGLE_API_KEY,
         libraries,
     })
 

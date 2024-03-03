@@ -1,10 +1,10 @@
 const { MongoClient } = require('mongodb')
 
-if (!process.env.NEXT_PUBLIC_MONGODB_URI) {
+if (!process.env.MONGODB_URI) {
     throw new Error('Please add your Mongo URI to .env.NEXT_PUBLIC_local')
 }
 
-const uri = process.env.NEXT_PUBLIC_MONGODB_URI
+const uri = process.env.MONGODB_URI
 let client
 let clientPromise
 

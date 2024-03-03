@@ -5,7 +5,7 @@ import PasswordRecovery from '../../models/PasswordRecovery'
 import bcrypt from 'bcryptjs'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 import { dbConnect } from '@/app/utils/dbConnect'
 

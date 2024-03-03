@@ -11,12 +11,12 @@ export const authOptions = {
     session: {
         strategy: 'jwt',
     },
-    secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         CredentialsProvider({
             name: 'Credentials',
             id: 'credentials',
-            secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+            secret: process.env.NEXTAUTH_SECRET,
             credentials: {
                 email: {
                     label: 'e-mail',
