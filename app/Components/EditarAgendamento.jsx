@@ -52,7 +52,7 @@ const EditarAgendamento = ({ agendamento }) => {
     if (isLoadingServs || isLoadingProfs)
         return <PiSpinnerGapThin className="animate-spin h-5 w-5" />
     const servicos = servs
-    const profissionais = profs.profissionais
+    const profissionais = profs
     return (
         <Modal
             buttonText={<FaPencil />}

@@ -7,10 +7,10 @@ const FormRoot = ({ children, stepsTitle, onSubmit }) => {
     return (
         <MultiStepFormProvider initialStep={0} steps={Children.count(children)}>
             <FormContent
-                children={children}
                 stepsTitle={stepsTitle}
-                onSubmit={onSubmit}
-            />
+                onSubmit={onSubmit}>
+                    {children}
+            </FormContent>
         </MultiStepFormProvider>
     )
 }

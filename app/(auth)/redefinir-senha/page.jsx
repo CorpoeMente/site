@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import Form from './form'
 import GetTokenForm from './GetTokenForm'
 
-const page = () => {
+const Page = () => {
     const searchParams = useSearchParams()
     const token = searchParams.get('token')
     const [loading, setLoading] = useState(true)
@@ -16,4 +16,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

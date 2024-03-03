@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/table'
 
 const DynamicTable = ({ data, columns, actions }) => {
-    if (!data || !columns) return null
+    
     const [tableData, setTableData] = useState(data)
     const [sortKey, setSortKey] = useState(null)
     const [sortDirection, setSortDirection] = useState('asc')
@@ -84,6 +84,9 @@ const DynamicTable = ({ data, columns, actions }) => {
         await Promise.all(selected.map((item) => action.handleAction(item)))
         window.location.reload()
     }
+
+    if (!data || !columns) return null
+    
     if (tableData.length === 0) {
         return (
             <div className="flex items-center justify-center h-full w-full">
@@ -91,6 +94,7 @@ const DynamicTable = ({ data, columns, actions }) => {
             </div>
         )
     }
+
     return (
         <div className="flex flex-col items-center justify-start h-full gap-y-4 w-full mt-8 overflow-auto">
             <div className="col-span-1 row-span-1 grid grid-cols-3 items-center w-full gap-x-8">
