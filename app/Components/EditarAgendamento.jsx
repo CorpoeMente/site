@@ -49,10 +49,10 @@ const EditarAgendamento = ({ agendamento }) => {
                 }
             })
     }
+
     if (isLoadingServs || isLoadingProfs)
         return <PiSpinnerGapThin className="animate-spin h-5 w-5" />
-    const servicos = servs
-    const profissionais = profs
+
     return (
         <Modal
             buttonText={<FaPencil />}
@@ -106,8 +106,8 @@ const EditarAgendamento = ({ agendamento }) => {
                             required
                         >
                             <option>Serviço</option>
-                            {servicos &&
-                                servicos.map((servico) => (
+                            {servs &&
+                                servs.map((servico) => (
                                     <option
                                         key={servico._id}
                                         value={servico._id}

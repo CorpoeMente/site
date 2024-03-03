@@ -51,8 +51,7 @@ const EditarAgendamento = ({agendamento_id}) => {
             setHora(formatTime(agdmts.date))
             setMessage(agdmts.message)
             setProfissionais(
-                servicos.find((item) => item._id === agdmts.servico._id)?
-                .profissionais
+                servicos.find((item) => item._id === agdmts.servico._id)?.profissionais
             )
         }
     }, [agdmts, servicos])
