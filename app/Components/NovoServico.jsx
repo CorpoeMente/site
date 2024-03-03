@@ -58,7 +58,7 @@ const NovoServico = () => {
         <Modal
             buttonText={'Novo Serviço'}
             title={'Novo Serviço'}
-            className={'w-auto p-2 !py-2 !text-sm !mt-0 mb-4 ms-auto'}
+            className="!mt-0 self-end mb-2 !py-2 !px-4 font-normal dark:bg-transparent dark:border-[1px] dark:border-[#fff] hover:dark:bg-[#202020] hover:dark:text-white hover:dark:scale-100"
         >
             <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
                 <form onSubmit={handleSubmit}>
@@ -68,20 +68,20 @@ const NovoServico = () => {
                             onChange={(e) => setNome(e.target.value)}
                             type="text"
                             placeholder="Nome"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full dark:bg-black dark:text-white border-2 border-primary rounded-lg p-2 mb-4"
                             required
                         />
                         <textarea
                             value={descricao}
                             onChange={(e) => setDescricao(e.target.value)}
                             placeholder="Descrição"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full dark:bg-black dark:text-white border-2 border-primary rounded-lg p-2 mb-4"
                             required
                         />
                         <select
                             value={type}
                             onChange={(e) => setType(e.target.value)}
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full dark:bg-black dark:text-white border-2 border-primary rounded-lg p-2 mb-4"
                             required
                         >
                             <option value="">Tipo</option>
@@ -91,7 +91,7 @@ const NovoServico = () => {
                         <select
                             value={departamento}
                             onChange={(e) => setDepartamento(e.target.value)}
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full dark:bg-black dark:text-white border-2 border-primary rounded-lg p-2 mb-4"
                             required
                         >
                             <option value="">Departamento</option>

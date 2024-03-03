@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server'
 import { Message } from '../../models'
-import dbConnect from '../../utils/dbConnect'
+
 import handlePermissions from '../../utils/serverSession'
 
-export async function POST(request) {
-    const { nome, telefone, email, mensagem } = await request.json()
+import { dbConnect } from '@/app/utils/dbConnect'
 
+export async function POST(request) {
     await dbConnect()
+    const { nome, telefone, email, mensagem } = await request.json()
 
     const newMessage = new Message({
         nome,
@@ -17,6 +18,7 @@ export async function POST(request) {
 
     try {
         await newMessage.save()
+
         return new NextResponse('Message has been created', {
             status: 201,
         })
@@ -28,12 +30,16 @@ export async function POST(request) {
 }
 
 export async function GET(request) {
-    if (await handlePermissions()) {
-        return new NextResponse('Unauthorized', { status: 401 })
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
+        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+            status: 401,
+        })
     }
 
     try {
         const messages = await Message.find({})
+
         return new NextResponse(JSON.stringify(messages), {
             status: 200,
         })
@@ -45,19 +51,37 @@ export async function GET(request) {
 }
 
 export async function DELETE(request) {
-    if (await handlePermissions()) {
-        return new NextResponse('Unauthorized', { status: 401 })
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
+        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+            status: 401,
+        })
     }
     const data = await request.json()
     const { id } = data
-    await dbConnect()
 
     try {
-        await Message.findByIdAndDelete(id)
-        const messages = await Message.find({})
-        return new NextResponse(JSON.stringify(messages), {
-            status: 200,
-        })
+        const message = await Message.findById(id)
+        if (message.documentStatus === 'lixeira') {
+            await Message.findByIdAndDelete(id)
+            const messages = await Message.find({})
+
+            return new NextResponse(JSON.stringify(messages), {
+                status: 200,
+            })
+        }
+
+        message.documentStatus = 'lixeira'
+        await message.save()
+
+        return new NextResponse(
+            JSON.stringify({
+                message: 'Message has been moved to trash',
+            }),
+            {
+                status: 200,
+            }
+        )
     } catch (err) {
         return new NextResponse(err.message, {
             status: 500,

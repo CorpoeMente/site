@@ -1,12 +1,10 @@
 import User from '../../../models/User'
-import dbConnect from '../../../utils/dbConnect'
+import { dbClose, dbConnect } from '../../../utils/dbConnect'
 import bcrypt from 'bcryptjs'
 import { NextResponse } from 'next/server'
 
 export const POST = async (request) => {
     const { nome, email, telefone, password } = await request.json()
-
-    await dbConnect()
 
     const hashedPassword = await bcrypt.hash(password, 10)
 
@@ -20,6 +18,7 @@ export const POST = async (request) => {
 
     try {
         await newUser.save()
+
         return new NextResponse('User has been created', {
             status: 201,
         })

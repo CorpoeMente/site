@@ -29,7 +29,7 @@ const Depoimentos = () => {
 
                 (place, status) => {
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
-                        setReviews(place.reviews.slice(0, 4))
+                        setReviews(place.reviews?.slice(0, 4))
                         setRating(place.rating)
                     }
                 }

@@ -1,19 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import {
-    DepartamentoSelector,
-    DepartamentosLoading,
-    Profissional,
-} from '../Components'
+import { DepartamentoSelector, DepartamentosLoading, Profissional } from '.'
 
 const Departamentos = () => {
     const [active, setActive] = useState(0)
     const [deps, setDeps] = useState([])
-    const [profissionais, setProfissionais] = useState([])
 
     useEffect(() => {
         getDepartamentos()
-        getProfissionais()
     }, [])
 
     const getDepartamentos = () => {
@@ -29,22 +23,6 @@ const Departamentos = () => {
             })
     }
 
-    const getProfissionais = () => {
-        fetch('/api/profissionais')
-            .then((res) => res.json())
-            .then((res) => {
-                if (res.error) {
-                    //
-                } else {
-                    setProfissionais(res.profissionais)
-                }
-            })
-    }
-
-    const getProfissional = (id) => {
-        return profissionais.find((profissional) => profissional._id === id)
-    }
-
     const getDepartamento = (id) => {
         return deps.find((dep) => dep._id === id)
     }
@@ -52,7 +30,7 @@ const Departamentos = () => {
     const getResponsavel = (id) => {
         var dep = getDepartamento(id)
         if (!dep) return null
-        return getProfissional(dep.responsavel)
+        return dep.responsavel
     }
 
     return (
@@ -73,7 +51,7 @@ const Departamentos = () => {
                     nossa equipe abaixo:
                 </span>
 
-                {deps.length > 0 ? (
+                {deps && deps.length > 0 ? (
                     <DepartamentoSelector
                         deps={deps}
                         active={active}

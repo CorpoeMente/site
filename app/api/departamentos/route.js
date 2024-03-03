@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server'
 import { Departamento } from '../../models'
-import dbConnect from '../../utils/dbConnect'
 import handlePermissions from '../../utils/serverSession'
 
+import { dbConnect } from '@/app/utils/dbConnect'
+
 export async function POST(request) {
-    if (await handlePermissions()) {
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
         return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
             status: 401,
         })
     }
 
     const { name, color, img } = await request.json()
-
-    await dbConnect()
 
     const newDepartamento = new Departamento({
         name,
@@ -22,6 +22,7 @@ export async function POST(request) {
 
     try {
         await newDepartamento.save()
+
         return new NextResponse(
             JSON.stringify({ message: 'Departamento has been created' }),
             {
@@ -44,13 +45,13 @@ export async function GET(request) {
     await dbConnect()
 
     try {
-        const departamentos = await Departamento.find({})
-        return new NextResponse(
-            JSON.stringify({ departamentos: departamentos }),
-            {
-                status: 200,
-            }
+        const departamentos = await Departamento.find({}).populate(
+            'responsavel'
         )
+
+        return new NextResponse(JSON.stringify({ departamentos }), {
+            status: 200,
+        })
     } catch (err) {
         return new NextResponse(
             JSON.stringify({
@@ -64,14 +65,14 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-    if (await handlePermissions()) {
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
         return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
             status: 401,
         })
     }
 
     const { id, name, color, img, responsavel } = await request.json()
-    await dbConnect()
 
     try {
         await Departamento.findByIdAndUpdate(
@@ -84,6 +85,7 @@ export async function PUT(request) {
             },
             { strict: false }
         )
+
         return new NextResponse(
             JSON.stringify({ message: 'Departamento has been updated' }),
             {
@@ -103,20 +105,33 @@ export async function PUT(request) {
 }
 
 export async function DELETE(request) {
-    if (await handlePermissions()) {
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
         return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
             status: 401,
         })
     }
     const data = await request.json()
-    const { id } = data
-
-    await dbConnect()
+    const { _id } = data
 
     try {
-        await Departamento.findByIdAndDelete(id)
+        const departamento = await Departamento.findById
+        if (departamento.documentStatus === 'lixeira') {
+            await Departamento.findByIdAndDelete(_id)
+
+            return new NextResponse(
+                JSON.stringify({ message: 'Departamento has been deleted' }),
+                {
+                    status: 200,
+                }
+            )
+        }
+
+        departamento.documentStatus = 'lixeira'
+        await departamento.save()
+
         return new NextResponse(
-            JSON.stringify({ message: 'Departamento has been deleted' }),
+            JSON.stringify({ message: 'Departamento has been moved to trash' }),
             {
                 status: 200,
             }

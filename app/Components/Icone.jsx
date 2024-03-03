@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Icone = ({ departamento, setActive, active, Icone = null }) => {
+const Icone = ({ departamento, setActive, active, Icon = null }) => {
     const handleClick = () => {
         setActive(departamento._id)
         const profissionaisDiv = document.getElementById('profissional')
@@ -20,13 +20,13 @@ const Icone = ({ departamento, setActive, active, Icone = null }) => {
                 className={`rounded-lg shadow w-16 h-16 relative`}
                 style={{ backgroundColor: departamento.color }}
             >
-                {Icone ? (
-                    <Icone className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-6xl text-white drop-shadow-xl" />
+                {Icon ? (
+                    <Icon className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-6xl text-white drop-shadow-xl" />
                 ) : (
                     <img
                         src={departamento.img}
                         alt={departamento.name}
-                        className="absolute !min-w-32 top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 pointer-events-none"
+                        className="absolute !min-w-16 top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 pointer-events-none"
                     />
                 )}
             </div>

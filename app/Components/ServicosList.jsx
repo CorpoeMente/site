@@ -1,61 +1,143 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { Table, TableRow, EditarServico } from '../Components'
-import { FaTrashAlt } from 'react-icons/fa'
+import { EditarServico } from '../Components'
+import { BiTrashAlt } from 'react-icons/bi'
+import DynamicTable from './DynamicTable'
+import { useRouter } from 'next/navigation'
+import { NovoServico } from '.'
+import { GrRedo } from 'react-icons/gr'
 
 const ServicosList = () => {
     const [servicos, setServicos] = useState([])
+    const [trash, setTrash] = useState([])
+    const [showTrash, setShowTrash] = useState(false)
     const [loading, setLoading] = useState(true)
+    const router = useRouter()
+
     useEffect(() => {
-        fetch('/api/servicos')
-            .then((response) => response.json())
-            .then((data) => setServicos(data))
-            .then(() => setLoading(false))
+        const getServicos = async () => {
+            const res = await fetch('/api/servicos')
+            const data = await res.json()
+            setServicos(
+                data.filter((servico) => {
+                    return servico.documentStatus === 'ativo'
+                })
+            )
+            setTrash(
+                data.filter((servico) => {
+                    return servico.documentStatus === 'lixeira'
+                })
+            )
+            setLoading(false)
+        }
+        getServicos()
     }, [])
 
-    const handleDelete = (id) => {
-        fetch(`/api/servicos`, {
+    const handleDelete = async ({ _id, documentStatus }) => {
+        const response = await fetch(`/api/servicos`, {
             method: 'DELETE',
-            body: JSON.stringify({ id }),
+            body: JSON.stringify({ _id }),
+        })
+
+        const success = await response.json()
+        if (!success) return
+
+        if (documentStatus === 'lixeira') {
+            setTrash(trash.filter((servico) => servico._id !== _id))
+        } else {
+            setServicos(servicos.filter((servico) => servico._id !== _id))
+            setTrash([
+                ...trash,
+                servicos.find((servico) => servico._id === _id),
+            ])
+        }
+    }
+
+    const handleRestoreDocument = ({ _id }) => {
+        fetch(`/api/servicos`, {
+            method: 'PUT',
+            body: JSON.stringify({ _id, documentStatus: 'ativo' }),
         }).then((res) => {
             if (res.error) {
                 alert(res.message)
             } else {
-                setServicos(servicos.filter((item) => item._id !== id))
+                setTrash(trash.filter((item) => item._id !== _id))
+                setServicos([
+                    ...servicos,
+                    trash.find((item) => item._id === _id),
+                ])
             }
         })
     }
 
+    const renderEdit = (servico) => {
+        return <EditarServico servico={servico} />
+    }
+
+    const formatProfissionais = (profissionais) => {
+        return profissionais.length
+    }
+
+    const columns = [
+        {
+            key: 'nome',
+            label: 'Nome',
+        },
+        {
+            key: 'profissionais',
+            label: 'Profissionais',
+            format: formatProfissionais,
+        },
+    ]
+
+    const actions = [
+        {
+            key: 'delete',
+            label: showTrash ? 'Deletar' : 'Lixeira',
+            message: showTrash ? 'Deletado com sucesso' : 'Movido para lixeira',
+            icon: (
+                <BiTrashAlt className="text-[#c00] dark:text-[#f00] p-0 text-xl dark:drop-shadow-[0px_0px_8px_rgba(255,0,0,0.7)]" />
+            ),
+            handleAction: handleDelete,
+        },
+        {
+            key: 'edit',
+            label: 'Editar',
+            custom: true,
+            render: renderEdit,
+            showCondition: !showTrash,
+        },
+        {
+            key: 'restore',
+            label: 'Restaurar',
+            message: 'Restaurado com sucesso',
+            icon: (
+                <GrRedo className="text-[#0a0] dark:text-[#0f0] p-0 text-xl dark:drop-shadow-[0px_0px_8px_rgba(255,0,0,0.7)]" />
+            ),
+            handleAction: handleRestoreDocument,
+            showCondition: showTrash,
+        },
+    ]
+
     return (
-        <Table className="w-full" headers={['Nome', 'Tipo', '']}>
-            {loading ? (
-                <TableRow>
-                    <td className="p-2 text-center" colSpan={3}>
-                        Carregando...
-                    </td>
-                </TableRow>
-            ) : (
-                servicos.map((servico, index) => (
-                    <TableRow key={index}></TableRow>
-                ))
-            )}
-            {!loading &&
-                servicos.map((servico, index) => (
-                    <TableRow key={index}>
-                        <td className="p-2 text-center">{servico.nome}</td>
-                        <td className="p-2 text-center">{servico.type}</td>
-                        <td className="p-2 text-center flex items-center justify-center gap-x-4">
-                            <EditarServico servico={servico} />
-                            <button
-                                className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
-                                onClick={() => handleDelete(servico._id)}
-                            >
-                                <FaTrashAlt />
-                            </button>
-                        </td>
-                    </TableRow>
-                ))}
-        </Table>
+        <div className="col-span-4 flex flex-col items-start justify-start text-black bg-[#f4f4f4] dark:bg-black p-12 rounded-lg card-shadow">
+            <div className="flex items-center justify-between w-full">
+                <button
+                    className="btn btn-primary dark:text-white border-[1px] border-[#404040] dark:border-white p-2 rounded"
+                    onClick={() => setShowTrash(!showTrash)}
+                >
+                    {!showTrash
+                        ? `Lixeira (${trash.length})`
+                        : `Ativos (${servicos.length})`}
+                </button>
+                <NovoServico />
+            </div>
+            <DynamicTable
+                data={showTrash ? trash : servicos}
+                columns={columns}
+                actions={actions}
+            />
+        </div>
     )
 }
 

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-async function dbConnect() {
+export async function dbConnect() {
     try {
         await mongoose.connect(process.env.NEXT_PUBLIC_MONGODB_URI)
     } catch (error) {
@@ -8,4 +8,6 @@ async function dbConnect() {
     }
 }
 
-export default dbConnect
+export async function dbClose() {
+    await mongoose.disconnect()
+}

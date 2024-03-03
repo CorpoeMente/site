@@ -54,7 +54,7 @@ const NovoProfissional = () => {
         <Modal
             buttonText={'Novo Profissional'}
             title={'Novo Profissional'}
-            className={'w-auto p-2 !py-2 !text-sm !mt-0 mb-4 ms-auto'}
+            className="!mt-0 self-end mb-2 !py-2 !px-4 font-normal dark:bg-transparent dark:border-[1px] dark:border-[#fff] hover:dark:bg-[#202020] hover:dark:text-white hover:dark:scale-100"
         >
             <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
                 <form onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ const NovoProfissional = () => {
                             onChange={(e) => setNome(e.target.value)}
                             type="text"
                             placeholder="Nome"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
                         <input
@@ -72,7 +72,7 @@ const NovoProfissional = () => {
                             onChange={(e) => setCargo(e.target.value)}
                             type="text"
                             placeholder="Cargo"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
                         <input
@@ -80,19 +80,19 @@ const NovoProfissional = () => {
                             onChange={(e) => setImagem(e.target.value)}
                             type="text"
                             placeholder="Imagem"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                         />
                         <textarea
                             value={descricao}
                             onChange={(e) => setDescricao(e.target.value)}
                             placeholder="Descrição"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
                         <select
                             value={departamento}
                             onChange={(e) => setDepartamento(e.target.value)}
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         >
                             <option value="">Departamento</option>
@@ -108,7 +108,7 @@ const NovoProfissional = () => {
                             onChange={(e) => setTelefone(e.target.value)}
                             type="text"
                             placeholder="Telefone"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
                         <input
@@ -116,7 +116,7 @@ const NovoProfissional = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             type="email"
                             placeholder="E-mail"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
                         <ExperienciaProfissionalForm

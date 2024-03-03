@@ -19,7 +19,7 @@ const Servicos = () => {
                 servico.descricao
                     .toLowerCase()
                     .includes(search.toLowerCase())) &&
-            servico.departamento.toLowerCase().includes(departamento)
+            servico.departamento._id.includes(departamento)
     )
 
     function detectServicosPerPage() {
@@ -58,13 +58,6 @@ const Servicos = () => {
                 setLoading(false)
             })
     }, [])
-
-    const handleServicoColor = (departamento) => {
-        // look for department in departments
-        const dept = departamentos.find((dept) => dept._id === departamento)
-
-        if (dept) return dept.color
-    }
 
     return (
         <section
@@ -143,9 +136,7 @@ const Servicos = () => {
                             )
                             .map((servico, index) => (
                                 <Servico
-                                    color={handleServicoColor(
-                                        servico.departamento
-                                    )}
+                                    color={servico.departamento.color}
                                     key={index}
                                     servico={servico}
                                     index={index}

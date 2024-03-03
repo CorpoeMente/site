@@ -1,8 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { Table, TableRow, EditarDepartamento } from '../Components'
-import { FaTrashAlt } from 'react-icons/fa'
-
+import { EditarDepartamento } from '../Components'
+import { BiTrashAlt } from 'react-icons/bi'
+import DynamicTable from './DynamicTable'
 const DepartamentosList = () => {
     const [departamentos, setDepartamentos] = useState([])
     const [loading, setLoading] = useState(true)
@@ -20,10 +20,10 @@ const DepartamentosList = () => {
             })
     }, [])
 
-    const handleDelete = (id) => {
+    const handleDelete = ({ _id }) => {
         fetch(`/api/departamentos`, {
             method: 'DELETE',
-            body: JSON.stringify({ id: id }),
+            body: JSON.stringify({ _id }),
         })
             .then((res) => res.json())
             .then((res) => {
@@ -32,36 +32,54 @@ const DepartamentosList = () => {
                 } else {
                     //
                     setDepartamentos(
-                        departamentos.filter((item) => item._id !== id)
+                        departamentos.filter((item) => item._id !== _id)
                     )
                 }
             })
     }
-    return (
-        <Table className="w-full" headers={['Nome', 'imagem', '']}>
-            {loading ? (
-                <TableRow>
-                    <td colSpan={3}>Carregando...</td>
-                </TableRow>
-            ) : (
-                departamentos.map((departamento, index) => (
-                    <TableRow key={index}>
-                        <td className="p-2 text-center">{departamento.name}</td>
-                        <td className="p-2 text-center">{departamento.img}</td>
-                        <td className="p-2 text-center flex items-center justify-center gap-x-4">
-                            <button
-                                className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
-                                onClick={() => handleDelete(departamento._id)}
-                            >
-                                <FaTrashAlt />
-                            </button>
 
-                            <EditarDepartamento departamento={departamento} />
-                        </td>
-                    </TableRow>
-                ))
-            )}
-        </Table>
+    const formatResponsavel = (responsavel) => {
+        return responsavel?.nome
+    }
+
+    const columns = [
+        {
+            key: 'name',
+            label: 'Nome',
+        },
+        {
+            key: 'responsavel',
+            label: 'Responsável',
+            format: formatResponsavel,
+        },
+    ]
+
+    const actions = [
+        {
+            key: 'delete',
+            label: 'Delete',
+            message: 'Deletado com sucesso!',
+            icon: (
+                <BiTrashAlt className="text-[#c00] dark:text-[#f00] p-0 text-xl dark:drop-shadow-[0px_0px_8px_rgba(255,0,0,0.7)]" />
+            ),
+            handleAction: handleDelete,
+        },
+        {
+            key: 'edit',
+            label: 'Edit',
+            custom: true,
+            render: (departamento) => {
+                return <EditarDepartamento departamento={departamento} />
+            },
+        },
+    ]
+
+    return (
+        <DynamicTable
+            data={departamentos}
+            columns={columns}
+            actions={actions}
+        />
     )
 }
 

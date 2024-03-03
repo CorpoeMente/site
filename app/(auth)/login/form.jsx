@@ -3,18 +3,20 @@ import { useState } from 'react'
 import { signIn, useSession } from 'next-auth/react'
 import { Input } from '../../Components'
 import { ImSpinner8 } from 'react-icons/im'
+import { useSearchParams } from 'next/navigation'
+import bcrypt from 'bcryptjs'
 
 const Form = () => {
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
+    const searchParams = useSearchParams()
+    const [error, setError] = useState(searchParams.get('error') || '')
 
     const formSubmit = (e) => {
         e.preventDefault()
         setError('')
         setLoading(true)
-
         signIn('credentials', {
             email,
             password,
@@ -45,6 +47,11 @@ const Form = () => {
                     Corpo e Mente
                 </h1>
             </a>
+            {error && (
+                <small className="block w-full px-2 text-red-600 text-center font-medium text-[1rem]">
+                    Ocorreu um erro. Verifique suas credenciais!
+                </small>
+            )}
             {loading ? (
                 <ImSpinner8 className="animate-spin text-primary text-4xl" />
             ) : (
@@ -68,14 +75,13 @@ const Form = () => {
                 </fieldset>
             )}
 
+            <a href="/redefinir-senha" className="text-[#0080ff] underline">
+                Esqueceu sua senha?
+            </a>
+
             <button className="bg-primary hover:bg-secondary w-full max-w-[400px] py-3 rounded-lg text-white font-bold text-xl  transition duration-300 ease-in-out mt-6">
                 Log In
             </button>
-            {error && (
-                <small className="block w-full px-2 text-red-600">
-                    {error}
-                </small>
-            )}
         </form>
     )
 }

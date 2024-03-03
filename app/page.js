@@ -10,6 +10,10 @@ import {
     Footer,
 } from './Components'
 
+import { dbConnect } from './utils/dbConnect'
+
+await dbConnect()
+
 export default function Home() {
     return (
         <main className="">

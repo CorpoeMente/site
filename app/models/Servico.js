@@ -9,7 +9,6 @@ const ValorServicoSchema = new mongoose.Schema(
         price: {
             type: Number,
             required: true,
-            unique: true,
         },
     },
     { timestamps: true }
@@ -24,7 +23,11 @@ const ServicoSchema = new mongoose.Schema(
         descricao: {
             type: String,
             required: true,
-            unique: true,
+        },
+        duracao: {
+            type: Number,
+            default: 0,
+            required: true,
         },
         type: {
             type: String,
@@ -41,6 +44,18 @@ const ServicoSchema = new mongoose.Schema(
             type: Boolean,
             required: true,
             default: false,
+        },
+        profissionais: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Profissional',
+            },
+        ],
+        documentStatus: {
+            type: String,
+            enum: ['ativo', 'lixeira'],
+            required: true,
+            default: 'ativo',
         },
     },
     { timestamps: true }

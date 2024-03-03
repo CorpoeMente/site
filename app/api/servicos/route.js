@@ -1,17 +1,20 @@
 import { NextResponse } from 'next/server'
 import { Servico } from '../../models'
-import dbConnect from '../../utils/dbConnect'
+
 import handlePermissions from '../../utils/serverSession'
 
+import { dbConnect } from '@/app/utils/dbConnect'
+
 export async function POST(request) {
-    if (await handlePermissions()) {
-        return new NextResponse('Unauthorized', { status: 401 })
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
+        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+            status: 401,
+        })
     }
 
     const { nome, descricao, type, departamento, valores, valorSocial } =
         await request.json()
-
-    await dbConnect()
 
     const newServico = new Servico({
         nome,
@@ -20,10 +23,12 @@ export async function POST(request) {
         departamento,
         valores,
         valorSocial,
+        documentStatus: 'ativo',
     })
 
     try {
         await newServico.save()
+
         return new NextResponse(
             JSON.stringify({
                 message: 'Serviço has been created',
@@ -46,13 +51,11 @@ export async function POST(request) {
 
 export async function GET(request) {
     await dbConnect()
-
+    await dbConnect()
     // Get params from request
     const { query } = request
     if (query) {
         const { search, departamento_id, type } = query
-        // Search database lookin for name, departamento_id, type, description
-
         if (search) {
             const servicos = await Servico.find({
                 $or: [
@@ -63,6 +66,7 @@ export async function GET(request) {
                 ...(departamento_id && { departamento: departamento_id }),
                 ...(type && { type }),
             })
+
             return new NextResponse(JSON.stringify(servicos), {
                 status: 200,
             })
@@ -71,6 +75,10 @@ export async function GET(request) {
 
     try {
         const servicos = await Servico.find({})
+            .populate('departamento')
+            .populate('profissionais')
+            .exec()
+
         return new NextResponse(JSON.stringify(servicos), {
             status: 200,
         })
@@ -87,24 +95,20 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-    if (await handlePermissions()) {
-        return new NextResponse('Unauthorized', { status: 401 })
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
+        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+            status: 401,
+        })
     }
 
-    const { id, nome, descricao, type, departamento, valores, valorSocial } =
-        await request.json()
+    const data = await request.json()
 
-    await dbConnect()
-    console.log(valores)
     try {
-        await Servico.findByIdAndUpdate(id, {
-            nome,
-            descricao,
-            type,
-            departamento,
-            valores,
-            valorSocial,
+        await Servico.findByIdAndUpdate(data.id, {
+            ...data,
         })
+
         return new NextResponse(
             JSON.stringify({
                 message: 'Serviço has been updated',
@@ -114,27 +118,42 @@ export async function PUT(request) {
             }
         )
     } catch (err) {
-        return new NextResponse(err.message, {
+        return new NextResponse(JSON.stringify({ error: err }), {
             status: 500,
         })
     }
 }
 
 export async function DELETE(request) {
-    if (await handlePermissions()) {
-        return new NextResponse('Unauthorized', { status: 401 })
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
+        return new NextResponse(JSON.stringify({ error: 'Unauthorized' }), {
+            status: 401,
+        })
     }
     const data = await request.json()
-    const { id } = data
-
-    await dbConnect()
+    const { _id } = data
 
     try {
-        await Servico.findByIdAndDelete(id)
+        const servico = await Servico.findById(_id)
+        if (servico.documentStatus === 'lixeira') {
+            await Servico.findByIdAndDelete(_id)
+
+            return new NextResponse(
+                JSON.stringify({
+                    message: 'Serviço has been deleted',
+                }),
+                {
+                    status: 200,
+                }
+            )
+        }
+        servico.documentStatus = 'lixeira'
+        await servico.save()
 
         return new NextResponse(
             JSON.stringify({
-                message: 'Serviço has been deleted',
+                message: 'Serviço has been moved to trash',
             }),
             {
                 status: 200,

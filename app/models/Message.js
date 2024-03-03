@@ -18,6 +18,12 @@ const MessageSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        documentStatus: {
+            type: String,
+            enum: ['ativo', 'lixeira'],
+            required: true,
+            default: 'ativo',
+        },
     },
     { timestamps: true }
 )

@@ -1,42 +1,30 @@
 import { NextResponse } from 'next/server'
 import { Profissional } from '../../models'
-import dbConnect from '../../utils/dbConnect'
+
 import handlePermissions from '../../utils/serverSession'
 import handleFileSave from '@/app/utils/handleFile'
 
+import { dbConnect } from '@/app/utils/dbConnect'
+
 export async function POST(request) {
-    if (await handlePermissions()) {
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
         return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
             status: 401,
         })
     }
 
-    const {
-        nome,
-        cargo,
-        imagem,
-        descricao,
-        departamento,
-        email,
-        telefone,
-        curriculo,
-    } = await request.json()
-
-    await dbConnect()
+    const data = await request.json()
 
     const newProfissional = new Profissional({
-        nome,
-        cargo,
-        imagem,
-        descricao,
-        email,
-        telefone,
-        departamento,
-        curriculo,
+        ...data,
+        curriculo: JSON.parse(data.curriculo),
+        jornada: JSON.parse(data.jornada),
     })
 
     try {
         await newProfissional.save()
+
         return new NextResponse(
             JSON.stringify({ message: 'Profissional has been created' }),
             {
@@ -63,6 +51,7 @@ export async function GET(request) {
             if (request.query.id) {
                 const { id } = request.query
                 const profissional = await Profissional.findById(id)
+
                 return new NextResponse(JSON.stringify({ profissional }), {
                     status: 200,
                 })
@@ -70,6 +59,7 @@ export async function GET(request) {
             if (request.query.departamento) {
                 const { departamento } = request.query
                 const profissionais = await Profissional.find({ departamento })
+
                 return new NextResponse(JSON.stringify({ profissionais }), {
                     status: 200,
                 })
@@ -77,12 +67,10 @@ export async function GET(request) {
         }
 
         const profissionais = await Profissional.find({})
-        return new NextResponse(
-            JSON.stringify({ profissionais: profissionais }),
-            {
-                status: 200,
-            }
-        )
+
+        return new NextResponse(JSON.stringify([...profissionais]), {
+            status: 200,
+        })
     } catch (err) {
         return new NextResponse(
             JSON.stringify({
@@ -96,7 +84,8 @@ export async function GET(request) {
 }
 
 export async function PUT(request) {
-    if (await handlePermissions()) {
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
         return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
             status: 401,
         })
@@ -108,41 +97,28 @@ export async function PUT(request) {
         return acc
     }, {})
 
-    const {
-        id,
-        nome,
-        cargo,
-        descricao,
-        departamento,
-        telefone,
-        email,
-        curriculo,
-    } = fields
-
+    const data = fields
+    const { _id } = data
     var imagem = formData.get('imagem')
     if (typeof imagem != 'string') {
         imagem = await handleFileSave(imagem)
     }
 
-    if (!id) {
+    if (!_id) {
         return new NextResponse(JSON.stringify({ message: 'Missing ID' }), {
             status: 400,
         })
     }
-    await dbConnect()
 
     try {
-        const curriculoAsObject = JSON.parse(curriculo)
+        const curriculoAsObject = JSON.parse(data.curriculo)
 
-        await Profissional.findByIdAndUpdate(id, {
-            nome,
-            cargo,
-            imagem,
-            descricao,
-            email,
-            telefone,
+        await Profissional.findByIdAndUpdate(_id, {
+            ...data,
+            jornada: JSON.parse(data.jornada),
             curriculo: curriculoAsObject,
         })
+
         return new NextResponse(
             JSON.stringify({ message: 'Profissional has been updated' }),
             {
@@ -162,7 +138,8 @@ export async function PUT(request) {
 }
 
 export async function DELETE(request) {
-    if (await handlePermissions()) {
+    await dbConnect()
+    if (await handlePermissions(['admin'])) {
         return new NextResponse(JSON.stringify({ message: 'Unauthorized' }), {
             status: 401,
         })
@@ -170,10 +147,21 @@ export async function DELETE(request) {
     const data = await request.json()
     const { id } = data
 
-    await dbConnect()
-
     try {
-        await Profissional.findByIdAndDelete(id)
+        const profissional = await Profissional.findById(id)
+        if (profissional.documentStatus === 'lixeira') {
+            await Profissional.findByIdAndDelete(id)
+
+            return new NextResponse(
+                JSON.stringify({ message: 'Profissional has been deleted' }),
+                {
+                    status: 200,
+                }
+            )
+        }
+        profissional.documentStatus = 'lixeira'
+        await profissional.save()
+
         return new NextResponse(
             JSON.stringify({ message: 'Profissional has been deleted' }),
             {

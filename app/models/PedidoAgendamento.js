@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import Servico from './Servico'
 const PedidoAgendamentoSchema = new mongoose.Schema(
     {
         nome: {
@@ -13,9 +14,13 @@ const PedidoAgendamentoSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        servico: {
+        cpf: {
             type: String,
             required: true,
+        },
+        servico: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Servico',
         },
         mensagem: {
             type: String,
@@ -24,6 +29,12 @@ const PedidoAgendamentoSchema = new mongoose.Schema(
         data: {
             type: Date,
             required: true,
+        },
+        documentStatus: {
+            type: String,
+            enum: ['ativo', 'lixeira'],
+            required: true,
+            default: 'ativo',
         },
     },
     { timestamps: true }

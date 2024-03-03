@@ -10,7 +10,7 @@ const Nav = () => {
         window.location.href = '/'
     }
     return (
-        <nav className="fixed grid grid-cols-1 place-content-center place-items-center top-0 left-0 w-screen flex items-center justify-between bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[70px] z-40 shadow-xl">
+        <nav className="fixed grid grid-cols-1 place-content-center place-items-center top-0 left-0 w-screen bg-[#fffffffc] px-[10%] 2xl:px-[15%] h-[70px] z-40 shadow-xl">
             <div className="flex items-center justify-between w-full max-w-[90vw] sm:!max-w-[1900px]">
                 <div
                     className="flex items-center justify-start gap-4 min-w-[50%] lg:min-w-[20%] cursor-pointer"

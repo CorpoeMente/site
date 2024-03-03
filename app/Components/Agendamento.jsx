@@ -10,6 +10,7 @@ const Agendamento = ({ servico }) => {
     const [success, setSuccess] = useState(false)
 
     const [nome, setNome] = useState('')
+    const [cpf, setCpf] = useState('')
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState('')
     const [data, setData] = useState('')
@@ -27,7 +28,8 @@ const Agendamento = ({ servico }) => {
             telefone,
             data,
             mensagem,
-            servico: servico.nome,
+            cpf,
+            servico: servico._id,
         }
         const res = await fetch('/api/pedidos', {
             method: 'POST',
@@ -37,7 +39,6 @@ const Agendamento = ({ servico }) => {
             },
         }).then((res) => {
             setLoading(false)
-            console.log(res)
             if (res.ok) {
                 setSuccess(true)
                 setNome('')
@@ -104,6 +105,16 @@ const Agendamento = ({ servico }) => {
                         />
 
                         <Input
+                            state={cpf}
+                            setState={setCpf}
+                            className={'!max-w-[75%]'}
+                            type={'text'}
+                            label={'CPF'}
+                            required={true}
+                            mask={'999.999.999-99'}
+                        />
+
+                        <Input
                             state={telefone}
                             setState={setTelefone}
                             className={'!max-w-[75%]'}
@@ -119,6 +130,7 @@ const Agendamento = ({ servico }) => {
                             className={'!max-w-[75%]'}
                             type={'date'}
                             label={'Data do Agendamento'}
+                            min={new Date().toISOString().split('T')[0]}
                             required={true}
                         />
 

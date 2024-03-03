@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import dbConnect from './dbConnect'
+import { dbClose, dbConnect } from './dbConnect'
 import clientPromise from './clientPromise'
 import bcrypt from 'bcryptjs'
 import User from '../models/User'
@@ -26,12 +26,13 @@ export const authOptions = {
                 password: { label: 'password', type: 'password' },
             },
             async authorize(credentials, req) {
-                await dbConnect()
                 if (credentials == null) return null
                 try {
                     const user = await User.findOne({
                         email: credentials.email,
                     })
+
+                    dbClose()
 
                     if (user) {
                         const isMatch = await bcrypt.compare(
@@ -60,7 +61,16 @@ export const authOptions = {
         error: '/login',
     },
     callbacks: {
-        async jwt({ token, user }) {
+        async jwt({ token, trigger, session, user }) {
+            if (trigger === 'signOut') {
+                delete token.user
+                return token
+            }
+            if (trigger === 'update' && session) {
+                token.user = session
+                return token
+            }
+
             if (user) {
                 token.user = {
                     _id: user._id,

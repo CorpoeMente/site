@@ -18,6 +18,12 @@ const DepartamentoSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Profissional',
         },
+        documentStatus: {
+            type: String,
+            enum: ['ativo', 'lixeira'],
+            required: true,
+            default: 'ativo',
+        },
     },
     { timestamps: true }
 )

@@ -1,9 +1,8 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
-import { Table, TableRow } from '.'
 import { Mensagem } from '.'
-
+import DynamicTable from './DynamicTable'
 const MensagensList = () => {
     const [mensagens, setMensagens] = useState([])
 
@@ -30,42 +29,47 @@ const MensagensList = () => {
         const data = await res.json()
         setMensagens(data)
     }
+    const renderMensagem = (mensagem) => {
+        return <Mensagem mensagem={mensagem} />
+    }
+    const columns = [
+        {
+            key: 'nome',
+            label: 'Nome',
+        },
+        {
+            key: 'email',
+            label: 'Email',
+        },
+        {
+            key: 'telefone',
+            label: 'Telefone',
+        },
+        {
+            key: 'createdAt',
+            label: 'Data',
+        },
+    ]
 
-    return (
-        <Table
-            headers={['Nome', 'Email', 'Telefone', 'Data', '']}
-            className="w-full"
-        >
-            {mensagens &&
-                mensagens.map((mensagem, index) => {
-                    return (
-                        <TableRow key={index}>
-                            <td className="text-center px-4 py-2">
-                                {mensagem.nome}
-                            </td>
-                            <td className="text-center px-4 py-2">
-                                {mensagem.email}
-                            </td>
-                            <td className="text-center px-4 py-2">
-                                {mensagem.telefone}
-                            </td>
-                            <td className="text-center px-4 py-2">
-                                {formatDate(mensagem.updatedAt.split('T')[0])}
-                            </td>
-                            <td className="px-4 py-2 flex items-center justify-center gap-x-4">
-                                <Mensagem mensagem={mensagem} />
-                                <button
-                                    className="text-white p-2 rounded-md bg-[#f00] text-lg hover:scale-110 transition duration-300 ease-in-out"
-                                    onClick={() => deleteMensagem(mensagem._id)}
-                                >
-                                    <FaTrashAlt />
-                                </button>
-                            </td>
-                        </TableRow>
-                    )
-                })}
-        </Table>
-    )
+    const actions = [
+        {
+            key: 'mensagem',
+            label: 'Mensagem',
+            custom: true,
+            render: renderMensagem,
+        },
+        {
+            key: 'delete',
+            label: 'Delete',
+            message: 'Deletado com sucesso!',
+            icon: (
+                <FaTrashAlt className="text-[#c00] dark:text-[#f00] p-0 text-xl dark:drop-shadow-[0px_0px_8px_rgba(255,0,0,0.7)]" />
+            ),
+            handleAction: deleteMensagem,
+        },
+    ]
+
+    return <DynamicTable data={mensagens} columns={columns} actions={actions} />
 }
 
 export default MensagensList

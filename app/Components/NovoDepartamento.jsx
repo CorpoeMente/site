@@ -17,7 +17,7 @@ const NovoDepartamento = () => {
                 if (res.error) {
                     //
                 } else {
-                    setProfissionais(res.profissionais)
+                    setProfissionais(res)
                 }
             })
     }, [])
@@ -49,7 +49,7 @@ const NovoDepartamento = () => {
         <Modal
             buttonText={'Novo Departamento'}
             title={'Novo Departamento'}
-            className={'w-auto p-2 !py-2 !text-sm !mt-0 mb-4 ms-auto'}
+            className="!mt-0 self-end mb-2 !py-2 !px-4 font-normal dark:bg-transparent dark:border-[1px] dark:border-[#fff] hover:dark:bg-[#202020] hover:dark:text-white hover:dark:scale-100"
         >
             <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
                 <form onSubmit={handleSubmit} className="w-2/3">
@@ -65,7 +65,7 @@ const NovoDepartamento = () => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Nome"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             type="text"
                         />
                         <div className="w-full mb-4 flex-col items-start justify-center">
@@ -102,7 +102,7 @@ const NovoDepartamento = () => {
                             value={img}
                             onChange={(e) => setImg(e.target.value)}
                             placeholder="Link da Imagem"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             type="text"
                         />
                         <label
@@ -114,7 +114,7 @@ const NovoDepartamento = () => {
                         <select
                             name="responsavel"
                             id="responsavel"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             value={responsavel}
                             onChange={(e) => setResponsavel(e.target.value)}
                         >

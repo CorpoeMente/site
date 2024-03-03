@@ -23,7 +23,13 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true,
             default: 'user',
-            enum: ['user', 'admin'],
+            enum: ['user', 'admin', 'assistant'],
+        },
+        documentStatus: {
+            type: String,
+            enum: ['ativo', 'lixeira'],
+            required: true,
+            default: 'ativo',
         },
     },
     { timestamps: true }

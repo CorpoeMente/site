@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
+import { useState } from 'react'
 import * as Label from '@radix-ui/react-label'
 import InputMask from 'react-input-mask'
-
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 const Input = ({
     type,
     label,
@@ -12,7 +12,10 @@ const Input = ({
     state,
     setState,
     disabled = false,
+    min,
 }) => {
+    const [showPassword, setShowPassword] = useState(false)
+
     return (
         <div
             className={`w-full max-w-[400px] relative ${className} lg:max-w-[75%]`}
@@ -31,6 +34,35 @@ const Input = ({
                     {...(disabled && { disabled: true })}
                     aria-label={label}
                 />
+            ) : type === 'password' ? (
+                <div className="flex items-center justify-center border  rounded-l shadow-lg">
+                    <input
+                        className={`w-full border-0 font-inter font-medium text-sm lg:text-lg focus:bg-white ${
+                            state ? 'bg-white' : 'border-[#e0e0e0]'
+                        } ${
+                            type == 'date' || type == 'time'
+                                ? 'bg-white'
+                                : 'bg-[#fafafa]'
+                        } p-2 peer transition duration-300 ease-in-out focus:!shadow-none focus:ring-0`}
+                        type={showPassword ? 'text' : 'password'}
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
+                        autoComplete="off"
+                        required={required}
+                        {...(disabled && { disabled: true })}
+                        aria-label={label}
+                        {...(min && { min })}
+                    />
+                    <button
+                        className={`border-0 w-12 p-3 text-lg flex items-center justify-center ${
+                            state ? 'bg-white' : 'bg-[#fafafa]'
+                        }`}
+                        onClick={() => setShowPassword(!showPassword)}
+                        type="button"
+                    >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                </div>
             ) : (
                 <input
                     className={`w-full border rounded shadow-lg focus:shadow-secondary font-inter font-medium text-sm lg:text-lg focus:border-secondary focus:bg-white ${
@@ -47,6 +79,7 @@ const Input = ({
                     required={required}
                     {...(disabled && { disabled: true })}
                     aria-label={label}
+                    {...(min && { min })}
                 />
             )}
             {type != 'date' && type != 'time' ? (

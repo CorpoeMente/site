@@ -27,7 +27,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
                         type="text"
                         name="title"
                         placeholder="Título / Cargo / Formação"
-                        className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                        className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                         onChange={(event) => handleChange(index, event)}
                         value={experienciaProfissional.title}
                     />
@@ -36,7 +36,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
                         type="text"
                         name="text"
                         placeholder="Instituição"
-                        className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                        className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                         onChange={(event) => handleChange(index, event)}
                         value={experienciaProfissional.text}
                     />
@@ -45,7 +45,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
                         type="text"
                         name="date"
                         placeholder="Data (Ex: 2010 - 2015)"
-                        className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                        className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                         onChange={(event) => handleChange(index, event)}
                         value={experienciaProfissional.date}
                     />
@@ -69,7 +69,7 @@ const ExperienciaProfissionalForm = ({ curriculo, setCurriculo }) => {
 
     return (
         <div className="flex flex-col items-center justify-center w-full">
-            <h2 className="text-center text-primary font-bold text-lg mt-8">
+            <h2 className="text-center text-primary font-bold dark:text-white text-lg mt-8">
                 Curriculo
             </h2>
             <button

@@ -1,11 +1,8 @@
-import { Urbanist } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
-const urbanist = Urbanist({
-    subsets: ['latin'],
-    weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-    variable: '--',
-})
+const urbanist = Inter({ subsets: ['latin'] })
+import { Toaster } from '@/components/ui/sonner'
 
 export const metadata = {
     title: 'Clínica Corpo e Mente',
@@ -23,7 +20,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="pt-br">
-            <body className={`${urbanist.className}`}>{children}</body>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossorigin
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap"
+                    rel="stylesheet"
+                />
+            </head>
+            <body className={`${urbanist.className}`}>
+                {children}
+                <Toaster />
+            </body>
         </html>
     )
 }

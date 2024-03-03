@@ -6,10 +6,11 @@ import { FaPencil } from 'react-icons/fa6'
 const EditarDepartamento = ({ departamento }) => {
     const [name, setName] = useState(departamento.name)
     const [color, setColor] = useState(departamento.color)
-    const [img, setImg] = useState(departamento.img)
     const [message, setMessage] = useState('')
     const [profissionais, setProfissionais] = useState([])
-    const [responsavel, setResponsavel] = useState(departamento.responsavel)
+    const [responsavel, setResponsavel] = useState(
+        departamento.responsavel?._id
+    )
 
     useEffect(() => {
         fetch('/api/profissionais')
@@ -18,7 +19,7 @@ const EditarDepartamento = ({ departamento }) => {
                 if (res.error) {
                     //
                 } else {
-                    setProfissionais(res.profissionais)
+                    setProfissionais(res)
                 }
             })
     }, [])
@@ -26,15 +27,12 @@ const EditarDepartamento = ({ departamento }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        console.log(name, color, img, responsavel)
-
         fetch('/api/departamentos', {
             method: 'PUT',
             body: JSON.stringify({
                 id: departamento._id,
                 name,
                 color,
-                img,
                 responsavel,
             }),
         })
@@ -52,14 +50,14 @@ const EditarDepartamento = ({ departamento }) => {
         <Modal
             buttonText={<FaPencil />}
             title={'Editar Departamento'}
-            className="text-white !p-2 !rounded-md !bg-[#ffe72b] !text-lg hover:scale-110 hover:!text-white transition duration-300 ease-in-out"
+            className="text-white !p-0 !m-0 !rounded-md !bg-transparent !text-md hover:scale-110 hover:!text-white transition duration-300 ease-in-out"
         >
             <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
                 <form onSubmit={handleSubmit} className="w-2/3">
                     <fieldset>
                         <label
                             htmlFor="name"
-                            className="text-primary font-bold"
+                            className="text-primary font-bold dark:text-white"
                         >
                             Nome
                         </label>
@@ -68,23 +66,23 @@ const EditarDepartamento = ({ departamento }) => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Nome"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             type="text"
                         />
                         <div className="w-full mb-4 flex-col items-start justify-center">
                             <label
                                 htmlFor="color"
-                                className="text-primary font-bold"
+                                className="text-primary font-bold dark:text-white"
                             >
                                 Cor
                             </label>
-                            <div className="flex items-center justify-center border border-primary rounded-lg">
+                            <div className="flex h-10 overflow-hidden items-center justify-center rounded-lg">
                                 <input
                                     value={color}
                                     name="color"
                                     onChange={(e) => setColor(e.target.value)}
                                     placeholder="Cor"
-                                    className="h-10 border-none"
+                                    className="h-11 border-none rounded-l-lg"
                                     type="color"
                                 />
                                 <input
@@ -92,32 +90,32 @@ const EditarDepartamento = ({ departamento }) => {
                                     name="color"
                                     onChange={(e) => setColor(e.target.value)}
                                     placeholder="Cor"
-                                    className="w-full p-2 border-none rounded-lg"
+                                    className="w-full h-10 border-none rounded-r-lg dark:bg-black dark:text-white"
                                     type="text"
                                 />
                             </div>
                         </div>
-                        <label htmlFor="img" className="text-primary font-bold">
+                        {/* <label htmlFor="img" className="text-primary font-bold dark:text-white">
                             Imagem
-                        </label>
+                        </label> 
                         <input
                             name="img"
                             value={img}
                             onChange={(e) => setImg(e.target.value)}
                             placeholder="Link da Imagem"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             type="text"
-                        />
+                        /> */}
                         <label
                             htmlFor="responsavel"
-                            className="text-primary font-bold"
+                            className="text-primary font-bold dark:text-white"
                         >
                             Responsável
                         </label>
                         <select
                             name="responsavel"
                             id="responsavel"
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             value={responsavel}
                             onChange={(e) => setResponsavel(e.target.value)}
                         >

@@ -21,12 +21,15 @@ const ValorServicoForm = ({ valores, setValores }) => {
     const renderValorServico = () => {
         return valores.map((valorServico, index) => {
             return (
-                <div className="flex flex-col w-full" key={index}>
+                <div
+                    className="flex flex-col w-full dark:!text-white"
+                    key={index}
+                >
                     <input
                         type="text"
                         name="title"
                         placeholder="Titulo do serviço"
-                        className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                        className="w-full dark:bg-black border-2 border-primary rounded-lg p-2 mb-4"
                         onChange={(event) => handleChange(index, event)}
                         value={valorServico.title}
                     />
@@ -36,7 +39,7 @@ const ValorServicoForm = ({ valores, setValores }) => {
                         name="price"
                         step="0.01"
                         placeholder="Valor"
-                        className="w-full border-2 border-primary rounded-lg p-2 mb-4"
+                        className="w-full dark:bg-black border-2 border-primary rounded-lg p-2 mb-4"
                         onChange={(event) => handleChange(index, event)}
                         value={valorServico.price}
                     />
@@ -61,7 +64,7 @@ const ValorServicoForm = ({ valores, setValores }) => {
 
     return (
         <div className="flex flex-col items-center justify-center w-full">
-            <h2 className="text-center text-primary font-bold text-lg mt-8">
+            <h2 className="text-center text-primary dark:text-white font-bold text-lg mt-8">
                 Valores
             </h2>
             <button

@@ -33,7 +33,7 @@ const Map = () => {
 
             return () => {}
         }
-    }, [isLoaded, loadError])
+    }, [isLoaded, loadError, latitude, longitude, placeId])
     if (!isLoaded) return
 
     const handleClick = () => {
