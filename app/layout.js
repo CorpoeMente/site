@@ -22,8 +22,8 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-br">
             <head>
-                <Script strategy="lazyOnload" src={"https://www.googletagmanager.com/gtag/js?id=AW-11464321993"} />
-                <Script strategy="lazyOnload">{`
+                <Script id="tag-manager" strategy="lazyOnload" src={"https://www.googletagmanager.com/gtag/js?id=AW-11464321993"} />
+                <Script id="gtag" strategy="lazyOnload">{`
                     window.dataLayer = window.dataLayer || [];
 
                     function gtag() {
