@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import Script from "next/script";
 import './globals.css'
 
 const urbanist = Inter({ subsets: ['latin'] })
@@ -21,6 +22,18 @@ export default function RootLayout({ children }) {
     return (
         <html lang="pt-br">
             <head>
+                <Script strategy="lazyOnload" src={"https://www.googletagmanager.com/gtag/js?id=AW-11464321993"} />
+                <Script strategy="lazyOnload">{`
+                    window.dataLayer = window.dataLayer || [];
+
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+                    gtag('js', new Date());
+
+                    gtag('config', 'AW-11464321993');
+                    `}
+                </Script>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link
                     rel="preconnect"
