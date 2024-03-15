@@ -28,7 +28,8 @@ const Hero = () => {
 
                     <div className="flex flex-col lg:flex-row items-start gap-12 w-full xl:w-4/5">
                         <a
-                            href="#contato"
+                            href="https://wa.me/5561991601801"
+                            target='_blank'
                             className="bg-secondary text-primary py-4 rounded-xl font-bold cursor-pointer transition duration-300 ease-in-out hover:scale-110 w-full xl:w-72 text-center"
                         >
                             Entre em Contato
