@@ -15,14 +15,13 @@ export async function POST(request) {
     }
 
     const data = await request.json()
-
-    const newProfissional = new Profissional({
-        ...data,
-        curriculo: JSON.parse(data.curriculo),
-        jornada: JSON.parse(data.jornada),
-    })
-
     try {
+        const newProfissional = new Profissional({
+            ...data,
+            jornada: JSON.parse(data.jornada),
+            curriculo: JSON.parse(data.curriculo),
+        })
+
         await newProfissional.save()
 
         return new NextResponse(
@@ -32,6 +31,7 @@ export async function POST(request) {
             }
         )
     } catch (err) {
+        console.log(err)
         return new NextResponse(
             JSON.stringify({
                 message: err.message,
@@ -99,10 +99,6 @@ export async function PUT(request) {
 
     const data = fields
     const { _id } = data
-    var imagem = formData.get('imagem')
-    if (typeof imagem != 'string') {
-        imagem = await handleFileSave(imagem)
-    }
 
     if (!_id) {
         return new NextResponse(JSON.stringify({ message: 'Missing ID' }), {
@@ -112,7 +108,6 @@ export async function PUT(request) {
 
     try {
         const curriculoAsObject = JSON.parse(data.curriculo)
-
         await Profissional.findByIdAndUpdate(_id, {
             ...data,
             jornada: JSON.parse(data.jornada),

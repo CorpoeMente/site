@@ -18,7 +18,7 @@ const Modal = ({
                     {
                         button: (
                             <button
-                                className={`text-white bg-primary font-bold mt-8 lg:mt-auto py-2 lg:py-4 text-xl  rounded-lg shadow-lg hover:from-0% hover:scale-110 hover:bg-secondary hover:text-primary transition ease-in-out duration-300 ${className} `}
+                                className={`text-white bg-primary font-bold mt-8 lg:mt-auto py-2 lg:py-4 text-xl  rounded-lg drop-shadow-lg hover:from-0% hover:scale-110 hover:bg-secondary hover:text-primary transition ease-in-out duration-300 ${className} `}
                             >
                                 {buttonText}
                             </button>

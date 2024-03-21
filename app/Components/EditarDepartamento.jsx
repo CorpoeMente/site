@@ -50,7 +50,8 @@ const EditarDepartamento = ({ departamento }) => {
         <Modal
             buttonText={<FaPencil />}
             title={'Editar Departamento'}
-            className="text-white !p-0 !m-0 !rounded-md !bg-transparent !text-md hover:scale-110 hover:!text-white transition duration-300 ease-in-out"
+            className="
+            dark:!text-white !text-[#f8be00] !p-0 !m-0 !rounded-md !bg-transparent !text-md hover:scale-110 transition duration-300 ease-in-out"
         >
             <div className="flex flex-col w-full mt-auto gap-y-8 items-center justify-center">
                 <form onSubmit={handleSubmit} className="w-2/3">

@@ -15,9 +15,14 @@ const Departamentos = () => {
             .then((res) => res.json())
             .then((res) => {
                 if (res.error) {
-                    //
                 } else {
-                    setDeps(res.departamentos)
+                    setDeps(
+                        res.departamentos.sort((a, b) => {
+                            if (a.name === 'Em Breve') return 1
+                            if (b.name === 'Em Breve') return -1
+                            return 0
+                        })
+                    )
                     setActive(res.departamentos[0]._id)
                 }
             })

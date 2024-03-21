@@ -12,6 +12,16 @@ const NovoProfissional = () => {
     const [telefone, setTelefone] = useState('')
     const [email, setEmail] = useState('')
     const [curriculo, setCurriculo] = useState([])
+    const [jornada, setJornada] = useState({
+            segunda: { inicio: '', fim: '' },
+            terca: { inicio: '', fim: '' },
+            quarta: { inicio: '', fim: '' },
+            quinta: { inicio: '', fim: '' },
+            sexta: { inicio: '', fim: '' },
+            sabado: { inicio: '', fim: '' },
+            domingo: { inicio: '', fim: '' },
+        }
+    )
 
     useEffect(() => {
         fetch('/api/departamentos')
@@ -119,6 +129,52 @@ const NovoProfissional = () => {
                             className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
+                        <div className="flex flex-col items-center justify-center gap-8">
+                            <span className="text-lg font-bold">Jornada</span>
+
+                            <div className="grid grid-cols-[80px_1fr_1fr] gap-4 w-full">
+                                <span></span>
+                                <span className="text-center text-lg">
+                                    Entrada
+                                </span>
+                                <span className="text-center text-lg">
+                                    Saída
+                                </span>
+                                {Object.keys(jornada).map((dia, index) => (
+                                    <>
+                                        <span>{dia}</span>
+                                        <input
+                                            value={jornada[dia].inicio}
+                                            onChange={(e) =>
+                                                setJornada({
+                                                    ...jornada,
+                                                    [dia]: {
+                                                        ...jornada[dia],
+                                                        inicio: e.target.value,
+                                                    },
+                                                })
+                                            }
+                                            type="time"
+                                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
+                                        />
+                                        <input
+                                            value={jornada[dia].fim}
+                                            onChange={(e) =>
+                                                setJornada({
+                                                    ...jornada,
+                                                    [dia]: {
+                                                        ...jornada[dia],
+                                                        fim: e.target.value,
+                                                    },
+                                                })
+                                            }
+                                            type="time"
+                                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
+                                        />
+                                    </>
+                                ))}
+                            </div>
+                        </div>
                         <ExperienciaProfissionalForm
                             curriculo={curriculo}
                             setCurriculo={setCurriculo}

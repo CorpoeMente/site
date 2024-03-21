@@ -32,7 +32,6 @@ const Profissional = ({ profissional }) => {
                         dos serviços de psicologia, neuropsicologia e psicologia
                         infantil, estamos expandindo para oferecer em breve
                         atendimentos em{' '}
-                        <b className="text-secondary">fonoaudiologia</b>,{' '}
                         <b className="text-secondary">nutrição</b>,{' '}
                         <b className="text-secondary">fisioterapia</b>,{' '}
                         <b className="text-secondary">psiquiatria</b> e{' '}

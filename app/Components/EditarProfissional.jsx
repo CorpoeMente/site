@@ -6,14 +6,12 @@ import { FaPencil } from 'react-icons/fa6'
 const NovoProfissional = ({ profissional }) => {
     const [nome, setNome] = useState(profissional.nome)
     const [cargo, setCargo] = useState(profissional.cargo)
-    // const [imagem, setImagem] = useState(profissional.imagem)
     const [descricao, setDescricao] = useState(profissional.descricao)
     const [departamento, setDepartamento] = useState(profissional.departamento)
     const [departamentos, setDepartamentos] = useState([])
     const [telefone, setTelefone] = useState(profissional.telefone)
     const [email, setEmail] = useState(profissional.email)
     const [curriculo, setCurriculo] = useState(profissional.curriculo)
-    // const [imagemPreview, setImagemPreview] = useState(profissional.imagem)
     const [error, setError] = useState('')
     const [jornada, setJornada] = useState(
         profissional.jornada || {
@@ -46,7 +44,6 @@ const NovoProfissional = ({ profissional }) => {
         formData.append('_id', profissional._id)
         formData.append('nome', nome)
         formData.append('cargo', cargo)
-        // formData.append('imagem', imagem)
         formData.append('descricao', descricao)
         formData.append('departamento', departamento)
         formData.append('telefone', telefone)
@@ -70,27 +67,6 @@ const NovoProfissional = ({ profissional }) => {
             setError('Erro ao editar profissional. Tente novamente.')
         }
     }
-
-    // const handleImagemChange = (e) => {
-    //     const file = e.target.files[0]
-
-    //     // Validar se é uma imagem (você pode ajustar as extensões conforme necessário)
-    //     const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i
-    //     if (!allowedExtensions.exec(file.name)) {
-    //         alert('Por favor, selecione uma imagem válida (jpg, jpeg, png).')
-    //         return
-    //     }
-
-    //     // Atualizar o estado da imagem
-    //     setImagem(file)
-
-    //     // Adicionar lógica para exibir a pré-visualização da imagem
-    //     const reader = new FileReader()
-    //     reader.onloadend = () => {
-    //         setImagemPreview(reader.result)
-    //     }
-    //     reader.readAsDataURL(file)
-    // }
 
     return (
         <Modal
@@ -125,21 +101,6 @@ const NovoProfissional = ({ profissional }) => {
                             className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
                             required
                         />
-                        {/* <input
-                            type="file"
-                            accept=".jpg, .jpeg, .png"
-                            onChange={handleImagemChange}
-                            className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
-                        /> */}
-                        {/* Adicionar um elemento para exibir a pré-visualização da imagem */}
-                        {/* {imagemPreview && (
-                            <img
-                                src={imagemPreview}
-                                alt="Imagem Preview"
-                                className="w-full border-2 border-primary rounded-lg p-2 mb-4 dark:bg-black dark:text-white"
-                            />
-                        )}
-                        */}
                         <textarea
                             value={descricao}
                             onChange={(e) => setDescricao(e.target.value)}

@@ -121,10 +121,10 @@ const NovoDepartamento = () => {
                             {profissionais &&
                                 profissionais.map((profissional) => (
                                     <option
-                                        key={profissional.id}
-                                        value={profissional.id}
+                                        key={profissional._id}
+                                        value={profissional._id}
                                     >
-                                        {profissional.name}
+                                        {profissional.nome}
                                     </option>
                                 ))}
                         </select>

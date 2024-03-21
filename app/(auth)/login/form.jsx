@@ -1,10 +1,9 @@
 'use client'
 import { useState } from 'react'
-import { signIn, useSession } from 'next-auth/react'
+import { signIn } from 'next-auth/react'
 import { Input } from '../../Components'
 import { ImSpinner8 } from 'react-icons/im'
 import { useSearchParams } from 'next/navigation'
-import bcrypt from 'bcryptjs'
 
 const Form = () => {
     const [loading, setLoading] = useState(false)
