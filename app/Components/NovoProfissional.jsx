@@ -13,15 +13,14 @@ const NovoProfissional = () => {
     const [email, setEmail] = useState('')
     const [curriculo, setCurriculo] = useState([])
     const [jornada, setJornada] = useState({
-            segunda: { inicio: '', fim: '' },
-            terca: { inicio: '', fim: '' },
-            quarta: { inicio: '', fim: '' },
-            quinta: { inicio: '', fim: '' },
-            sexta: { inicio: '', fim: '' },
-            sabado: { inicio: '', fim: '' },
-            domingo: { inicio: '', fim: '' },
-        }
-    )
+        segunda: { inicio: '', fim: '' },
+        terca: { inicio: '', fim: '' },
+        quarta: { inicio: '', fim: '' },
+        quinta: { inicio: '', fim: '' },
+        sexta: { inicio: '', fim: '' },
+        sabado: { inicio: '', fim: '' },
+        domingo: { inicio: '', fim: '' },
+    })
 
     useEffect(() => {
         fetch('/api/departamentos')

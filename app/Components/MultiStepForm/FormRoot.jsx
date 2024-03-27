@@ -6,10 +6,8 @@ import FormActions from './FormActions'
 const FormRoot = ({ children, stepsTitle, onSubmit }) => {
     return (
         <MultiStepFormProvider initialStep={0} steps={Children.count(children)}>
-            <FormContent
-                stepsTitle={stepsTitle}
-                onSubmit={onSubmit}>
-                    {children}
+            <FormContent stepsTitle={stepsTitle} onSubmit={onSubmit}>
+                {children}
             </FormContent>
         </MultiStepFormProvider>
     )

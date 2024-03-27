@@ -10,13 +10,13 @@ import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import useAgendamentos from '@/app/hooks/useAgendamentos'
 
-import {formatDateToHTML, formatTime} from '@/app/utils/textUtils'
+import { formatDateToHTML, formatTime } from '@/app/utils/textUtils'
 
 const phoneMask = '(99) 99999-9999'
 const cpfMask = '999.999.999-99'
 
-const EditarAgendamento = ({agendamento_id}) => {
-    const {agdmts, isLoadingAgdmts} = useAgendamentos(agendamento_id)
+const EditarAgendamento = ({ agendamento_id }) => {
+    const { agdmts, isLoadingAgdmts } = useAgendamentos(agendamento_id)
 
     const { theme } = useTheme()
 
@@ -40,7 +40,7 @@ const EditarAgendamento = ({agendamento_id}) => {
     const router = useRouter()
 
     useEffect(() => {
-        if(agdmts && !isLoadingAgdmts){
+        if (agdmts && !isLoadingAgdmts) {
             setServico(agdmts.servico._id)
             setProfissional(agdmts.profissional)
             setNome(agdmts.nome)
@@ -51,7 +51,8 @@ const EditarAgendamento = ({agendamento_id}) => {
             setHora(formatTime(agdmts.date))
             setMessage(agdmts.message)
             setProfissionais(
-                servicos.find((item) => item._id === agdmts.servico._id)?.profissionais
+                servicos.find((item) => item._id === agdmts.servico._id)
+                    ?.profissionais
             )
         }
     }, [agdmts, servicos])
@@ -83,7 +84,7 @@ const EditarAgendamento = ({agendamento_id}) => {
             date: date,
             servico,
             profissional,
-            status: agdmts.status
+            status: agdmts.status,
         }
 
         try {
@@ -168,8 +169,10 @@ const EditarAgendamento = ({agendamento_id}) => {
                     if (
                         agendamento.date.split('T')[1].substring(0, 5) ===
                             hour &&
-                        ['agendado', 'confirmado'].includes(agendamento.status)
-                         && agendamento._id !== agdmts._id
+                        ['agendado', 'confirmado'].includes(
+                            agendamento.status
+                        ) &&
+                        agendamento._id !== agdmts._id
                     ) {
                         valid = false
                     }
@@ -214,7 +217,7 @@ const EditarAgendamento = ({agendamento_id}) => {
         }
     }, [profissional, data])
 
-    if(isLoadingAgdmts){
+    if (isLoadingAgdmts) {
         return <span>Carregando...</span>
     }
 

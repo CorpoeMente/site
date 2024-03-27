@@ -64,7 +64,7 @@ export async function GET(request) {
 
 const UpdateUserWithNewPassword = async (data) => {
     const user = await User.findById(data._id)
-    if ( await bcrypt.compare(data.password, user.password)) {
+    if (await bcrypt.compare(data.password, user.password)) {
         const hashedPassword = await bcrypt.hash(data.newPassword, 10)
         try {
             await User.findByIdAndUpdate(data._id, {

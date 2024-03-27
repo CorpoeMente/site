@@ -17,7 +17,9 @@ const Form = ({ user }) => {
         e.preventDefault()
 
         if (newPassword !== confirmNewPassword) {
-            setError('As senhas não coincidem. Verifique a nova senha e a confirmação dela.')
+            setError(
+                'As senhas não coincidem. Verifique a nova senha e a confirmação dela.'
+            )
             return
         }
 
@@ -63,7 +65,11 @@ const Form = ({ user }) => {
             className="grid grid-cols-2 grid-rols-auto gap-y-8 gap-x-8 w-full mt-8 relative"
             onSubmit={handleSubmit}
         >
-            {error && <span className="text-[#f00] absolute -top-24 left-1/2 transform -translate-x-1/2 font-bold text-md">{error}</span>}
+            {error && (
+                <span className="text-[#f00] absolute -top-24 left-1/2 transform -translate-x-1/2 font-bold text-md">
+                    {error}
+                </span>
+            )}
             <Input
                 nome="Nome"
                 type="text"
@@ -113,7 +119,9 @@ const Form = ({ user }) => {
                 />{' '}
             </fieldset>
             <fieldset>
-                <label className="dark:text-white text-bold">Confirmar Nova Senha</label>
+                <label className="dark:text-white text-bold">
+                    Confirmar Nova Senha
+                </label>
                 <Input
                     nome="Confirmar nova senha"
                     type="password"

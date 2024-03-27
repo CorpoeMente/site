@@ -11,7 +11,6 @@ import {
 } from '@/components/ui/table'
 
 const DynamicTable = ({ data, columns, actions }) => {
-    
     const [tableData, setTableData] = useState(data)
     const [sortKey, setSortKey] = useState(null)
     const [sortDirection, setSortDirection] = useState('asc')
@@ -86,7 +85,7 @@ const DynamicTable = ({ data, columns, actions }) => {
     }
 
     if (!data || !columns) return null
-    
+
     if (tableData.length === 0) {
         return (
             <div className="flex items-center justify-center h-full w-full">
