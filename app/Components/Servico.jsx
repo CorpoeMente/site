@@ -1,9 +1,41 @@
 'use client'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Agendamento, Valores } from '.'
 import { LiaFileMedicalAltSolid } from 'react-icons/lia'
 import { FaUserDoctor } from 'react-icons/fa6'
 const Servico = ({ servico, color, index }) => {
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://www.googletagmanager.com/gtag/js?id=AW-11464321993";
+        script.async = true;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+            dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11464321993');
+      }, []);
+    
+    function handleClick(url) {
+        gtag_report_conversion(url)
+    }
+
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof url !== 'undefined') {
+                window.open(url, '_blank')
+            }
+        }
+        gtag('event', 'conversion', {
+            send_to: 'AW-11464321993/-WMqCLGUyqAZEMnXztoq',
+            value: 0.0,
+            currency: 'BRL',
+            event_callback: callback,
+        })
+        return false
+    }
+
     return (
         <div
             key={index}
@@ -33,7 +65,12 @@ const Servico = ({ servico, color, index }) => {
                 />
             )}
 
-            <Agendamento servico={servico} />
+                        <button
+                            onClick={() => handleClick('https://wa.link/s53js2')}
+                            className="bg-primary text-white py-4 rounded-xl font-bold cursor-pointer transition duration-300 ease-in-out hover:scale-110 w-full text-center"
+                        >
+                            Solicitar Agendamento
+                        </button>
         </div>
     )
 }

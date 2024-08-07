@@ -1,8 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { signIn, useSession } from 'next-auth/react'
 import { Input } from '../../Components'
-import { ImSpinner8 } from 'react-icons/im'
 
 const Form = ({ token }) => {
     const [password, setPassword] = useState('')

@@ -1,6 +1,6 @@
 const Agendamento = ({ servico }) => {
     const handleAgendamento = () => {
-        var wpp = 'https://wa.me/5561991601801'
+        var wpp = 'https://wa.link/s53js2'
         var message = `Olá, gostaria de agendar um horário para ${servico.nome}`
         window.open(`${wpp}?text=${message}`)
     }

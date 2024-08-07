@@ -9,6 +9,7 @@ import {
     TableBody,
 } from '@/components/ui/table'
 
+
 const Valores = ({ valores, valorSocial }) => {
     return (
         <Modal
